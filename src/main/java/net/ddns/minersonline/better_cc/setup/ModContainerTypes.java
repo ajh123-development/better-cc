@@ -12,13 +12,14 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.network.IContainerFactory;
 
-
 public final class ModContainerTypes {
     public static final RegistryObject<ContainerType<MetalPressContainer>> METAL_PRESS = register("metal_press", MetalPressContainer::new);
 
-    private ModContainerTypes() {}
+    private ModContainerTypes() {
+    }
 
-    static void register() {}
+    static void register() {
+    }
 
     @OnlyIn(Dist.CLIENT)
     public static void registerScreens(FMLClientSetupEvent event) {

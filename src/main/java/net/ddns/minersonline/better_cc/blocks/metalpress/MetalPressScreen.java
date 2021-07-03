@@ -36,7 +36,7 @@ public class MetalPressScreen extends ContainerScreen<MetalPressContainer> {
 
         blit(matrixStack, posX, posY, 0, 0, this.imageWidth, this.imageHeight);
 
-        // Progess arrow
+        // Progress arrow
         blit(matrixStack, posX + 79, posY + 35, 176, 14, menu.getProgressArrowScale() + 1, 16);
     }
 }

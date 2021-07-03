@@ -19,11 +19,9 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public class Registration {
     public static final DeferredRegister<Block> BLOCKS = create(ForgeRegistries.BLOCKS);
-    public static final DeferredRegister<Item> ITEMS = create(ForgeRegistries.ITEMS);
-
-    public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZERS = create(ForgeRegistries.RECIPE_SERIALIZERS);
-
     public static final DeferredRegister<ContainerType<?>> CONTAINERS = create(ForgeRegistries.CONTAINERS);
+    public static final DeferredRegister<Item> ITEMS = create(ForgeRegistries.ITEMS);
+    public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZERS = create(ForgeRegistries.RECIPE_SERIALIZERS);
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = create(ForgeRegistries.TILE_ENTITIES);
 
     public static void register() {
