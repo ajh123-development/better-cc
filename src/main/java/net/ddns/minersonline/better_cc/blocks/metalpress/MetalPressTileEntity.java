@@ -158,7 +158,7 @@ public class MetalPressTileEntity extends LockableTileEntity implements ISidedIn
 
     @Override
     protected ITextComponent getDefaultName() {
-        return new TranslationTextComponent("container.tutorial.metal_press");
+        return new TranslationTextComponent("container.better-cc.metal_press");
     }
 
     @Override
