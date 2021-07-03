@@ -1,0 +1,1 @@
+print("Running with the better-cc mod!")

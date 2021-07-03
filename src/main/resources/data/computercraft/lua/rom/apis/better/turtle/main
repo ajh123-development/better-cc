@@ -1,0 +1,19 @@
+class = {}
+
+class.checkFuel = function()
+	turtle.select(16)
+    if turtle.getFuelLevel() <= 10 then
+        turtle.refuel(1)
+    end
+    turtle.select(1)
+end
+class.switchFullSlot = function()
+	for s=1,15 do
+		if turtle.getItemCount(s) > 0 then
+			turtle.select(s)
+			return
+		end
+	end
+end
+
+return class

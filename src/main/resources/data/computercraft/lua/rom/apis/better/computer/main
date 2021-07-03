@@ -1,0 +1,37 @@
+class = {}
+
+class.wrapAll = function(type)
+	local wrapped, names = {}, {}
+	for _, name in ipairs(peripheral.getNames()) do
+		if peripheral.getType(name) == type then
+			table.insert(names, name)
+		end
+	end
+	if names[1] == nil then return nil end
+	for _, fn in ipairs(peripheral.getMethods(names[1])) do
+		wrapped[fn] = function(...)
+			local returns = {}
+			for i = 1, #names do
+				returns[i] = peripheral.call(names[i], fn, ...)
+			end
+			return returns
+		end
+	end
+	return wrapped
+end
+
+class.openAllModems = function()
+    local present = false
+    for _, side in pairs(rs.getSides()) do
+        if peripheral.getType(side) == "modem" then
+            present = true
+            rednet.open(side) -- this or wrap to a modem object if you're planning to use the modem API instead of rednet
+        end
+    end
+
+    if not present then
+        error("A modem was not found, please attach one and re-run this program")
+    end
+end
+
+return class

@@ -1,0 +1,13 @@
+local apis = {}
+apis.main = {}
+
+apis.main.load_apis = function()
+	print('Loading better apis!')
+	if turtle then
+		apis.turtle = dofile("/rom/apis/better/turtle/main")
+	end
+	apis.computer = dofile("/rom/apis/better/computer/main")
+	print('Loaded better apis!')
+end
+
+return apis
