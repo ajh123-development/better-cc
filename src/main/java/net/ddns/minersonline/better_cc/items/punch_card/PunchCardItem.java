@@ -1,4 +1,4 @@
-package net.ddns.minersonline.better_cc.items.wrench;
+package net.ddns.minersonline.better_cc.items.punch_card;
 
 import net.ddns.minersonline.better_cc.interfaces.IWrenchMe;
 import net.minecraft.block.Block;
@@ -10,8 +10,8 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class WrenchItem extends Item {
-    public WrenchItem(Properties properties) {
+public class PunchCardItem extends Item {
+    public PunchCardItem(Properties properties) {
         super(properties);
     }
 
@@ -22,14 +22,6 @@ public class WrenchItem extends Item {
             return ActionResultType.SUCCESS;
         }
 
-        BlockPos pos =  context.getClickedPos();
-        TileEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity != null) {
-            Block block = blockEntity.getBlockState().getBlock();
-            if ( block instanceof IWrenchMe){
-                ((IWrenchMe) block).onWrench(world, blockEntity.getBlockState(), context.getPlayer());
-            }
-        }
         return ActionResultType.CONSUME;
     }
 }

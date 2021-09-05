@@ -33,6 +33,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         ModelFile ItemGenerated = getExistingFile(mcLoc("item/generated"));
         itemBuilder(ItemGenerated, "silver_ingot");
         itemBuilder(ItemGenerated, "wrench");
+        itemBuilder(ItemGenerated, "punch_card");
     }
 
     private void itemBuilder(ModelFile ItemGenerated, String name) {

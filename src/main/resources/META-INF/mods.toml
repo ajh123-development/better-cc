@@ -29,7 +29,10 @@ displayURL="https://github.com/Sam-Machines/better-cc"#optional
 # A file name (in the root of the mod JAR) containing a logo for display
 #logoFile="examplemod.png" #optional
 # A text field displayed in the mod UI
-credits="Thanks for BetterCC goes to samuelh2005 (MinecraftICT)!" #optional
+credits="""
+Thanks for BetterCC goes to samuelh2005 (MinecraftICT)!
+And steventroughtonsmith for his Z80 mod @ https://github.com/steventroughtonsmith/Z80
+""" #optional
 # A text field displayed in the mod UI
 authors="samuelh2005" #optional
 # The description text for the mod (multi line!) (#mandatory)
