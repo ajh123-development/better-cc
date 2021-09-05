@@ -1,11 +1,11 @@
-package net.ddns.minersonline.better_cc.blocks.metalpress;
+package net.ddns.minersonline.better_cc.blocks.computer;
 
+import net.ddns.minersonline.better_cc.blocks.metalpress.MetalPressTileEntity;
 import net.ddns.minersonline.better_cc.setup.ModContainerTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.inventory.container.FurnaceContainer;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
@@ -13,29 +13,26 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.IntArray;
 
-import javax.annotation.Nullable;
-
-public class MetalPressContainer extends Container {
+public class ComputerContainer extends Container {
         private final IInventory inventory;
         private IIntArray fields;
 
-    public MetalPressContainer(int id, PlayerInventory playerInventory, PacketBuffer buffer) {
-        this(id, playerInventory, new MetalPressTileEntity(), new IntArray(buffer.readByte()));
+    public ComputerContainer(int id, PlayerInventory playerInventory, PacketBuffer buffer) {
+        this(id, playerInventory, new ComputerTileEntity(), new IntArray(buffer.readByte()));
     }
 
-    public MetalPressContainer(int id, PlayerInventory playerInventory, IInventory inventory, IIntArray fields) {
-        super(ModContainerTypes.METAL_PRESS.get(), id);
+    public ComputerContainer(int id, PlayerInventory playerInventory, IInventory inventory, IIntArray fields) {
+        super(ModContainerTypes.COMPUTER.get(), id);
         this.inventory = inventory;
         this.fields = fields;
-        FurnaceContainer furnaceContainer;
 
-        this.addSlot(new Slot(this.inventory, 0, 56, 35));
-        this.addSlot(new Slot(this.inventory, 1, 116, 35) {
-            @Override
-            public boolean mayPlace(ItemStack stack) {
-                return false;
-            }
-        });
+//        this.addSlot(new Slot(this.inventory, 0, 56, 35));
+//        this.addSlot(new Slot(this.inventory, 1, 116, 35) {
+//            @Override
+//            public boolean mayPlace(ItemStack stack) {
+//                return false;
+//            }
+//        });
 
         // Player backpack
         for (int y = 0; y < 3; ++y) {
@@ -56,18 +53,11 @@ public class MetalPressContainer extends Container {
         }
     }
 
-    public int getProgressArrowScale() {
-        int progress = fields.get(0);
-        if (progress > 0) {
-            return progress * 24 / MetalPressTileEntity.WORK_TIME;
-        }
-        return 0;
-    }
 
     @Override
     public boolean stillValid(PlayerEntity player) {
-        return this.inventory.stillValid(player);
-    }
+    return this.inventory.stillValid(player);
+}
 
     @Override
     public ItemStack quickMoveStack(PlayerEntity player, int index) {
@@ -110,6 +100,5 @@ public class MetalPressContainer extends Container {
 
         return itemstack;
     }
-
 
 }

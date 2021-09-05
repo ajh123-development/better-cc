@@ -1,18 +1,18 @@
-package net.ddns.minersonline.better_cc.blocks.metalpress;
+package net.ddns.minersonline.better_cc.blocks.computer;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.ddns.minersonline.better_cc.better_cc;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
-import net.ddns.minersonline.better_cc.better_cc;
 
-public class MetalPressScreen extends ContainerScreen<MetalPressContainer> {
-    public static final ResourceLocation TEXTURE = new ResourceLocation(better_cc.MOD_ID, "textures/gui/metal_press.png");
+public class ComputerScreen extends ContainerScreen<ComputerContainer> {
+    public static final ResourceLocation TEXTURE = new ResourceLocation(better_cc.MOD_ID, "textures/gui/computer.png");
     public static final ResourceLocation UTILS_TEXTURE = new ResourceLocation(better_cc.MOD_ID, "textures/gui/utils.png");
 
-    public MetalPressScreen(MetalPressContainer container, PlayerInventory playerInventory, ITextComponent title) {
+    public ComputerScreen(ComputerContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);
     }
 
@@ -21,6 +21,7 @@ public class MetalPressScreen extends ContainerScreen<MetalPressContainer> {
         this.renderBackground(matrixStack);
         super.render(matrixStack, x, y, partialTicks);
         this.renderTooltip(matrixStack, x, y);
+
     }
 
     @Override
@@ -32,13 +33,10 @@ public class MetalPressScreen extends ContainerScreen<MetalPressContainer> {
         RenderSystem.color4f(1, 1, 1, 1);
         minecraft.getTextureManager().bind(TEXTURE);
 
-        int posX = (this.width - this.imageWidth) / 2;
-        int posY = (this.height - this.imageHeight) / 2;
+        int posX = (this.width - this.imageWidth);
+        int posY = (this.height - this.imageHeight);
 
         blit(matrixStack, posX, posY, 0, 0, this.imageWidth, this.imageHeight);
-
-        // Progress arrow
-        blit(matrixStack, posX + 79, posY + 35, 176, 14, menu.getProgressArrowScale() + 1, 16);
 
         // Power Bar
         minecraft.getTextureManager().bind(UTILS_TEXTURE);

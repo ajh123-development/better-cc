@@ -27,6 +27,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
+import net.minecraftforge.fml.network.NetworkHooks;
 import org.luaj.vm2.Globals;
 import org.luaj.vm2.LoadState;
 import org.luaj.vm2.LuaBoolean;
@@ -115,7 +116,7 @@ public class ComputerBlock extends HorizontalBlock {
         this.interactWith(world, pos, player);
         this.lastPlayer = player;
 
-        runScriptInSandbox( "x / 0");
+        runScriptInSandbox( "print('hello')");
 
 
         return ActionResultType.CONSUME;
@@ -125,7 +126,7 @@ public class ComputerBlock extends HorizontalBlock {
         TileEntity tileEntity = world.getBlockEntity(pos);
         if (tileEntity instanceof ComputerTileEntity && player instanceof ServerPlayerEntity) {
             ComputerTileEntity te = (ComputerTileEntity) tileEntity;
-            //NetworkHooks.openGui((ServerPlayerEntity) player, te, te::encodeExtraData);
+            NetworkHooks.openGui((ServerPlayerEntity) player, te, te::encodeExtraData);
         }
     }
 

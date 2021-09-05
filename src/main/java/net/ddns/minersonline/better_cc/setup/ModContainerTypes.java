@@ -1,5 +1,7 @@
 package net.ddns.minersonline.better_cc.setup;
 
+import net.ddns.minersonline.better_cc.blocks.computer.ComputerContainer;
+import net.ddns.minersonline.better_cc.blocks.computer.ComputerScreen;
 import net.ddns.minersonline.better_cc.blocks.metalpress.MetalPressContainer;
 import net.ddns.minersonline.better_cc.blocks.metalpress.MetalPressScreen;
 import net.minecraft.client.gui.ScreenManager;
@@ -14,6 +16,7 @@ import net.minecraftforge.fml.network.IContainerFactory;
 
 public final class ModContainerTypes {
     public static final RegistryObject<ContainerType<MetalPressContainer>> METAL_PRESS = register("metal_press", MetalPressContainer::new);
+    public static final RegistryObject<ContainerType<ComputerContainer>> COMPUTER = register("computer", ComputerContainer::new);
 
     private ModContainerTypes() {
     }
@@ -24,6 +27,7 @@ public final class ModContainerTypes {
     @OnlyIn(Dist.CLIENT)
     public static void registerScreens(FMLClientSetupEvent event) {
         ScreenManager.register(METAL_PRESS.get(), MetalPressScreen::new);
+        ScreenManager.register(COMPUTER.get(), ComputerScreen::new);
     }
 
     private static <T extends Container> RegistryObject<ContainerType<T>> register(String name, IContainerFactory<T> factory) {
