@@ -13,6 +13,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        System.out.println("Reg sates and mugles!!!!");
         simpleBlock(ModBlocks.SILVER_BLOCK.get());
         simpleBlock(ModBlocks.SILVER_ORE.get());
         axisBlock(ModBlocks.HARDWOOD_LOG_BLOCK.get());

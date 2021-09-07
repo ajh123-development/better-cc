@@ -2,6 +2,7 @@ package net.ddns.minersonline.better_cc.data.client;
 
 import net.ddns.minersonline.better_cc.better_cc;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -21,6 +22,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        ResourceLocation blockPath = modLoc("block");
+        System.out.println("Path  ::::"+blockPath.getPath());
+
         //Blocks
         withExistingParent("silver_block", modLoc("block/silver_block"));
         withExistingParent("silver_ore", modLoc("block/silver_ore"));

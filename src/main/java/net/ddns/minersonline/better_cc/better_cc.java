@@ -1,7 +1,6 @@
 package net.ddns.minersonline.better_cc;
 
 import net.ddns.minersonline.better_cc.setup.ModBlocks;
-import net.ddns.minersonline.better_cc.setup.ModItems;
 import net.ddns.minersonline.better_cc.setup.Registration;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
@@ -31,7 +30,7 @@ public class better_cc
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static List<String[]> MESSAGES = new ArrayList<String[]>();
+    public static List<String[]> MESSAGES = new ArrayList<>();
 
     public better_cc() {
         Registration.register();

@@ -15,6 +15,7 @@ public final class DataGenerators {
     private DataGenerators(){}
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event){
+        System.out.println("Hello data !!!!!!!!");
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 

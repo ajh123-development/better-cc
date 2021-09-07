@@ -62,7 +62,7 @@ minecraft {
         }
 
         server {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run_server')
 
             // Recommended logging data for a userdev environment
             // The markers can be changed as needed.
@@ -99,8 +99,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'better_cc', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
+            args '--mod', 'better_cc', '--all',
+                    '--existing', file('src/main/resources').toString(),
+                    '--existing', file('src/generated/resources').toString(),
+                    '--output', file('src/generated/resources/')
             mods {
                 better_cc {
                     source sourceSets.main
@@ -142,7 +144,7 @@ dependencies {
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    implementation fg.deobf("org.squiddev:cc-tweaked-1.16.5:1.97.0")
+    implementation fg.deobf("org.squiddev:cc-tweaked-1.16.5:1.98.2")
     compile ("org.luaj:luaj-jse:3.0")
     compile ("org.luaj:luaj-jme:3.0")
 }
