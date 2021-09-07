@@ -38,6 +38,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         itemBuilder(ItemGenerated, "silver_ingot");
         itemBuilder(ItemGenerated, "wrench");
         itemBuilder(ItemGenerated, "punch_card");
+
+        System.out.println("[Data gen|Item] Loaded all Items");
     }
 
     private void itemBuilder(ModelFile ItemGenerated, String name) {

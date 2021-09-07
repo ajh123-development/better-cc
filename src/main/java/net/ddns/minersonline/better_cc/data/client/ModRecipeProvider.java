@@ -36,6 +36,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModBlocks.SILVER_ORE.get()))
                 .save(consumer, modId("silver_ingot_blasting"));
 
+        System.out.println("[Data gen|Recipes] Loaded all recipes");
     }
 
     private static ResourceLocation modId(String path) {

@@ -15,18 +15,23 @@ public final class DataGenerators {
     private DataGenerators(){}
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event){
-        System.out.println("Hello data !!!!!!!!");
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
+        System.out.println("[Data gen] Loaded Block State provider");
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
+        System.out.println("[Data gen] Loaded Item Model provider");
 
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
         gen.addProvider(blockTags);
+        System.out.println("[Data gen] Loaded Block Tags provider");
         gen.addProvider(new ModItemTagsProvider(gen, blockTags, existingFileHelper));
+        System.out.println("[Data gen] Loaded Item Tags provider");
 
         gen.addProvider(new ModLootTableProvider(gen));
+        System.out.println("[Data gen] Loaded Loot Tables provider");
         gen.addProvider(new ModRecipeProvider(gen));
+        System.out.println("[Data gen] Loaded Recipes provider");
     }
 }

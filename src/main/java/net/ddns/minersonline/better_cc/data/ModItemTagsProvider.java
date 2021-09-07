@@ -23,5 +23,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         tag(ModTags.Items.INGOTS_SILVER).add(ModItems.SILVER_INGOT.get());
         tag(Tags.Items.INGOTS).addTag(ModTags.Items.INGOTS_SILVER);
+
+        System.out.println("[Data gen|Item tags] Loaded all items tags");
     }
 }

@@ -36,6 +36,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 modLoc("block/machine/machine_front"),
                 modLoc("block/machine/machine_top")
         );
+        System.out.println("[Data gen|Block states] Loaded all Block States and models");
 
     }
 }

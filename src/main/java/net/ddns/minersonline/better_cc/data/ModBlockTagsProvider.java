@@ -21,5 +21,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(Tags.Blocks.ORES).addTag(ModTags.Blocks.ORES_SILVER);
         tag(ModTags.Blocks.STORAGE_BLOCKS_SILVER).add(ModBlocks.SILVER_BLOCK.get());
         tag(Tags.Blocks.STORAGE_BLOCKS).addTag(ModTags.Blocks.STORAGE_BLOCKS_SILVER);
+
+        System.out.println("[Data gen|Blocks Tags] Loaded tags");
     }
 }
