@@ -10,10 +10,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
-@Mod.EventBusSubscriber(modid = better_cc.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = better_cc.MOD_ID)
 public final class DataGenerators {
-    private DataGenerators(){}
-    @SubscribeEvent
+    public DataGenerators(){}
+
     public static void gatherData(GatherDataEvent event){
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
