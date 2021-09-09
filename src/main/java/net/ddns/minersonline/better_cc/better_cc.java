@@ -41,15 +41,9 @@ public class better_cc
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for mod loading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-        // Register the onGatherData method for data mod loading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onGatherData);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    private void onGatherData(GatherDataEvent event){
-        DataGenerators.gatherData(event);
     }
 
     private void setup(final FMLCommonSetupEvent event)
