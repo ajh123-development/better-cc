@@ -100,7 +100,6 @@ minecraft {
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             args '--mod', 'better_cc', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-            environment 'target', 'fmluserdevdata'
 
             mods {
                 better_cc {
