@@ -2,7 +2,7 @@
   "parent": "minecraft:block/orientable",
   "textures": {
     "side": "better-cc:block/machine/machine_side",
-    "front": "better-cc:block/computer_front",
+    "front": "better-cc:block/computer/computer_front",
     "top": "better-cc:block/machine/machine_top"
   }
 }

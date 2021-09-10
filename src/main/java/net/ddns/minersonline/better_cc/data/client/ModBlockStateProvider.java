@@ -20,7 +20,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         horizontalBlock(ModBlocks.COMPUTER.get(),
                 modLoc("block/machine/machine_side"),
-                modLoc("block/computer_front"),
+                modLoc("block/computer/computer_front"),
                 modLoc("block/machine/machine_top")
         );
 
