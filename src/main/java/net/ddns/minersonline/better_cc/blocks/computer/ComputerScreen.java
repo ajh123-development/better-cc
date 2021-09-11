@@ -33,8 +33,8 @@ public class ComputerScreen extends ContainerScreen<ComputerContainer> {
         RenderSystem.color4f(1, 1, 1, 1);
         minecraft.getTextureManager().bind(TEXTURE);
 
-        int posX = (this.width - this.imageWidth);
-        int posY = (this.height - this.imageHeight);
+        int posX = (this.width - this.imageWidth) /  2;
+        int posY = (this.height - this.imageHeight) / 2;
 
         blit(matrixStack, posX, posY, 0, 0, this.imageWidth, this.imageHeight);
 
