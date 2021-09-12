@@ -35,6 +35,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 modLoc("block/machine/machine_front"),
                 modLoc("block/machine/machine_top")
         );
+
+        horizontalBlock(ModBlocks.PUNCH_CARD_READER.get(),
+                modLoc("block/machine/machine_side"),
+                modLoc("block/computer/punch_card_reader_front.png"),
+                modLoc("block/machine/machine_top")
+        );
         System.out.println("[Data gen|Block states] Loaded all Block States and models");
     }
 }
