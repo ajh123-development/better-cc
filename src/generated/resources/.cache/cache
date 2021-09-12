@@ -1,6 +1,7 @@
 86d48108e77da6646b1f7d36b7e49b4df85a3544 assets/better-cc/blockstates/computer.json
 7a6976ba82ad173409d765a4a3a77b393f300655 assets/better-cc/blockstates/hardwood_log.json
 d742f24c955636dbc659f902b8d75b63eef6dcc0 assets/better-cc/blockstates/modem.json
+463237631a6d972ced315b616cfde3615c7c39f7 assets/better-cc/blockstates/punch_card_reader.json
 7d820039efca227a6213abd814a629ced750a89f assets/better-cc/blockstates/random.json
 9a95fd6413371b456a23c4edce2565f3bb7e2f08 assets/better-cc/blockstates/silver_block.json
 43902dc743b4407f7ead9764575c5f67a28aa1cf assets/better-cc/blockstates/silver_ore.json
@@ -8,6 +9,7 @@ d742f24c955636dbc659f902b8d75b63eef6dcc0 assets/better-cc/blockstates/modem.json
 0a291a17851ae20ff0df2d69695c2da09aa27b33 assets/better-cc/models/block/hardwood_log.json
 45a568b6581f4cc2797e80e26145db296fc989a5 assets/better-cc/models/block/hardwood_log_horizontal.json
 31b873a0c3e4a8e8fdf527275431b18eaa30f5c2 assets/better-cc/models/block/modem.json
+2f5ff5828a4d9d6035d2c893e51bacf2b970b575 assets/better-cc/models/block/punch_card_reader.json
 31b873a0c3e4a8e8fdf527275431b18eaa30f5c2 assets/better-cc/models/block/random.json
 7b3c8d8404f31e3ade73604e7bea56bef7c69601 assets/better-cc/models/block/silver_block.json
 ca7c3e2b0f86649e0a5f158268fb8191eded4036 assets/better-cc/models/block/silver_ore.json
@@ -28,6 +30,7 @@ d55d8e37f67a4ab725f15f31e48516a68cebde65 data/better-cc/advancements/recipes/bet
 93242b8d54c520f57dd71424846e318d70b2242c data/better-cc/loot_tables/blocks/hardwood_log.json
 4da7f05791f9ea894d90de714ce8c0e01190b5fe data/better-cc/loot_tables/blocks/metal_press.json
 38e51f90c318787b9e08a9e728165655d638e3f0 data/better-cc/loot_tables/blocks/modem.json
+b8d29b2e61208836db5e800e25860e362adfc773 data/better-cc/loot_tables/blocks/punch_card_reader.json
 a2cf5d4f5842db60e9b5107e62480d7b64b10126 data/better-cc/loot_tables/blocks/random.json
 9681553ba75c73eea80373f170d52ad488ca8b48 data/better-cc/loot_tables/blocks/silver_block.json
 12f34d2a0d89dd29a432169ccce668fefa928097 data/better-cc/loot_tables/blocks/silver_ore.json
