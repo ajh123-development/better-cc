@@ -39,7 +39,7 @@ public class ModTileEntityTypes {
     public static final RegistryObject<TileEntityType<PunchCardReaderTileEntity>> PUNCH_CARD_READER = register(
             "punch_card_reader",
             PunchCardReaderTileEntity::new,
-            ModBlocks.MODEM
+            ModBlocks.PUNCH_CARD_READER
     );
 
     static void register() {}

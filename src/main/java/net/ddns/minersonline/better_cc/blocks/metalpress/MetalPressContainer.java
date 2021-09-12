@@ -27,7 +27,6 @@ public class MetalPressContainer extends Container {
         super(ModContainerTypes.METAL_PRESS.get(), id);
         this.inventory = inventory;
         this.fields = fields;
-        FurnaceContainer furnaceContainer;
 
         this.addSlot(new Slot(this.inventory, 0, 56, 35));
         this.addSlot(new Slot(this.inventory, 1, 116, 35) {

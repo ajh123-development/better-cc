@@ -61,7 +61,7 @@ public class PunchCardReaderTileEntity extends LockableTileEntity implements ISi
     };
 
     public PunchCardReaderTileEntity() {
-        super(ModTileEntityTypes.COMPUTER.get());
+        super(ModTileEntityTypes.PUNCH_CARD_READER.get());
         this.handlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
         this.items = NonNullList.withSize(12, ItemStack.EMPTY);
     }
@@ -99,7 +99,7 @@ public class PunchCardReaderTileEntity extends LockableTileEntity implements ISi
 
     @Override
     protected ITextComponent getDefaultName() {
-        return new TranslationTextComponent("container.better-cc.computer");
+        return new TranslationTextComponent("container.better-cc.punch_card_reader");
     }
 
     @Override

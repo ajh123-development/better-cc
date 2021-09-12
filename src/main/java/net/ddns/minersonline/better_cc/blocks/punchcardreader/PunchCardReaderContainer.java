@@ -20,17 +20,17 @@ public class PunchCardReaderContainer extends Container {
     }
 
     public PunchCardReaderContainer(int id, PlayerInventory playerInventory, IInventory inventory, IIntArray fields) {
-        super(ModContainerTypes.COMPUTER.get(), id);
+        super(ModContainerTypes.PUNCH_CARD_READER.get(), id);
         this.inventory = inventory;
         this.fields = fields;
 
-//        this.addSlot(new Slot(this.inventory, 0, 56, 35));
-//        this.addSlot(new Slot(this.inventory, 1, 116, 35) {
-//            @Override
-//            public boolean mayPlace(ItemStack stack) {
-//                return false;
-//            }
-//        });
+        this.addSlot(new Slot(this.inventory, 0, 56, 35));
+        this.addSlot(new Slot(this.inventory, 1, 116, 35) {
+            @Override
+            public boolean mayPlace(ItemStack stack) {
+                return false;
+            }
+        });
 
         // Player backpack
         for (int y = 0; y < 3; ++y) {
