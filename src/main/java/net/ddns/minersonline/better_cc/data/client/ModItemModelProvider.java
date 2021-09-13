@@ -10,8 +10,9 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import javax.annotation.Nonnull;
 
 public class ModItemModelProvider extends ItemModelProvider {
-    public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, better_cc.MOD_ID, existingFileHelper);
+    public ModItemModelProvider(DataGenerator gen, ExistingFileHelper existingFileHelper) {
+        super(gen, better_cc.MOD_ID, existingFileHelper);
+        System.out.println("[Data gen|Item] Created!");
     }
 
     @Nonnull
@@ -23,7 +24,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         ResourceLocation blockPath = modLoc("block");
-        System.out.println("Path  ::::"+blockPath.getPath());
 
         //Blocks
         withExistingParent("silver_block", modLoc("block/silver_block"));
@@ -39,7 +39,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         itemBuilder(ItemGenerated, "wrench");
         itemBuilder(ItemGenerated, "punch_card");
 
-        System.out.println("[Data gen|Item] Loaded all Items");
+        System.out.println("[Data gen|Item] Generated!");
     }
 
     private void itemBuilder(ModelFile ItemGenerated, String name) {

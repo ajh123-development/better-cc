@@ -9,19 +9,18 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, better_cc.MOD_ID, exFileHelper);
+        System.out.println("[Data gen|Block states] Created!");
     }
 
     @Override
     protected void registerStatesAndModels() {
-        System.out.println("Reg sates and mugles!!!!");
         simpleBlock(ModBlocks.SILVER_BLOCK.get());
         simpleBlock(ModBlocks.SILVER_ORE.get());
         axisBlock(ModBlocks.HARDWOOD_LOG_BLOCK.get());
 
-
         horizontalBlock(ModBlocks.COMPUTER.get(),
                 modLoc("block/machine/machine_side"),
-                modLoc("block/computer_front"),
+                modLoc("block/computer/computer_front"),
                 modLoc("block/machine/machine_top")
         );
 
@@ -36,7 +35,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 modLoc("block/machine/machine_front"),
                 modLoc("block/machine/machine_top")
         );
-        System.out.println("[Data gen|Block states] Loaded all Block States and models");
 
+        horizontalBlock(ModBlocks.PUNCH_CARD_READER.get(),
+                modLoc("block/machine/machine_side"),
+                modLoc("block/computer/punch_card_reader_front"),
+                modLoc("block/machine/machine_top")
+        );
+        System.out.println("[Data gen|Block states] Loaded all Block States and models");
     }
 }

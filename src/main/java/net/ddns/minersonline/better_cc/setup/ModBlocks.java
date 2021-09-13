@@ -3,6 +3,7 @@ package net.ddns.minersonline.better_cc.setup;
 import net.ddns.minersonline.better_cc.blocks.computer.ComputerBlock;
 import net.ddns.minersonline.better_cc.blocks.metalpress.MetalPressBlock;
 import net.ddns.minersonline.better_cc.blocks.modem.ModemBlock;
+import net.ddns.minersonline.better_cc.blocks.punchcardreader.PunchCardReaderBlock;
 import net.ddns.minersonline.better_cc.blocks.randomizer.RandomBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -43,12 +44,15 @@ public class ModBlocks {
     public static final RegistryObject<RandomBlock> RANDOM = register("random", () ->
             new RandomBlock(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1)));
 
-
     public static final RegistryObject<ModemBlock> MODEM = register("modem", () ->
             new ModemBlock(AbstractBlock.Properties.of(Material.METAL)
                     .strength(4, 20)
                     .sound(SoundType.METAL)));
 
+    public static final RegistryObject<PunchCardReaderBlock> PUNCH_CARD_READER = register("punch_card_reader", () ->
+            new PunchCardReaderBlock(AbstractBlock.Properties.of(Material.METAL)
+                    .strength(4, 20)
+                    .sound(SoundType.METAL)));
 
     private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> block){
         return Registration.BLOCKS.register(name, block);

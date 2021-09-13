@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "side": "better-cc:block/hardwood_log_side",
+    "end": "better-cc:block/hardwood_log_end"
+  }
+}
