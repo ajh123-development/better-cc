@@ -58,7 +58,7 @@ public class ComputerBlock extends HorizontalBlock {
     static Globals server_globals;
     public ComputerBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(POWER, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(POWER, 0));
 
         // Create server globals with just enough library support to compile user scripts.
         server_globals = new Globals();

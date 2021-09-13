@@ -10,8 +10,9 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
-    public ModItemTagsProvider(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, ExistingFileHelper existingFileHelper) {
-        super(dataGenerator, blockTagProvider, better_cc.MOD_ID, existingFileHelper);
+    public ModItemTagsProvider(DataGenerator gen, BlockTagsProvider blockTagProvider, ExistingFileHelper existingFileHelper) {
+        super(gen, blockTagProvider, better_cc.MOD_ID, existingFileHelper);
+        System.out.println("[Data gen|Item tags] Created!");
     }
 
     @Override
@@ -24,6 +25,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ModTags.Items.INGOTS_SILVER).add(ModItems.SILVER_INGOT.get());
         tag(Tags.Items.INGOTS).addTag(ModTags.Items.INGOTS_SILVER);
 
-        System.out.println("[Data gen|Item tags] Loaded all items tags");
+        System.out.println("[Data gen|Item tags] Generated!");
     }
 }

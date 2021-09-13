@@ -19,12 +19,14 @@ import java.util.function.Supplier;
 
 
 public class ModLootTableProvider extends LootTableProvider {
-    public ModLootTableProvider(DataGenerator generator) {
-        super(generator);
+    public ModLootTableProvider(DataGenerator gen) {
+        super(gen);
+        System.out.println("[Data gen|Loot tables] Created!");
     }
 
     @Override
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
+        System.out.println("[Data gen|Item tags] Generated!");
         return ImmutableList.of(
                 Pair.of(ModBlockLootTables::new, LootParameterSets.BLOCK)
         );

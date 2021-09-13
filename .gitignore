@@ -6,6 +6,9 @@ bin
 .classpath
 .project
 
+# vscode
+.java-version
+
 # idea
 out
 *.ipr
@@ -21,6 +24,7 @@ src/test
 # other
 eclipse
 run
+run_server
 .DS_Store
 
 # Files from Forge MDK

@@ -12,6 +12,7 @@ import java.util.function.Consumer;
 public class ModRecipeProvider extends RecipeProvider {
     public ModRecipeProvider(DataGenerator generatorIn) {
         super(generatorIn);
+        System.out.println("[Data gen|Recipes] Created!");
     }
 
     @Override
@@ -36,7 +37,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModBlocks.SILVER_ORE.get()))
                 .save(consumer, modId("silver_ingot_blasting"));
 
-        System.out.println("[Data gen|Recipes] Loaded all recipes");
+        System.out.println("[Data gen|Recipes] Generated!");
     }
 
     private static ResourceLocation modId(String path) {
