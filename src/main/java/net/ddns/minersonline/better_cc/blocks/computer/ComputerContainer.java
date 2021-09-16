@@ -1,12 +1,10 @@
 package net.ddns.minersonline.better_cc.blocks.computer;
 
-import net.ddns.minersonline.better_cc.blocks.metalpress.MetalPressTileEntity;
 import net.ddns.minersonline.better_cc.setup.ModContainerTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.FurnaceContainer;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
@@ -25,6 +23,9 @@ public class ComputerContainer extends Container {
         super(ModContainerTypes.COMPUTER.get(), id);
         this.inventory = inventory;
         this.fields = fields;
+
+
+
 
 //        this.addSlot(new Slot(this.inventory, 0, 56, 35));
 //        this.addSlot(new Slot(this.inventory, 1, 116, 35) {

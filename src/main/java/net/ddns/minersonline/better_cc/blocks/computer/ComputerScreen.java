@@ -7,13 +7,18 @@ import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import org.lwjgl.glfw.GLFW;
 
 public class ComputerScreen extends ContainerScreen<ComputerContainer> {
     public static final ResourceLocation TEXTURE = new ResourceLocation(better_cc.MOD_ID, "textures/gui/term.png");
     public static final ResourceLocation UTILS_TEXTURE = new ResourceLocation(better_cc.MOD_ID, "textures/gui/utils.png");
+    ComputerContainer container;
 
     public ComputerScreen(ComputerContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);
+        assert minecraft != null;
+        minecraft.keyboardHandler.setSendRepeatsToGui( true );
+        this.container = container;
     }
 
     @Override
@@ -23,6 +28,16 @@ public class ComputerScreen extends ContainerScreen<ComputerContainer> {
         this.renderTooltip(matrixStack, x, y);
 
     }
+
+    @Override
+    public final boolean keyPressed( int key, int scancode, int modifiers )
+    {
+        //container.
+        //cpuRAM.key = key;
+        //cpuCore.setProgramCounter(0x38); // RST38H, keyboard interrupt
+        return super.keyPressed( key, scancode, modifiers );
+    }
+
 
     @Override
     protected void renderBg(MatrixStack matrixStack, float partialTicks, int x, int y) {

@@ -1,7 +1,5 @@
 package net.ddns.minersonline.better_cc.blocks.computer;
 
-import net.ddns.minersonline.better_cc.better_cc;
-import net.ddns.minersonline.better_cc.blocks.metalpress.MetalPressContainer;
 import net.ddns.minersonline.better_cc.setup.ModTileEntityTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

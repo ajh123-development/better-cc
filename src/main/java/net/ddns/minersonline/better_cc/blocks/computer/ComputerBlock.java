@@ -1,6 +1,5 @@
 package net.ddns.minersonline.better_cc.blocks.computer;
 
-import net.ddns.minersonline.better_cc.better_cc;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
@@ -24,59 +23,113 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.network.NetworkHooks;
+import net.sleepymouse.microprocessor.IBaseDevice;
+import net.sleepymouse.microprocessor.Z80.Z80Core;
+import org.apache.commons.io.IOUtils;
 
 import javax.annotation.Nullable;
-
-import net.minecraftforge.fml.network.NetworkHooks;
-import org.luaj.vm2.Globals;
-import org.luaj.vm2.LoadState;
-import org.luaj.vm2.LuaBoolean;
-import org.luaj.vm2.LuaString;
-import org.luaj.vm2.LuaTable;
-import org.luaj.vm2.LuaThread;
-import org.luaj.vm2.LuaValue;
-import org.luaj.vm2.Varargs;
-import org.luaj.vm2.compiler.LuaC;
-import org.luaj.vm2.lib.Bit32Lib;
-import org.luaj.vm2.lib.DebugLib;
-import org.luaj.vm2.lib.PackageLib;
-import org.luaj.vm2.lib.TableLib;
-import org.luaj.vm2.lib.TwoArgFunction;
-import org.luaj.vm2.lib.ZeroArgFunction;
-import org.luaj.vm2.lib.jse.JseBaseLib;
-import org.luaj.vm2.lib.jse.JseMathLib;
-import org.luaj.vm2.lib.StringLib;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 public class ComputerBlock extends HorizontalBlock {
+
+    public Memory cpuRAM = new Memory();
+    public IBaseDevice cpuIO;
+    public Z80Core cpuCore = new Z80Core(cpuRAM, cpuRAM);
+
+    public void loadHexStringIntoRAM(String s) {
+        int len = s.length();
+        for (int i = 0; i < len; i += 2) {
+            cpuRAM.writeByte((int)i/2, (int) ((Character.digit(s.charAt(i), 16) << 4)
+                    + Character.digit(s.charAt(i+1), 16)));
+        }
+    }
+
+    public static byte[] getBytesFromFile(File file) throws IOException {
+        // Get the size of the file
+        long length = file.length();
+
+        // You cannot create an array using a long type.
+        // It needs to be an int type.
+        // Before converting to an int type, check
+        // to ensure that file is not larger than Integer.MAX_VALUE.
+        if (length > Integer.MAX_VALUE) {
+            // File is too large
+            throw new IOException("File is too large!");
+        }
+
+        // Create the byte array to hold the data
+        byte[] bytes = new byte[(int)length];
+
+        // Read in the bytes
+        int offset = 0;
+        int numRead = 0;
+
+        InputStream is = new FileInputStream(file);
+        try {
+            while (offset < bytes.length
+                    && (numRead=is.read(bytes, offset, bytes.length-offset)) >= 0) {
+                offset += numRead;
+            }
+        } finally {
+            is.close();
+        }
+
+        // Ensure all the bytes have been read in
+        if (offset < bytes.length) {
+            throw new IOException("Could not completely read file "+file.getName());
+        }
+        return bytes;
+    }
+
+    public void loadFileIntoRAM(String s, int offset)
+    {
+        try {
+            byte[] filebytes = getBytesFromFile(new File(s));
+
+            for (int i = 0; i < filebytes.length; i++)
+            {
+                cpuRAM.writeByte(offset+i, filebytes[i]);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadFileIntoRAM(InputStream s, int offset)
+    {
+        try {
+            byte[] filebytes = IOUtils.toByteArray(s);
+
+            for (int i = 0; i < filebytes.length; i++)
+            {
+                cpuRAM.writeByte(offset+i, filebytes[i]);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static final DirectionProperty FACING = HorizontalBlock.FACING;
     public static final IntegerProperty POWER = BlockStateProperties.POWER;
     private static final ITextComponent CONTAINER_TITLE = new TranslationTextComponent("container.better-cc.computer");
     PlayerEntity lastPlayer;
 
-    static Globals server_globals;
     public ComputerBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(POWER, 0));
 
-        // Create server globals with just enough library support to compile user scripts.
-        server_globals = new Globals();
-        server_globals.load(new JseBaseLib());
-        server_globals.load(new PackageLib());
-        server_globals.load(new StringLib());
+        InputStream input = getClass().getResourceAsStream("/assets/cpu/INTMINI.OBJ");
+        InputStream input2 = getClass().getResourceAsStream("/assets/cpu/BASICMINI.OBJ");
 
-
-        // To load scripts, we occasionally need a math library in addition to compiler support.
-        // To limit scripts using the debug library, they must be closures, so we only install LuaC.
-        server_globals.load(new JseMathLib());
-        LoadState.install(server_globals);
-        LuaC.install(server_globals);
-
-        // Set up the LuaString metatable to be read-only since it is shared across all scripts.
-        LuaString.s_metatable = new ReadOnlyLuaTable(LuaString.s_metatable);
-
-
+        loadFileIntoRAM(input, 0x0);
+        loadFileIntoRAM(input2, 0x100);
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext itemUseContext) {
@@ -116,8 +169,6 @@ public class ComputerBlock extends HorizontalBlock {
         this.interactWith(world, pos, player);
         this.lastPlayer = player;
 
-        runScriptInSandbox( "print('hello')");
-
 
         return ActionResultType.CONSUME;
     }
@@ -154,103 +205,5 @@ public class ComputerBlock extends HorizontalBlock {
 
     public void tick(World world, BlockState state){
 
-    }
-
-
-
-    // Run a script in a lua thread and limit it to a certain number
-    // of instructions by setting a hook function.
-    // Give each script its own copy of globals, but leave out libraries
-    // that contain functions that can be abused.
-    void runScriptInSandbox(String script) {
-
-        // Each script will have it's own set of globals, which should
-        // prevent leakage between scripts running on the same server.
-        Globals user_globals = new Globals();
-        user_globals.load(new JseBaseLib());
-        user_globals.load(new PackageLib());
-        user_globals.load(new Bit32Lib());
-        user_globals.load(new TableLib());
-        user_globals.load(new JseMathLib());
-        user_globals.load(new StringLib());
-
-
-        // This library is dangerous as it gives unfettered access to the
-        // entire Java VM, so it's not suitable within this lightweight sandbox.
-        // user_globals.load(new LuajavaLib());
-
-        // Starting coroutines in scripts will result in threads that are
-        // not under the server control, so this libary should probably remain out.
-        // user_globals.load(new CoroutineLib());
-
-        // These are probably unwise and unnecessary for scripts on servers,
-        // although some date and time functions may be useful.
-        // user_globals.load(new JseIoLib());
-        // user_globals.load(new JseOsLib());
-
-        // Loading and compiling scripts from within scripts may also be
-        // prohibited, though in theory it should be fairly safe.
-        // LoadState.install(user_globals);
-        // LuaC.install(user_globals);
-
-        // The debug library must be loaded for hook functions to work, which
-        // allow us to limit scripts to run a certain number of instructions at a time.
-        // However we don't wish to expose the library in the user globals,
-        // so it is immediately removed from the user globals once created.
-        user_globals.load(new DebugLib());
-        LuaValue sethook = user_globals.get("debug").get("sethook");
-        user_globals.set("debug", LuaValue.NIL);
-
-        ComputerLib lib = new ComputerLib(this);
-        user_globals.set("print", new ComputerLib.print(lib));
-        user_globals.set("computer", lib);
-
-        // Set up the script to run in its own lua thread, which allows us
-        // to set a hook function that limits the script to a specific number of cycles.
-        // Note that the environment is set to the user globals, even though the
-        // compiling is done with the server globals.
-//        LuaValue chunk = server_globals.load(script, "main", user_globals);
-        LuaValue chunk = server_globals.load(script, "main");
-
-        LuaThread thread = new LuaThread(user_globals, chunk);
-
-
-
-        // Set the hook function to immediately throw an Error, which will not be
-        // handled by any Lua code other than the coroutine.
-        LuaValue hookfunc = new ZeroArgFunction() {
-            public LuaValue call() {
-                // A simple lua error may be caught by the script, but a
-                // Java Error will pass through to top and stop the script.
-                throw new Error("Script overran resource limits.");
-            }
-        };
-        final int instruction_count = 20;
-
-        sethook.invoke(LuaValue.varargsOf(new LuaValue[] { thread, hookfunc,
-                LuaValue.EMPTYSTRING, LuaValue.valueOf(instruction_count) }));
-
-        // When we resume the thread, it will run up to 'instruction_count' instructions
-        // then call the hook function which will error out and stop the script.
-        Varargs result = thread.resume(LuaValue.NIL);
-        better_cc.LOGGER.info(""+script+" -> "+result);
-    }
-
-    // Simple read-only table whose contents are initialized from another table.
-    static class ReadOnlyLuaTable extends LuaTable {
-        public ReadOnlyLuaTable(LuaValue table) {
-            presize(table.length(), 0);
-            for (Varargs n = table.next(LuaValue.NIL); !n.arg1().isnil(); n = table
-                    .next(n.arg1())) {
-                LuaValue key = n.arg1();
-                LuaValue value = n.arg(2);
-                super.rawset(key, value.istable() ? new ReadOnlyLuaTable(value) : value);
-            }
-        }
-        public LuaValue setmetatable(LuaValue metatable) { return error("table is read-only"); }
-        public void set(int key, LuaValue value) { error("table is read-only"); }
-        public void rawset(int key, LuaValue value) { error("table is read-only"); }
-        public void rawset(LuaValue key, LuaValue value) { error("table is read-only"); }
-        public LuaValue remove(int pos) { return error("table is read-only"); }
     }
 }
