@@ -125,11 +125,11 @@ public class ComputerBlock extends HorizontalBlock {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(POWER, 0));
 
-        InputStream input = getClass().getResourceAsStream("/assets/cpu/INTMINI.OBJ");
-        InputStream input2 = getClass().getResourceAsStream("/assets/cpu/BASICMINI.OBJ");
-
-        loadFileIntoRAM(input, 0x0);
-        loadFileIntoRAM(input2, 0x100);
+//        InputStream input = getClass().getResourceAsStream("/assets/cpu/INTMINI.OBJ");
+//        InputStream input2 = getClass().getResourceAsStream("/assets/cpu/BASICMINI.OBJ");
+//
+//        loadFileIntoRAM(input, 0x0);
+//        loadFileIntoRAM(input2, 0x100);
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext itemUseContext) {
