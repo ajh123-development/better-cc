@@ -40,6 +40,6 @@ public class PunchCardReaderScreen extends ContainerScreen<PunchCardReaderContai
 
         // Power Bar
         minecraft.getTextureManager().bind(UTILS_TEXTURE);
-        blit(matrixStack, posX + 16*9+8, posY + 16, 13, 31, 15, 55);
+        blit(matrixStack, posX + 16*9+8, posY + 16, 12, 31, 15, 55);
     }
 }

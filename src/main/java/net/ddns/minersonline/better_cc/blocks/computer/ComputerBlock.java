@@ -1,5 +1,6 @@
 package net.ddns.minersonline.better_cc.blocks.computer;
 
+import net.ddns.minersonline.better_cc.better_cc;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
@@ -25,6 +26,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import net.sleepymouse.microprocessor.IBaseDevice;
+import net.sleepymouse.microprocessor.ProcessorException;
 import net.sleepymouse.microprocessor.Z80.Z80Core;
 import org.apache.commons.io.IOUtils;
 
@@ -40,6 +42,7 @@ public class ComputerBlock extends HorizontalBlock {
     public Memory cpuRAM = new Memory();
     public IBaseDevice cpuIO;
     public Z80Core cpuCore = new Z80Core(cpuRAM, cpuRAM);
+    public boolean starting = true;
 
     public void loadHexStringIntoRAM(String s) {
         int len = s.length();
@@ -204,6 +207,23 @@ public class ComputerBlock extends HorizontalBlock {
     }
 
     public void tick(World world, BlockState state){
+        if (this.starting) {
+            try {
+                InputStream input = better_cc.class.getClassLoader().getResourceAsStream("assets/better-cc/cpu/INTMINI.OBJ");
+                InputStream input2 = better_cc.class.getClassLoader().getResourceAsStream("assets/better-cc/cpu/BASICMINI.OBJ");
 
+                loadFileIntoRAM(input, 0x0);
+                loadFileIntoRAM(input2, 0x100);
+                starting = false;
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                cpuCore.executeOneInstruction();
+            } catch (ProcessorException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -3,21 +3,24 @@ package net.ddns.minersonline.better_cc.blocks.computer;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.ddns.minersonline.better_cc.better_cc;
+import net.minecraft.client.gui.advancements.AdvancementsScreen;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
-import org.lwjgl.glfw.GLFW;
 
 public class ComputerScreen extends ContainerScreen<ComputerContainer> {
     public static final ResourceLocation TEXTURE = new ResourceLocation(better_cc.MOD_ID, "textures/gui/term.png");
     public static final ResourceLocation UTILS_TEXTURE = new ResourceLocation(better_cc.MOD_ID, "textures/gui/utils.png");
     ComputerContainer container;
+    int xSize, ySize;
 
     public ComputerScreen(ComputerContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);
-        assert minecraft != null;
-        minecraft.keyboardHandler.setSendRepeatsToGui( true );
+
+        this.xSize = 248;
+        this.ySize = 177;
+
         this.container = container;
     }
 
@@ -35,6 +38,7 @@ public class ComputerScreen extends ContainerScreen<ComputerContainer> {
         //container.
         //cpuRAM.key = key;
         //cpuCore.setProgramCounter(0x38); // RST38H, keyboard interrupt
+
         return super.keyPressed( key, scancode, modifiers );
     }
 
@@ -48,13 +52,13 @@ public class ComputerScreen extends ContainerScreen<ComputerContainer> {
         RenderSystem.color4f(1, 1, 1, 1);
         minecraft.getTextureManager().bind(TEXTURE);
 
-        int posX = (this.width - this.imageWidth) /  2;
-        int posY = (this.height - this.imageHeight) / 2;
+        int posX = (this.width - this.xSize) /  2;
+        int posY = (this.height - this.ySize) / 2;
 
-        blit(matrixStack, posX, posY, 0, 0, this.imageWidth, this.imageHeight);
+        blit(matrixStack, posX, posY, 0, 0, this.xSize, this.ySize);
 
         // Power Bar
         minecraft.getTextureManager().bind(UTILS_TEXTURE);
-        blit(matrixStack, posX + 16*9+8, posY + 16, 13, 31, 15, 55);
+        blit(matrixStack, posX, posY , 12, 31, 15, 55);
     }
 }
