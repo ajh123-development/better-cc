@@ -65,8 +65,8 @@ body:
 
 - type: dropdown
   attributes:
-    label: Reproduced with *ONLY* SOaM
-    description: Can you reproduce the bug with just SOaM?
+    label: Reproduced with *ONLY* this mod
+    description: Can you reproduce the bug with just this mod and no others?
     multiple: false
     options:
     - "Yes"
