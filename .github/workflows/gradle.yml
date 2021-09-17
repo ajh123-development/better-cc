@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: [ 'ubuntu-latest', 'macos-latest', 'windows-latest' ]
-    name: Java 8 (${{ matrix.os }}) Sample
+    name: Setup Java 8 (${{ matrix.os }})
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java 8
