@@ -3,7 +3,6 @@ package net.ddns.minersonline.better_cc.blocks.computer;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.ddns.minersonline.better_cc.better_cc;
-import net.minecraft.client.gui.advancements.AdvancementsScreen;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
@@ -25,8 +24,14 @@ public class ComputerScreen extends ContainerScreen<ComputerContainer> {
     }
 
     @Override
+    protected void renderLabels(MatrixStack matrixStack, int x, int y) {
+        this.font.draw(matrixStack, this.title, (float)this.titleLabelX, (float)this.titleLabelY-8, 4210752);
+    }
+
+    @Override
     public void render(MatrixStack matrixStack, int x, int y, float partialTicks) {
         this.renderBackground(matrixStack);
+
         super.render(matrixStack, x, y, partialTicks);
         this.renderTooltip(matrixStack, x, y);
 
