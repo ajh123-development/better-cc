@@ -64,6 +64,7 @@ public class ComputerScreen extends ContainerScreen<ComputerContainer> {
 
         // Power Bar
         minecraft.getTextureManager().bind(UTILS_TEXTURE);
-        blit(matrixStack, posX, posY , 12, 31, 15, 55);
+        blit(matrixStack, posX, posY , 12, 31, 15, 54);
+        blit(matrixStack, posX, posY , 29, 31, 21, 65);
     }
 }
