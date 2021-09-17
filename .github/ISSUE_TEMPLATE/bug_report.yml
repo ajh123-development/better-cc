@@ -1,0 +1,100 @@
+name: Bug Report
+description: File a bug report
+labels: [bug]
+assignees:
+  - BeansBeefBroccoli
+body:
+
+- type: markdown
+  attributes:
+    value: |
+      Before submitting a bug report, please make sure you have read this *entire* form, and that:
+      - Your bug is not caused by Minecraft or any other mods you have installed.
+      - Your issue has not been reported before, [make sure to use the search function!](https://github.com/BeansBeefBroccoli/Simple-Ores-and-Machines-Forge/issues)
+
+      **Do not forget to give your issue a descriptive title.** "there's a bug helppp" isn't useful, and it makes it hard to distinguish issues at a glance.
+
+- type: dropdown
+  attributes:
+    label: Operating System
+    description: Choose what operating system this byg occured on. If you know this bug occurs on multiple operating systems, select all you have tested.
+    multiple: true
+    options:
+    - Windows
+    - Linux
+    - macOS
+    - Other
+  validations:
+    required: true
+
+- type: input
+  attributes:
+    label: Minecraft Version
+    placeholder: "1.16.5"
+  validations:
+    required: true
+
+- type: input
+  attributes:
+    label: Forge Version
+    placeholder: "36.1.1"
+  validations:
+    required: true
+
+- type: input
+  attributes:
+    label: "Mod Version"
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Description of Bug
+    description: What happened and what did you expect to happen?
+    placeholder: "Type Here"
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Steps to Reproduce
+    description: A bulleted list of steps you took to produce the bug.
+    placeholder: "Type Here"
+  validations:
+    required: true
+
+- type: dropdown
+  attributes:
+    label: Reproduced with *ONLY* SOaM
+    description: Can you reproduce the bug with just SOaM?
+    multiple: false
+    options:
+    - "Yes"
+    - "No"
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Other Mods Required
+    description: If the bug requires another mod, put your modlist here.
+    placeholder: "Type Here"
+  validations:
+    required: false
+
+- type: textarea
+  attributes:
+    label: Suspected Cause
+    description: If you know what could be causing this bug, describe it here.
+  validations:
+    required: false  
+
+- type: checkboxes
+  attributes:
+    label: Checkboxes
+    description: "Confirm the Following:"
+    options:
+      - label: "I have checked for other issues that are the same"
+        required: true
+      - label: "I am not using performance enhancers, such as Optifine, Performant, or Sodium Reforged"
+        required: true
