@@ -63,7 +63,7 @@ public class ComputerTileEntity extends LockableTileEntity implements ISidedInve
     public ComputerTileEntity() {
         super(ModTileEntityTypes.COMPUTER.get());
         this.handlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
-        this.items = NonNullList.withSize(12, ItemStack.EMPTY);
+        this.items = NonNullList.withSize(9, ItemStack.EMPTY);
     }
 
     void encodeExtraData(PacketBuffer buffer) {
@@ -109,7 +109,7 @@ public class ComputerTileEntity extends LockableTileEntity implements ISidedInve
 
     @Override
     public int getContainerSize() {
-        return 12;
+        return 9;
     }
 
     @Override
@@ -158,7 +158,7 @@ public class ComputerTileEntity extends LockableTileEntity implements ISidedInve
     @Override
     public void load(BlockState state, CompoundNBT tags) {
         super.load(state, tags);
-        this.items = NonNullList.withSize(2, ItemStack.EMPTY);
+        this.items = NonNullList.withSize(9, ItemStack.EMPTY);
         ItemStackHelper.loadAllItems(tags, this.items);
 
         this.state = tags.getInt("State");
