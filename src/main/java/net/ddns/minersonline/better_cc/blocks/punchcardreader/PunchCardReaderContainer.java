@@ -25,12 +25,6 @@ public class PunchCardReaderContainer extends Container {
         this.fields = fields;
 
         this.addSlot(new Slot(this.inventory, 0, 56, 35));
-        this.addSlot(new Slot(this.inventory, 1, 116, 35) {
-            @Override
-            public boolean mayPlace(ItemStack stack) {
-                return false;
-            }
-        });
 
         // Player backpack
         for (int y = 0; y < 3; ++y) {

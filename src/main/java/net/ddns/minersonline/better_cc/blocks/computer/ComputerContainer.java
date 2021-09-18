@@ -25,17 +25,33 @@ public class ComputerContainer extends Container {
         this.fields = fields;
 
 
+        // Upgrades
+        for (int y = 0; y < 3; ++y) {
+            for (int x = 0; x < 3; ++x) {
+                int index = x + y;
+                int posX = 98 + x * 18;
+                int posY = 22 + y * 18;
+                this.addSlot(new Slot(this.inventory, index, posX, posY));
+            }
+        }
 
+        // Player backpack
+        for (int y = 0; y < 3; ++y) {
+            for (int x = 0; x < 9; ++x) {
+                int index = 9 + x + y * 9;
+                int posX = 44 + x * 18;
+                int posY = 98 + y * 18;
+                this.addSlot(new Slot(playerInventory, index, posX, posY));
+            }
+        }
 
-//        this.addSlot(new Slot(this.inventory, 0, 56, 35));
-//        this.addSlot(new Slot(this.inventory, 1, 116, 35) {
-//            @Override
-//            public boolean mayPlace(ItemStack stack) {
-//                return false;
-//            }
-//        });
-
-
+        // Player hotbar
+        for (int x = 0; x < 9; ++x) {
+            int index = x;
+            int posX = 44 + x * 18;
+            int posY = 156;
+            this.addSlot(new Slot(playerInventory, index, posX, posY));
+        }
     }
 
 
