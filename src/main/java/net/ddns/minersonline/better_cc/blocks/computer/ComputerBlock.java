@@ -1,30 +1,16 @@
 package net.ddns.minersonline.better_cc.blocks.computer;
 
+import net.ddns.minersonline.better_cc.UpgradeableMachineBlockBase;
 import net.ddns.minersonline.better_cc.better_cc;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.network.NetworkHooks;
 import net.sleepymouse.microprocessor.IBaseDevice;
 import net.sleepymouse.microprocessor.ProcessorException;
 import net.sleepymouse.microprocessor.Z80.Z80Core;
@@ -37,7 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-public class ComputerBlock extends HorizontalBlock {
+public class ComputerBlock extends UpgradeableMachineBlockBase {
 
     public Memory cpuRAM = new Memory();
     public IBaseDevice cpuIO;
@@ -119,47 +105,8 @@ public class ComputerBlock extends HorizontalBlock {
         }
     }
 
-    public static final DirectionProperty FACING = HorizontalBlock.FACING;
-    public static final IntegerProperty POWER = BlockStateProperties.POWER;
-    private static final ITextComponent CONTAINER_TITLE = new TranslationTextComponent("container.better-cc.computer");
-    PlayerEntity lastPlayer;
-
     public ComputerBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(POWER, 0));
-
-//        InputStream input = getClass().getResourceAsStream("/assets/cpu/INTMINI.OBJ");
-//        InputStream input2 = getClass().getResourceAsStream("/assets/cpu/BASICMINI.OBJ");
-//
-//        loadFileIntoRAM(input, 0x0);
-//        loadFileIntoRAM(input2, 0x100);
-    }
-
-    public BlockState getStateForPlacement(BlockItemUseContext itemUseContext) {
-        return this.defaultBlockState().setValue(FACING, itemUseContext.getHorizontalDirection().getOpposite());
-    }
-
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> blockBlockStateBuilder) {
-        blockBlockStateBuilder.add(FACING, POWER);
-    }
-
-    public boolean isSignalSource(BlockState p_149744_1_) {
-        return true;
-    }
-
-    public int getSignal(BlockState state, IBlockReader blockReader, BlockPos pos, Direction direction) {
-        return state.getValue(POWER);
-    }
-    public static void updateSignalStrength(BlockState state, World world, BlockPos pos) {
-        if (world.dimensionType().hasSkyLight()) {
-            int i = 0;
-
-            i = MathHelper.clamp(i, 0, 15);
-            if (state.getValue(POWER) != i) {
-                world.setBlock(pos, state.setValue(POWER, Integer.valueOf(i)), 3);
-            }
-
-        }
     }
 
     @SuppressWarnings("deprecation")
@@ -172,41 +119,12 @@ public class ComputerBlock extends HorizontalBlock {
         this.interactWith(world, pos, player);
         this.lastPlayer = player;
 
-
         return ActionResultType.CONSUME;
     }
 
-    private void interactWith(World world, BlockPos pos, PlayerEntity player) {
-        TileEntity tileEntity = world.getBlockEntity(pos);
-        if (tileEntity instanceof ComputerTileEntity && player instanceof ServerPlayerEntity) {
-            ComputerTileEntity te = (ComputerTileEntity) tileEntity;
-            NetworkHooks.openGui((ServerPlayerEntity) player, te, te::encodeExtraData);
-        }
-    }
-
     @Override
-    public boolean hasTileEntity(BlockState state) {
-        return true;
-    }
-    @Nullable
-    @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new ComputerTileEntity();
-    }
-    @SuppressWarnings("deprecation")
-    @Override
-    public void onRemove(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
-        if (!state.is(newState.getBlock())) {
-            TileEntity tileEntity = world.getBlockEntity(pos);
-            if (tileEntity instanceof IInventory) {
-                InventoryHelper.dropContents(world, pos, (IInventory) tileEntity);
-                world.updateNeighbourForOutputSignal(pos, this);
-            }
-            super.onRemove(state, world, pos, newState, isMoving);
-        }
-    }
-
     public void tick(World world, BlockState state){
+        super.tick(world, state);
         if (this.starting) {
             try {
                 InputStream input = better_cc.class.getClassLoader().getResourceAsStream("assets/better-cc/cpu/INTMINI.OBJ");
@@ -226,4 +144,11 @@ public class ComputerBlock extends HorizontalBlock {
             }
         }
     }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+        return new ComputerTileEntity();
+    }
+
 }
