@@ -5,19 +5,15 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.FurnaceContainer;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.IntArray;
 
-import javax.annotation.Nullable;
-
 public class MetalPressContainer extends Container {
         private final IInventory inventory;
-        private IIntArray fields;
+        private final IIntArray fields;
 
     public MetalPressContainer(int id, PlayerInventory playerInventory, PacketBuffer buffer) {
         this(id, playerInventory, new MetalPressTileEntity(), new IntArray(buffer.readByte()));
@@ -48,10 +44,9 @@ public class MetalPressContainer extends Container {
 
         // Player hotbar
         for (int x = 0; x < 9; ++x) {
-            int index = x;
             int posX = 8 + x * 18;
             int posY = 142;
-            this.addSlot(new Slot(playerInventory, index, posX, posY));
+            this.addSlot(new Slot(playerInventory, x, posX, posY));
         }
     }
 

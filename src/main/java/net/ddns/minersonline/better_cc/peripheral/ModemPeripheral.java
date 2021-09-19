@@ -1,19 +1,10 @@
 package net.ddns.minersonline.better_cc.peripheral;
 
-import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.lua.LuaFunction;
-import dan200.computercraft.api.lua.LuaValues;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import net.ddns.minersonline.better_cc.blocks.modem.ModemBlock;
 import net.ddns.minersonline.better_cc.blocks.modem.ModemTileEntity;
-import net.ddns.minersonline.better_cc.blocks.randomizer.RandomBlock;
-import net.ddns.minersonline.better_cc.blocks.randomizer.RandomTileEntity;
-import net.ddns.minersonline.better_cc.interfaces.IWrenchMe;
-import net.minecraft.block.BlockState;
-import org.squiddev.cobalt.LuaString;
-import org.squiddev.cobalt.LuaTable;
-import org.squiddev.cobalt.LuaValue;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

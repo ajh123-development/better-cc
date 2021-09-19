@@ -1,45 +1,48 @@
-package net.ddns.minersonline.better_cc.blocks.punchcardreader;
+package net.ddns.minersonline.better_cc;
 
-import net.ddns.minersonline.better_cc.setup.ModContainerTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IIntArray;
-import net.minecraft.util.IntArray;
 
-public class PunchCardReaderContainer extends Container {
-        private final IInventory inventory;
-        private IIntArray fields;
+public abstract class UpgradeableMachineContainerBase extends Container {
+    public final IInventory inventory;
+    public IIntArray fields;
 
-    public PunchCardReaderContainer(int id, PlayerInventory playerInventory, PacketBuffer buffer) {
-        this(id, playerInventory, new PunchCardReaderTileEntity(), new IntArray(buffer.readByte()));
-    }
 
-    public PunchCardReaderContainer(int id, PlayerInventory playerInventory, IInventory inventory, IIntArray fields) {
-        super(ModContainerTypes.PUNCH_CARD_READER.get(), id);
+    public UpgradeableMachineContainerBase(int id, PlayerInventory playerInventory, IInventory inventory, IIntArray fields, ContainerType type) {
+        super(type, id);
         this.inventory = inventory;
         this.fields = fields;
 
-        this.addSlot(new Slot(this.inventory, 0, 56, 35));
+        // Upgrades
+        for (int y = 0; y < 3; ++y) {
+            for (int x = 0; x < 3; ++x) {
+                int index = x + y;
+                int posX = 98 + x * 18;
+                int posY = 22 + y * 18;
+                this.addSlot(new Slot(this.inventory, index, posX, posY));
+            }
+        }
 
         // Player backpack
         for (int y = 0; y < 3; ++y) {
             for (int x = 0; x < 9; ++x) {
                 int index = 9 + x + y * 9;
-                int posX = 8 + x * 18;
-                int posY = 84 + y * 18;
+                int posX = 44 + x * 18;
+                int posY = 98 + y * 18;
                 this.addSlot(new Slot(playerInventory, index, posX, posY));
             }
         }
 
         // Player hotbar
         for (int x = 0; x < 9; ++x) {
-            int posX = 8 + x * 18;
-            int posY = 142;
+            int posX = 44 + x * 18;
+            int posY = 156;
             this.addSlot(new Slot(playerInventory, x, posX, posY));
         }
     }
@@ -47,8 +50,8 @@ public class PunchCardReaderContainer extends Container {
 
     @Override
     public boolean stillValid(PlayerEntity player) {
-    return this.inventory.stillValid(player);
-}
+        return this.inventory.stillValid(player);
+    }
 
     @Override
     public ItemStack quickMoveStack(PlayerEntity player, int index) {
@@ -93,3 +96,4 @@ public class PunchCardReaderContainer extends Container {
     }
 
 }
+
