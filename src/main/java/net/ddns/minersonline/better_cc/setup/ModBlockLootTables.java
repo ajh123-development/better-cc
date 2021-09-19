@@ -16,6 +16,7 @@ public class ModBlockLootTables extends BlockLootTables {
         dropSelf(ModBlocks.RANDOM.get());
         dropSelf(ModBlocks.MODEM.get());
         dropSelf(ModBlocks.PUNCH_CARD_READER.get());
+        dropSelf(ModBlocks.POWER_MACHINE.get());
     }
 
     @Override

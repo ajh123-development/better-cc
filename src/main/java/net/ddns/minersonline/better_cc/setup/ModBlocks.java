@@ -3,6 +3,7 @@ package net.ddns.minersonline.better_cc.setup;
 import net.ddns.minersonline.better_cc.blocks.computer.ComputerBlock;
 import net.ddns.minersonline.better_cc.blocks.metalpress.MetalPressBlock;
 import net.ddns.minersonline.better_cc.blocks.modem.ModemBlock;
+import net.ddns.minersonline.better_cc.blocks.powermachine.PowerMachineBlock;
 import net.ddns.minersonline.better_cc.blocks.punchcardreader.PunchCardReaderBlock;
 import net.ddns.minersonline.better_cc.blocks.randomizer.RandomBlock;
 import net.minecraft.block.AbstractBlock;
@@ -35,6 +36,10 @@ public class ModBlocks {
             new MetalPressBlock(AbstractBlock.Properties.of(Material.METAL)
                     .strength(4, 20)
                     .sound(SoundType.METAL)));
+
+
+    public static final RegistryObject<PowerMachineBlock> POWER_MACHINE = register("power_machine", () ->
+            new PowerMachineBlock(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1)));
 
 
     // Computer and peripherals
