@@ -1,6 +1,6 @@
 package net.ddns.minersonline.better_cc.blocks.computer;
 
-import net.ddns.minersonline.better_cc.UpgradeableMachineBlockBase;
+import net.ddns.minersonline.better_cc.blocks.machinebase.UpgradeableMachineBlockBase;
 import net.ddns.minersonline.better_cc.better_cc;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;

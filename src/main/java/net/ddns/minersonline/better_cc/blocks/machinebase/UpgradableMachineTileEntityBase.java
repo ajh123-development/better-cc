@@ -1,4 +1,4 @@
-package net.ddns.minersonline.better_cc;
+package net.ddns.minersonline.better_cc.blocks.machinebase;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

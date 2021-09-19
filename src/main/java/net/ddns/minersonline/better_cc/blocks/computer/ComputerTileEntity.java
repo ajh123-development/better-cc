@@ -1,6 +1,6 @@
 package net.ddns.minersonline.better_cc.blocks.computer;
 
-import net.ddns.minersonline.better_cc.UpgradableMachineTileEntityBase;
+import net.ddns.minersonline.better_cc.blocks.machinebase.UpgradableMachineTileEntityBase;
 import net.ddns.minersonline.better_cc.setup.ModTileEntityTypes;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;

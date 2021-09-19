@@ -1,7 +1,8 @@
-package net.ddns.minersonline.better_cc;
+package net.ddns.minersonline.better_cc.blocks.machinebase;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.ddns.minersonline.better_cc.better_cc;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;

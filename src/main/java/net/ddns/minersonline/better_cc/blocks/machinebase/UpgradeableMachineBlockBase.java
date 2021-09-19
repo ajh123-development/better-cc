@@ -1,4 +1,4 @@
-package net.ddns.minersonline.better_cc;
+package net.ddns.minersonline.better_cc.blocks.machinebase;
 
 import net.ddns.minersonline.better_cc.blocks.computer.ComputerTileEntity;
 import net.minecraft.block.Block;

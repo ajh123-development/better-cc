@@ -1,4 +1,4 @@
-package net.ddns.minersonline.better_cc;
+package net.ddns.minersonline.better_cc.blocks.machinebase;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
