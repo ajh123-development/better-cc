@@ -20,7 +20,6 @@ public class ComputerTileEntity extends UpgradableMachineTileEntityBase {
 
     @Override
     protected Container createMenu(int id, PlayerInventory playerInventory) {
-        System.out.println("OPEN Computer");
         return new ComputerContainer(id, playerInventory, this, this.fields);
     }
 

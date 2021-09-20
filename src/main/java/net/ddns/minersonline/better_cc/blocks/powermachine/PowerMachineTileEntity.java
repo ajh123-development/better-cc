@@ -20,7 +20,6 @@ public class PowerMachineTileEntity extends UpgradableMachineTileEntityBase {
 
     @Override
     protected Container createMenu(int id, PlayerInventory playerInventory) {
-        System.out.println("OPEN power machine");
         return new PowerMachineContainer(id, playerInventory, this, this.fields);
     }
 

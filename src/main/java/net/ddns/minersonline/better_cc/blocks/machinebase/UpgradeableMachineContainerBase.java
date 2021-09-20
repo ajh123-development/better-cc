@@ -22,7 +22,7 @@ public abstract class UpgradeableMachineContainerBase extends Container {
         // Upgrades
         for (int y = 0; y < 3; ++y) {
             for (int x = 0; x < 3; ++x) {
-                int index = x + y;
+                int index = x + y * 3;
                 int posX = 98 + x * 18;
                 int posY = 22 + y * 18;
                 this.addSlot(new Slot(this.inventory, index, posX, posY));
