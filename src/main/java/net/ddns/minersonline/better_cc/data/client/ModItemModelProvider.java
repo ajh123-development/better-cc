@@ -23,8 +23,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        ResourceLocation blockPath = modLoc("block");
-
         //Blocks
         withExistingParent("silver_block", modLoc("block/silver_block"));
         withExistingParent("silver_ore", modLoc("block/silver_ore"));

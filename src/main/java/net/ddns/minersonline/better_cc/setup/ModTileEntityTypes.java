@@ -3,6 +3,7 @@ package net.ddns.minersonline.better_cc.setup;
 import net.ddns.minersonline.better_cc.blocks.computer.ComputerTileEntity;
 import net.ddns.minersonline.better_cc.blocks.metalpress.MetalPressTileEntity;
 import net.ddns.minersonline.better_cc.blocks.modem.ModemTileEntity;
+import net.ddns.minersonline.better_cc.blocks.powermachine.PowerMachineTileEntity;
 import net.ddns.minersonline.better_cc.blocks.punchcardreader.PunchCardReaderTileEntity;
 import net.ddns.minersonline.better_cc.blocks.randomizer.RandomTileEntity;
 import net.minecraft.block.Block;
@@ -16,6 +17,12 @@ public class ModTileEntityTypes {
             "metal_press",
             MetalPressTileEntity::new,
             ModBlocks.METAL_PRESS
+    );
+
+    public static final RegistryObject<TileEntityType<PowerMachineTileEntity>> POWER_MACHINE = register(
+            "power_machine",
+            PowerMachineTileEntity::new,
+            ModBlocks.POWER_MACHINE
     );
 
     public static final RegistryObject<TileEntityType<ComputerTileEntity>> COMPUTER = register(

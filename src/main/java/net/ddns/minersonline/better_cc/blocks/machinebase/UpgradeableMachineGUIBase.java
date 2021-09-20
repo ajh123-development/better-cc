@@ -1,7 +1,8 @@
-package net.ddns.minersonline.better_cc;
+package net.ddns.minersonline.better_cc.blocks.machinebase;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.ddns.minersonline.better_cc.better_cc;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -76,8 +77,8 @@ public abstract class UpgradeableMachineGUIBase<T extends Container> extends Con
         blit(matrixStack, posX-17, posY , 28, 31, 21, 65);
 
         // Tabs
-        blit(matrixStack, posX-17, posY+65 , 32, 0, 21, 28);
-        blit(matrixStack, posX-17, posY+65+28 , 32+21, 0, 21, 28);
+        blit(matrixStack, posX-20, posY+65 , 32, 0, 24, 28);
+        blit(matrixStack, posX-17, posY+65+28 , 56, 0, 21, 28);
     }
 
 }

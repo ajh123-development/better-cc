@@ -3,10 +3,12 @@ package net.ddns.minersonline.better_cc;
 import net.ddns.minersonline.better_cc.data.DataGenerators;
 import net.ddns.minersonline.better_cc.setup.ModBlocks;
 import net.ddns.minersonline.better_cc.setup.Registration;
+import net.ddns.minersonline.better_cc.world.overworld.OreGeneration;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -51,6 +53,7 @@ public class better_cc
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOre);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

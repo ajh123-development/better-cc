@@ -1,6 +1,6 @@
 package net.ddns.minersonline.better_cc.blocks.computer;
 
-import net.ddns.minersonline.better_cc.UpgradeableMachineGUIBase;
+import net.ddns.minersonline.better_cc.blocks.machinebase.UpgradeableMachineGUIBase;
 import net.ddns.minersonline.better_cc.better_cc;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;

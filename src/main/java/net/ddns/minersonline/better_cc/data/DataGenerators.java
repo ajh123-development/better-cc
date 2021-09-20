@@ -1,6 +1,5 @@
 package net.ddns.minersonline.better_cc.data;
 
-import net.ddns.minersonline.better_cc.better_cc;
 import net.ddns.minersonline.better_cc.data.client.ModBlockStateProvider;
 import net.ddns.minersonline.better_cc.data.client.ModItemModelProvider;
 import net.ddns.minersonline.better_cc.data.client.ModRecipeProvider;

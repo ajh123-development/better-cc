@@ -1,4 +1,4 @@
-package net.ddns.minersonline.better_cc.blocks.computer;
+package net.ddns.minersonline.better_cc.blocks.powermachine;
 
 import net.ddns.minersonline.better_cc.blocks.machinebase.UpgradableMachineTileEntityBase;
 import net.ddns.minersonline.better_cc.setup.ModTileEntityTypes;
@@ -8,19 +8,19 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
-public class ComputerTileEntity extends UpgradableMachineTileEntityBase {
+public class PowerMachineTileEntity extends UpgradableMachineTileEntityBase {
 
-    public ComputerTileEntity() {
-        super(ModTileEntityTypes.COMPUTER.get());
+    public PowerMachineTileEntity() {
+        super(ModTileEntityTypes.POWER_MACHINE.get());
     }
     @Override
     protected ITextComponent getDefaultName() {
-        return new TranslationTextComponent("container.better-cc.computer");
+        return new TranslationTextComponent("container.better-cc.power_machine");
     }
 
     @Override
     protected Container createMenu(int id, PlayerInventory playerInventory) {
-        return new ComputerContainer(id, playerInventory, this, this.fields);
+        return new PowerMachineContainer(id, playerInventory, this, this.fields);
     }
 
     public void encodeExtraData(PacketBuffer buffer) {

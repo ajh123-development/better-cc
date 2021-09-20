@@ -18,6 +18,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.SILVER_ORE.get());
         axisBlock(ModBlocks.HARDWOOD_LOG_BLOCK.get());
 
+        horizontalBlock(ModBlocks.POWER_MACHINE.get(),
+                modLoc("block/machine/machine_side"),
+                modLoc("block/machine/power_machine_front"),
+                modLoc("block/machine/machine_top")
+        );
+
         horizontalBlock(ModBlocks.COMPUTER.get(),
                 modLoc("block/machine/machine_side"),
                 modLoc("block/computer/computer_front"),

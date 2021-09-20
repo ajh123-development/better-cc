@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "side": "better-cc:block/machine/machine_side",
+    "front": "better-cc:block/machine/power_machine_front",
+    "top": "better-cc:block/machine/machine_top"
+  }
+}
