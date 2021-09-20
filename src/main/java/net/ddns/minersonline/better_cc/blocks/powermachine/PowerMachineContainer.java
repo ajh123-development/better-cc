@@ -15,5 +15,6 @@ public class PowerMachineContainer extends UpgradeableMachineContainerBase {
 
     public PowerMachineContainer(int id, PlayerInventory playerInventory, IInventory inventory, IIntArray fields) {
         super(id, playerInventory, inventory, fields, ModContainerTypes.POWER_MACHINE.get());
+        System.out.println("Create container");
     }
 }
