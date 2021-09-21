@@ -33,6 +33,11 @@ public class PowerMachineBlock extends UpgradeableMachineBlockBase {
         return ActionResultType.CONSUME;
     }
 
+    @Override
+    public void tick(World world, BlockState state){
+        super.tick(world, state);
+    }
+
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {

@@ -65,7 +65,6 @@ public abstract class UpgradableMachineTileEntityBase extends LockableTileEntity
     }
 
     public abstract void encodeExtraData(PacketBuffer buffer);
-    abstract protected Container createMenu(int id, PlayerInventory playerInventory);
     abstract protected ITextComponent getDefaultName();
 
     @Override

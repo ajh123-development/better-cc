@@ -49,7 +49,7 @@ public abstract class UpgradeableMachineBlockBase extends HorizontalBlock {
 
     public void interactWith(World world, BlockPos pos, PlayerEntity player) {
         TileEntity tileEntity = world.getBlockEntity(pos);
-        if (tileEntity instanceof ComputerTileEntity && player instanceof ServerPlayerEntity) {
+        if (tileEntity instanceof UpgradableMachineTileEntityBase && player instanceof ServerPlayerEntity) {
             UpgradableMachineTileEntityBase te = (UpgradableMachineTileEntityBase) tileEntity;
             NetworkHooks.openGui((ServerPlayerEntity) player, te, te::encodeExtraData);
         }
