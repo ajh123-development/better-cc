@@ -59,7 +59,7 @@ body:
 - type: textarea
   attributes:
     label: "Steps to Reproduce"
-    description: "A bulleted list of steps you took to produce the bug.
+    description: "A bulleted list of steps you took to produce the bug."
     placeholder: "Type Here"
   validations:
     required: true
