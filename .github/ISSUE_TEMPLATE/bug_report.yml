@@ -43,7 +43,7 @@ body:
 
 - type: input
   attributes:
-    label: "Mod Version"
+    label: "Better CC Version"
     placeholder: "Type Here"
   validations:
     required: true
@@ -66,8 +66,8 @@ body:
 
 - type: textarea
   attributes:
-    label: "Mods Involved"
-    description: "Do you require another mod(s) to reproduce this crash? If you do, list the mod(s) here."
+    label: "Other Mod(s) Involved"
+    description: "Do you require another mod/other mods to reproduce this crash? If you do, list the it/them here."
     placeholder: "Type Here"
   validations:
     required: true
@@ -85,5 +85,5 @@ body:
     options:
       - label: "I have checked for other issues that are the same"
         required: true
-      - label: "I am not using performance enhancers, such as Optifine, Performant, or Sodium Reforged"
+      - label: "I am not using performance enhancers, such as Optifine, Performant, Sodium Reforged, MCMT, etc."
         required: true
