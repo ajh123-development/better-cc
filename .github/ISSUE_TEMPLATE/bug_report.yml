@@ -4,7 +4,6 @@ labels: [bug]
 assignees:
   - ajh123-development
 body:
-
 - type: markdown
   attributes:
     value: |
@@ -13,11 +12,10 @@ body:
       - Your issue has not been reported before (make sure to use the [search function](https://github.com/ajh123-development/better-cc/issues)!)
 
       **Do not forget to give your issue a descriptive title.** "there's a bug" isn't useful, and it makes it harder to distinguish issues at a glance.
-
 - type: dropdown
   attributes:
     label: "Operating System"
-    description: "Select the operating system(s) that this bug has occured on."
+    description: "Select the operating system(s) that this bug has occurred on."
     multiple: true
     options:
     - "Windows"
@@ -26,28 +24,24 @@ body:
     - "Other"
   validations:
     required: true
-
 - type: input
   attributes:
     label: "Minecraft Version"
     placeholder: "Type Here"
   validations:
     required: true
-
 - type: input
   attributes:
     label: "Forge Version"
     placeholder: "Type Here"
   validations:
     required: true
-
 - type: input
   attributes:
     label: "Better CC Version"
     placeholder: "Type Here"
   validations:
     required: true
-
 - type: textarea
   attributes:
     label: "Description"
@@ -55,7 +49,6 @@ body:
     placeholder: "Type Here"
   validations:
     required: true
-
 - type: textarea
   attributes:
     label: "Steps to Reproduce"
@@ -63,15 +56,13 @@ body:
     placeholder: "Type Here"
   validations:
     required: true
-
 - type: textarea
   attributes:
     label: "Other Mod(s) Involved"
-    description: "Do you require another mod/other mods to reproduce this crash? If you do, list the it/them here."
+    description: "Do you require another mod/other mods to reproduce this crash? If you do, list it/them here."
     placeholder: "Type Here"
   validations:
     required: true
-
 - type: textarea
   attributes:
     label: "Suspected Cause"
@@ -79,7 +70,6 @@ body:
     placeholder: "Type Here"
   validations:
     required: false  
-
 - type: checkboxes
   attributes:
     label: "Confirm the Following"
