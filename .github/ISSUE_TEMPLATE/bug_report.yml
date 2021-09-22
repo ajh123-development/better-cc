@@ -17,7 +17,7 @@ body:
 - type: dropdown
   attributes:
     label: "Operating System"
-    description: "Select the operating system that this bug has occured on. If this bug occurs on multiple operating systems, select all that apply."
+    description: "Select the operating system(s) that this bug has occured on."
     multiple: true
     options:
     - "Windows"
