@@ -10,7 +10,7 @@ body:
     value: |
       Before submitting a bug report, please make sure you have read this *entire* form, and that:
       - Your bug is not a vanilla bug/another mod's bug
-      - Your issue has not been reported before (make sure to use the [search function](https://github.com/BeansBeefBroccoli/Simple-Ores-and-Machines-Forge/issues)!)
+      - Your issue has not been reported before (make sure to use the [search function](https://github.com/ajh123-development/better-cc/issues)!)
 
       **Do not forget to give your issue a descriptive title.** "there's a bug help pls" isn't useful, and it makes it harder to distinguish issues at a glance.
 
