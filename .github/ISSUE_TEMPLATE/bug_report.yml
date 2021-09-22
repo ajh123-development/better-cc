@@ -76,6 +76,7 @@ body:
   attributes:
     label: "Suspected Cause"
     description: "If you know what could be causing this bug, describe it here."
+    placeholder: "Type Here"
   validations:
     required: false  
 
