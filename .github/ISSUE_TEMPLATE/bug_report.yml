@@ -69,7 +69,7 @@ body:
     description: "If you know what could be causing this bug, describe it here."
     placeholder: "Type Here"
   validations:
-    required: false  
+    required: false
 - type: checkboxes
   attributes:
     label: "Confirm the Following"
