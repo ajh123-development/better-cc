@@ -1,31 +1,33 @@
-# eclipse
-bin
-*.launch
-.settings
-.metadata
-.classpath
-.project
+# Eclipse, Intellij, and VSCode
 
-# vscode
-.java-version
-
-# idea
-out
+*.iml
 *.ipr
 *.iws
-*.iml
+*.launch
+.classpath
 .idea
-
-# gradle
-build
-.gradle
+.java-version
+.metadata
+.project
+.settings
+.vscode
+eclipse
+out
 src/test
 
-# other
-eclipse
+
+#Git and Gradle
+
+.gitattributes
+.gradle
+bin
+build
+logs
 run
 run_server
-.DS_Store
+src/generated/resources/.cache
 
-# Files from Forge MDK
-forge*changelog.txt
+# MacOS and Windows
+
+.DS_Store
+desktop.ini
