@@ -1,4 +1,4 @@
-package net.examplemod;
+package net.ddns.minersonline.better_cc;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;

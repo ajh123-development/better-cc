@@ -1,7 +1,7 @@
-package net.examplemod.forge;
+package net.ddns.minersonline.better_cc.forge;
 
 import dev.architectury.platform.forge.EventBuses;
-import net.examplemod.ExampleMod;
+import net.ddns.minersonline.better_cc.ExampleMod;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
