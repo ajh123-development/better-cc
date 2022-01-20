@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "better-cc",
   "version": "${version}",
-  "name": "Example Mod",
+  "name": "Better CC",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
     "Me!"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/ajh123-development/better-cc/",
+    "sources": "https://github.com/ajh123-development/better-cc/"
   },
-  "license": "Insert License Here",
-  "icon": "assets/examplemod/icon.png",
+  "license": "GPL-3.0 License",
+  "icon": "assets/better-cc/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.examplemod.fabric.ExampleModFabric"
+      "net.ddns.minersonline.better_cc.fabric.ExampleModFabric"
     ]
   },
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.12.8",
     "fabric": "*",
-    "minecraft": ">=1.16.4",
-    "architectury": ">=1.1.55"
+    "minecraft": ">=1.18",
+    "architectury": ">=3.4.9"
   },
   "suggests": {
     "flamingo": "*"
