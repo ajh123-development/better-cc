@@ -1,15 +1,16 @@
 modLoader = "javafml"
 loaderVersion = "[39,)"
-issueTrackerURL = "https://github.com/ajh123-development/better_cc/issues"
+issueTrackerURL = "https://github.com/ajh123-development/better-cc/issues"
 license = "GPL-3.0 License"
 
 [[mods]]
 modId = "better_cc"
 version = "${version}"
 displayName = "Better CC"
-authors = "Me!"
+authors = "ajh123"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Adds to computercraft!!
+Adds, adds, and adds again!
 '''
 #logoFile = ""
 

@@ -3,20 +3,20 @@
   "id": "better_cc",
   "version": "${version}",
   "name": "Better CC",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Adds to computercraft!!\nAdds, adds, and adds again!",
   "authors": [
-    "Me!"
+    "ajh123"
   ],
   "contact": {
-    "homepage": "https://github.com/ajh123-development/better_cc/",
-    "sources": "https://github.com/ajh123-development/better_cc/"
+    "homepage": "https://github.com/ajh123-development/better-cc/",
+    "sources": "https://github.com/ajh123-development/better-cc/"
   },
   "license": "GPL-3.0 License",
   "icon": "assets/better-cc/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.ddns.minersonline.better_cc.fabric.ExampleModFabric"
+      "net.ddns.minersonline.better_cc.fabric.BetterCCFabric"
     ]
   },
   "depends": {
