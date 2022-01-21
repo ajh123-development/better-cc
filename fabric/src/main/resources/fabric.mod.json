@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "better-cc",
+  "id": "better_cc",
   "version": "${version}",
   "name": "Better CC",
   "description": "This is an example description! Tell everyone what your mod is about!",
@@ -8,8 +8,8 @@
     "Me!"
   ],
   "contact": {
-    "homepage": "https://github.com/ajh123-development/better-cc/",
-    "sources": "https://github.com/ajh123-development/better-cc/"
+    "homepage": "https://github.com/ajh123-development/better_cc/",
+    "sources": "https://github.com/ajh123-development/better_cc/"
   },
   "license": "GPL-3.0 License",
   "icon": "assets/better-cc/icon.png",
@@ -22,7 +22,7 @@
   "depends": {
     "fabricloader": ">=0.12.8",
     "fabric": "*",
-    "minecraft": ">=1.18",
+    "minecraft": ">=1.18.1",
     "architectury": ">=3.4.9"
   },
   "suggests": {

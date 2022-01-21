@@ -14,7 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import java.util.function.Supplier;
 
 public class ExampleMod {
-    public static final String MOD_ID = "better-cc";
+    public static final String MOD_ID = "better_cc";
     // We can use this if we don't want to use DeferredRegister
     public static final Supplier<Registries> REGISTRIES = Suppliers.memoize(() -> Registries.get(MOD_ID));
     // Registering a new creative tab

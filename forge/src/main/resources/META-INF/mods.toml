@@ -1,10 +1,10 @@
 modLoader = "javafml"
-loaderVersion = "[38.0.17,)"
-issueTrackerURL = "https://github.com/ajh123-development/better-cc/issues"
+loaderVersion = "[39,)"
+issueTrackerURL = "https://github.com/ajh123-development/better_cc/issues"
 license = "GPL-3.0 License"
 
 [[mods]]
-modId = "better-cc"
+modId = "better_cc"
 version = "${version}"
 displayName = "Better CC"
 authors = "Me!"
@@ -16,14 +16,14 @@ This is an example description! Tell everyone what your mod is about!
 [[dependencies.better-cc]]
 modId = "forge"
 mandatory = true
-versionRange = "[38.0.17,)"
+versionRange = "[39.0.44,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.better-cc]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.18,)"
+versionRange = "[1.18.1,)"
 ordering = "NONE"
 side = "BOTH"
 
