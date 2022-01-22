@@ -12,7 +12,7 @@
     "sources": "https://github.com/ajh123-development/better-cc/"
   },
   "license": "GPL-3.0 License",
-  "icon": "assets/better-cc/icon.png",
+  "icon": "assets/better_cc/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [

@@ -5,6 +5,9 @@ import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.Registries;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.ddns.minersonline.better_cc.items.WrenchItem;
+import net.ddns.minersonline.better_cc.setup.ModItems;
+import net.ddns.minersonline.better_cc.setup.Registration;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -15,18 +18,14 @@ import java.util.function.Supplier;
 
 public class BetterCC {
     public static final String MOD_ID = "better_cc";
-    // We can use this if we don't want to use DeferredRegister
     public static final Supplier<Registries> REGISTRIES = Suppliers.memoize(() -> Registries.get(MOD_ID));
-    // Registering a new creative tab
-    public static final CreativeModeTab EXAMPLE_TAB = CreativeTabRegistry.create(new ResourceLocation(MOD_ID, "better_cc"), () ->
-            new ItemStack(BetterCC.EXAMPLE_ITEM.get()));
+
+    public static final CreativeModeTab MAIN_TAB = CreativeTabRegistry.create(new ResourceLocation(MOD_ID, "better_cc"), () ->
+            new ItemStack(ModItems.WRENCH_ITEM.get()));
     
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(MOD_ID, Registry.ITEM_REGISTRY);
-    public static final RegistrySupplier<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () ->
-            new Item(new Item.Properties().tab(BetterCC.EXAMPLE_TAB)));
-    
+
     public static void init() {
-        ITEMS.register();
+        Registration.register();
         
         System.out.println(BetterCCExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
     }
