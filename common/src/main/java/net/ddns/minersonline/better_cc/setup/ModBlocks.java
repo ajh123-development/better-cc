@@ -15,7 +15,11 @@ import java.util.function.Supplier;
 public class ModBlocks {
     // Resources
     public static final RegistrySupplier<Block> SILVER_ORE = register("silver_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(3, 10).requiresCorrectToolForDrops()));
+            new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(3.0f, 3.0f).requiresCorrectToolForDrops()));
+
+    public static final RegistrySupplier<Block> DEEPSLATE_SILVER_ORE = register("deepslate_silver_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.DEEPSLATE).strength(4.5f, 3.0f).requiresCorrectToolForDrops()));
+
 
     public static final RegistrySupplier<Block> SILVER_BLOCK = register("silver_block", () ->
             new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(3, 10)));
