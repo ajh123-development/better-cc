@@ -9,5 +9,8 @@ public class ModItems {
     public static final RegistrySupplier<WrenchItem> WRENCH_ITEM = Registration.ITEMS.register("wrench", () ->
             new WrenchItem(new Item.Properties().tab(BetterCC.MAIN_TAB)));
 
+    public static final RegistrySupplier<WrenchItem> SILVER_INGOT  = Registration.ITEMS.register("silver_ingot", () ->
+            new WrenchItem(new Item.Properties().tab(BetterCC.MAIN_TAB)));
+
     static void register(){}
 }

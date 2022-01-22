@@ -32,7 +32,7 @@ body:
     required: true
 - type: input
   attributes:
-    label: "Forge Version"
+    label: "Forge or Fabric Version"
     placeholder: "Type Here"
   validations:
     required: true

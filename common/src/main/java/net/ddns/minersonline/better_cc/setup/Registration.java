@@ -12,7 +12,9 @@ public class Registration {
 
     public static void register() {
         ITEMS.register();
+        BLOCKS.register();
 
         ModItems.register();
+        ModBlocks.register();
     }
 }

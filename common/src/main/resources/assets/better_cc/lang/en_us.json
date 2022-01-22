@@ -1,4 +1,7 @@
 {
   "itemGroup.better_cc.better_cc": "Better CC",
-  "item.better_cc.wrench": "Wrench"
+  "item.better_cc.wrench": "Wrench",
+  "item.better_cc.silver_ingot": "Silver Ingot",
+  "block.better_cc.silver_ore": "Silver Ore",
+  "block.better_cc.silver_block": "Silver Block"
 }
