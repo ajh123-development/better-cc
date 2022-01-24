@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class RandomEntity extends BlockEntity {
-    public RandomEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState);
+    public RandomEntity(BlockPos blockPos, BlockState blockState) {
+        super(ModBlockEntities.RANDOM.get(), blockPos, blockState);
     }
 }
