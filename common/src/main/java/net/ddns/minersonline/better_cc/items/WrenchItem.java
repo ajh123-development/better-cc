@@ -17,17 +17,20 @@ public class WrenchItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext useOnContext) {
         Level level = useOnContext.getLevel();
-        if(level.isClientSide()){
-            return InteractionResult.SUCCESS;
-        }
         BlockPos pos = useOnContext.getClickedPos();
         BlockEntity blockEntity = level.getBlockEntity(pos);
-        if(blockEntity != null){
+        if(blockEntity != null && !level.isClientSide()){
+            System.out.println("Hi?");
             Block block = blockEntity.getBlockState().getBlock();
             if(block instanceof IWrenchMe){
-                ((IWrenchMe) block).onWrench(level, blockEntity.getBlockState(), useOnContext.getPlayer());
+                boolean done = ((IWrenchMe) block).onWrench(level, blockEntity.getBlockPos(), blockEntity.getBlockState(), useOnContext.getPlayer());
+                if(done){
+                    return InteractionResult.SUCCESS;
+                } else {
+                    return InteractionResult.FAIL;
+                }
             }
         }
-        return InteractionResult.CONSUME;
+        return InteractionResult.FAIL;
     }
 }

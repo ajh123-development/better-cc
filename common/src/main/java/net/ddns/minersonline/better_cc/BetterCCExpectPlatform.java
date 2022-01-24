@@ -13,9 +13,9 @@ public class BetterCCExpectPlatform {
      * platform sub-package, with its class suffixed with {@code Impl}.
      * <p>
      * Example:
-     * Expect: net.examplemod.ExampleExpectPlatform#getConfigDirectory()
-     * Actual Fabric: net.ddns.minersonline.better_cc.fabric.ExpectPlatformImpl#getConfigDirectory()
-     * Actual Forge: net.ddns.minersonline.better_cc.forge.ExpectPlatformImpl#getConfigDirectory()
+     * Expect: net.ddns.minersonline.better_cc.BetterCCExpectPlatform#getConfigDirectory()
+     * Actual Fabric: net.ddns.minersonline.better_cc.fabric.BetterCCPlatformImpl#getConfigDirectory()
+     * Actual Forge: net.ddns.minersonline.better_cc.forge.BetterCCPlatformImpl#getConfigDirectory()
      */
     @dev.architectury.injectables.annotations.ExpectPlatform
     public static Path getConfigDirectory() {

@@ -4,6 +4,7 @@ import dev.architectury.platform.forge.EventBuses;
 import net.ddns.minersonline.better_cc.BetterCC;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod(BetterCC.MOD_ID)
 public class BetterCCForge {

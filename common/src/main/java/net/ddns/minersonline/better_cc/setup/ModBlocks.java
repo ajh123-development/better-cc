@@ -3,6 +3,7 @@ package net.ddns.minersonline.better_cc.setup;
 import dev.architectury.registry.block.ToolType;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.ddns.minersonline.better_cc.BetterCC;
+import net.ddns.minersonline.better_cc.blocks.RandomBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -20,9 +21,13 @@ public class ModBlocks {
     public static final RegistrySupplier<Block> DEEPSLATE_SILVER_ORE = register("deepslate_silver_ore", () ->
             new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.DEEPSLATE).strength(4.5f, 3.0f).requiresCorrectToolForDrops()));
 
-
     public static final RegistrySupplier<Block> SILVER_BLOCK = register("silver_block", () ->
             new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(3, 10)));
+
+
+    // Machines
+    public static final RegistrySupplier<RandomBlock> RANDOM = register("random", () ->
+            new RandomBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1)));
 
     private static <T extends Block> RegistrySupplier<Block> registerNoItem(String name, Supplier<T> block){
         return Registration.BLOCKS.register(name, block);
