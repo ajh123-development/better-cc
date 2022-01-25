@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class RandomEntity extends BlockEntity {
+    int ticks = 0;
     public RandomEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlocksEntities.RANDOM.get(), blockPos, blockState);
     }
@@ -17,5 +18,6 @@ public class RandomEntity extends BlockEntity {
         if (block instanceof RandomBlock randomBlock) {
             randomBlock.updateSignalStrength(blockState, level, getBlockPos());
         }
+        ticks++;
     }
 }

@@ -15,6 +15,15 @@ configurations {
     developmentForge.extendsFrom common
 }
 
+repositories {
+    maven {
+        url 'https://squiddev.cc/maven/'
+        content {
+            includeGroup 'org.squiddev'
+        }
+    }
+}
+
 dependencies {
     forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
     // Remove the next line if you don't want to depend on the API
@@ -22,6 +31,7 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+    modImplementation "org.squiddev:cc-tweaked-${rootProject.minecraft_version}:${rootProject.cct_version}"
 }
 
 processResources {
