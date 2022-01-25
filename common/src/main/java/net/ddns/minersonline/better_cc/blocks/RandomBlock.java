@@ -75,7 +75,7 @@ public class RandomBlock extends HorizontalDirectionalBlock implements IWrenchMe
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new RandomEntity(ModBlocksEntities.RANDOM.get().getType(), blockPos, blockState);
+        return new RandomEntity(blockPos, blockState);
     }
 
     @Override

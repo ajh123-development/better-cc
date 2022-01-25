@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 public class ModBlocksEntities {
 
-    public static final RegistrySupplier<RandomEntity> RANDOM = register("random",
+    public static final RegistrySupplier<BlockEntityType<RandomEntity>> RANDOM = register("random",
             () -> BlockEntityType.Builder.of(RandomEntity::new, ModBlocks.RANDOM.get()).build(null));
 
     private static <T extends BlockEntityType<?>> RegistrySupplier<T> register(String name, Supplier<T> block) {
