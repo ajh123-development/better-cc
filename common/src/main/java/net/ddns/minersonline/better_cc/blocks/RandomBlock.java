@@ -1,10 +1,8 @@
 package net.ddns.minersonline.better_cc.blocks;
 
 import net.ddns.minersonline.better_cc.interfaces.IWrenchMe;
-import net.ddns.minersonline.better_cc.setup.ModBlocksEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -13,6 +11,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -48,7 +48,7 @@ public class RandomBlock extends HorizontalDirectionalBlock implements IWrenchMe
 
     @Override
     public boolean onWrench(Level world, BlockPos pos, BlockState state, Player player) {
-        world.setBlock(pos, state.setValue(POWER, 0).setValue(ENABLED, !state.getValue(ENABLED)), 3);
+        world.setBlockAndUpdate(pos, state.setValue(POWER, 0).setValue(ENABLED, !state.getValue(ENABLED)));
         return true;
     }
 
@@ -78,13 +78,10 @@ public class RandomBlock extends HorizontalDirectionalBlock implements IWrenchMe
         return new RandomEntity(blockPos, blockState);
     }
 
+    @Nullable
     @Override
-    public void tick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, Random random) {
-        BlockState blockstate = serverLevel.getBlockState(blockPos);
-        Block block = blockstate.getBlock();
-        if (block instanceof RandomBlock randomBlock) {
-            randomBlock.updateSignalStrength(blockstate, serverLevel, blockPos);
-        }
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
+        return level.isClientSide ? null
+                : (level0, pos, state0, blockEntity) -> ((RandomEntity) blockEntity).tick(blockState, level);
     }
-
 }

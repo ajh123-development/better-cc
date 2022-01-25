@@ -20,7 +20,6 @@ public class WrenchItem extends Item {
         BlockPos pos = useOnContext.getClickedPos();
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if(blockEntity != null && !level.isClientSide()){
-            System.out.println("Hi?");
             Block block = blockEntity.getBlockState().getBlock();
             if(block instanceof IWrenchMe){
                 boolean done = ((IWrenchMe) block).onWrench(level, blockEntity.getBlockPos(), blockEntity.getBlockState(), useOnContext.getPlayer());
