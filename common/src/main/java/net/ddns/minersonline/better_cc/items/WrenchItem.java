@@ -2,6 +2,7 @@ package net.ddns.minersonline.better_cc.items;
 
 import net.ddns.minersonline.better_cc.interfaces.IWrenchMe;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
@@ -22,7 +23,8 @@ public class WrenchItem extends Item {
         if(blockEntity != null && !level.isClientSide()){
             Block block = blockEntity.getBlockState().getBlock();
             if(block instanceof IWrenchMe){
-                boolean done = ((IWrenchMe) block).onWrench(level, blockEntity.getBlockPos(), blockEntity.getBlockState(), useOnContext.getPlayer());
+                ServerPlayer player = (ServerPlayer) useOnContext.getPlayer();
+                boolean done = ((IWrenchMe) block).onWrench(level, blockEntity.getBlockPos(), blockEntity.getBlockState(), player);
                 if(done){
                     return InteractionResult.SUCCESS;
                 } else {

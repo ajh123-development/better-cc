@@ -3,7 +3,9 @@ package net.ddns.minersonline.better_cc.blocks;
 import net.ddns.minersonline.better_cc.interfaces.IWrenchMe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.network.chat.ChatType;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -47,8 +49,14 @@ public class RandomBlock extends HorizontalDirectionalBlock implements IWrenchMe
     }
 
     @Override
-    public boolean onWrench(Level world, BlockPos pos, BlockState state, Player player) {
+    public boolean onWrench(Level world, BlockPos pos, BlockState state, ServerPlayer player) {
         world.setBlockAndUpdate(pos, state.setValue(POWER, 0).setValue(ENABLED, !state.getValue(ENABLED)));
+        state = world.getBlockState(pos);
+        if(state.getValue(ENABLED)) {
+            player.sendMessage(new TextComponent("enabled:§a"+true), ChatType.GAME_INFO, player.getUUID());
+        } else {
+            player.sendMessage(new TextComponent("enabled:§c"+false), ChatType.GAME_INFO, player.getUUID());
+        }
         return true;
     }
 
