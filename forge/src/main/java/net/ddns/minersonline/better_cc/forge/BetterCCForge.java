@@ -1,7 +1,9 @@
 package net.ddns.minersonline.better_cc.forge;
 
+import dan200.computercraft.api.ComputerCraftAPI;
 import dev.architectury.platform.forge.EventBuses;
 import net.ddns.minersonline.better_cc.BetterCC;
+import net.ddns.minersonline.better_cc.forge.peripherals.PeripheralsProvider;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -12,5 +14,6 @@ public class BetterCCForge {
         // Submit our event bus to let architectury register our content on the right time
         EventBuses.registerModEventBus(BetterCC.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
         BetterCC.init();
+        ComputerCraftAPI.registerPeripheralProvider(new PeripheralsProvider());
     }
 }
