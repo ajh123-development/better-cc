@@ -1,4 +1,4 @@
-package net.ddns.minersonline.better_cc.forge.peripherals;
+package net.ddns.minersonline.better_cc.fabric.peripherals;
 
 import dan200.computercraft.api.lua.LuaFunction;
 import dan200.computercraft.api.peripheral.IComputerAccess;
@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
 import java.util.Objects;
 
 public class RandomPeripheral implements IPeripheral {
@@ -26,7 +25,6 @@ public class RandomPeripheral implements IPeripheral {
         this.pos = pos;
     }
 
-    @Nonnull
     @Override
     public @NotNull String getType() {
         return "randomizer";
