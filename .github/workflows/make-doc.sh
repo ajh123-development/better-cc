@@ -5,7 +5,7 @@ set -eu
 DEST="${GITHUB_REF#refs/*/}/docs"
 echo "Uploading docs to http://samhub.atwebpages.com/$DEST"
 
-# Setup ssh keys
+# Setup ssh key
 # mkdir -p "$HOME/.ssh/"
 # echo "$SSH_KEY" > "$HOME/.ssh/key"
 # chmod 600 "$HOME/.ssh/key"

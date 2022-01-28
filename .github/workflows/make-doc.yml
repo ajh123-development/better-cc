@@ -45,7 +45,9 @@ jobs:
           ./gradlew docWebsite javadoc --no-daemon
 
       - name: Upload documentation
-        run: .github/workflows/make-doc.sh
+        run: |
+          chmod a+x .github/workflows/make-doc.sh ||
+          .github/workflows/make-doc.sh
         env:
           SSH_KEY:  ${{ secrets.SSH_KEY  }}
           SSH_USER: ${{ secrets.SSH_USER }}
