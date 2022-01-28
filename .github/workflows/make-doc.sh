@@ -12,6 +12,7 @@ echo "Uploading docs to $HOST/$DEST"
 # rsync -avc -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no -p $SSH_PORT" \
 #       "$GITHUB_WORKSPACE/build/docs/lua/" \
 #       "$SSH_USER@$SSH_HOST:/$DEST"
+lftp -c "open -u $SSH_USER,$SSH_KEY $SSH_HOST; put -O $DEST $GITHUB_WORKSPACE/build/docs/lua/*"
 #rsync -avc -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no -p $SSH_PORT" \
 #      "$GITHUB_WORKSPACE/build/docs/javadoc/" \
 #      "$SSH_USER@$SSH_HOST:/$DEST/javadoc"
