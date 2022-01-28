@@ -34,10 +34,15 @@ jobs:
         run: npm ci
 
       - name: Build with Gradle
-        run: ./gradlew compileJava --no-daemon || ./gradlew compileJava --no-daemon
+        run: |
+          chmod a+x ./gradlew ||
+          ./gradlew compileJava --no-daemon ||
+          ./gradlew compileJava --no-daemon
 
       - name: Generate documentation
-        run: ./gradlew docWebsite javadoc --no-daemon
+        run: |
+          chmod a+x ./gradlew ||
+          ./gradlew docWebsite javadoc --no-daemon
 
       - name: Upload documentation
         run: .github/workflows/make-doc.sh 2> /dev/null
