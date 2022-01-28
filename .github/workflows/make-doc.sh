@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-set -eu
-
 DEST="${GITHUB_REF#refs/*/}/docs"
-echo "Uploading docs to http://samhub.atwebpages.com/$DEST"
+echo "Uploading docs to $HOST/$DEST"
 
 # Setup ssh key
 # mkdir -p "$HOME/.ssh/"

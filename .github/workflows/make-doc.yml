@@ -49,7 +49,7 @@ jobs:
           chmod a+x .github/workflows/make-doc.sh ||
           .github/workflows/make-doc.sh
         env:
-          SSH_KEY:  ${{ secrets.SSH_KEY  }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_KEY:  ${{ secrets.FTP_PASS }}
+          SSH_USER: ${{ secrets.FTP_USER }}
+          SSH_HOST: ${{ secrets.FTP_HOST }}
+          SSH_PORT: ${{ secrets.FTP_PORT }}
