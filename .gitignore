@@ -3,11 +3,15 @@ build/
 run/
 *.iws
 out/
+docs/out/
+node_modules
 *.iml
 .gradle/
 output/
 bin/
 libs/
+docs/luaFabricJavadoc
+docs/luaForgeJavadoc
 
 .classpath
 .project
@@ -17,3 +21,7 @@ classes/
 .vscode
 .settings
 *.launch
+.idea
+.gradle
+*.DS_Store
+package-lock.json

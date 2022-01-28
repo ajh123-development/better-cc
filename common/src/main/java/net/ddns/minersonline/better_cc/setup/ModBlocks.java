@@ -1,6 +1,5 @@
 package net.ddns.minersonline.better_cc.setup;
 
-import dev.architectury.registry.block.ToolType;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.ddns.minersonline.better_cc.BetterCC;
 import net.ddns.minersonline.better_cc.blocks.RandomBlock;

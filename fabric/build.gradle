@@ -2,6 +2,8 @@ plugins {
     id "com.github.johnrengelman.shadow" version "7.0.0"
 }
 
+def javaVersion = JavaLanguageVersion.of(17)
+
 architectury {
     platformSetupLoomIde()
     fabric()
@@ -15,11 +17,21 @@ configurations {
     developmentFabric.extendsFrom common
 }
 
+sourceSets {
+    fabric {}
+}
+
 repositories {
     maven { url "https://jitpack.io" }
     maven { url 'https://squiddev.cc/maven/' }
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://maven.terraformersmc.com/" }
+}
+
+configurations {
+    shade
+    implementation.extendsFrom shade
+    cctJavadoc
 }
 
 dependencies {
@@ -31,6 +43,8 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
     modImplementation "com.github.cc-tweaked:cc-restitched:${rootProject.ccr_version}"
+
+    cctJavadoc 'cc.tweaked:cct-javadoc:1.4.2'
 }
 
 processResources {
@@ -50,6 +64,29 @@ remapJar {
     input.set shadowJar.archiveFile
     dependsOn shadowJar
     classifier null
+}
+
+//javadoc {
+//    include "dan200/computercraft/api/**/*.java"
+//}
+
+task luaJavadoc(type: Javadoc) {
+
+    description "Generates documentation for Java-side Lua functions."
+    group "documentation"
+
+    source = sourceSets.main.allJava
+    destinationDir = file("${rootProject.projectDir}/${rootProject.docs_dir}/luaFabricJavadoc")
+    classpath = sourceSets.main.compileClasspath
+
+
+    options.docletpath = configurations.cctJavadoc.files as List
+    options.doclet = "cc.tweaked.javadoc.LuaDoclet"
+    options.noTimestamp = false
+
+    javadocTool = javaToolchains.javadocToolFor {
+        languageVersion = javaVersion
+    }
 }
 
 jar {

@@ -2,6 +2,8 @@ plugins {
     id "com.github.johnrengelman.shadow" version "7.0.0"
 }
 
+def javaVersion = JavaLanguageVersion.of(17)
+
 architectury {
     platformSetupLoomIde()
     forge()
@@ -12,16 +14,21 @@ configurations {
     shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
-    developmentForge.extendsFrom common
+    developmentFabric.extendsFrom common
+}
+
+sourceSets {
+    forge {}
 }
 
 repositories {
-    maven {
-        url 'https://squiddev.cc/maven/'
-        content {
-            includeGroup 'org.squiddev'
-        }
-    }
+    maven { url 'https://squiddev.cc/maven/' }
+}
+
+configurations {
+    shade
+    implementation.extendsFrom shade
+    cctJavadoc
 }
 
 dependencies {
@@ -32,6 +39,8 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
     modImplementation "org.squiddev:cc-tweaked-${rootProject.minecraft_version}:${rootProject.cct_version}"
+
+    cctJavadoc 'cc.tweaked:cct-javadoc:1.4.2'
 }
 
 processResources {
@@ -54,6 +63,29 @@ remapJar {
     dependsOn shadowJar
     classifier null
 }
+
+
+//javadoc {
+//    include "dan200/computercraft/api/**/*.java"
+//}
+
+task luaJavadoc(type: Javadoc) {
+    description "Generates documentation for Java-side Lua functions."
+    group "documentation"
+
+    source = sourceSets.main.allJava
+    destinationDir = file("${rootProject.projectDir}/${rootProject.docs_dir}/luaForgeJavadoc")
+    classpath = sourceSets.main.compileClasspath
+
+    options.docletpath = configurations.cctJavadoc.files as List
+    options.doclet = "cc.tweaked.javadoc.LuaDoclet"
+    options.noTimestamp = false
+
+    javadocTool = javaToolchains.javadocToolFor {
+        languageVersion = javaVersion
+    }
+}
+
 
 jar {
     classifier "dev"

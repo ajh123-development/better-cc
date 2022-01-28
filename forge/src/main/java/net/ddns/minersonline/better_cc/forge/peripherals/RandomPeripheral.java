@@ -13,6 +13,13 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import java.util.Objects;
 
+/**
+ * This is the Forge version
+ * A Randomizer wrapped as a peripheral.
+ *
+ * This allows for basic interaction with adjacent randomizers.
+ * @cc.module randomizer forge
+ */
 public class RandomPeripheral implements IPeripheral {
     private IComputerAccess my_computer;
     private Level world;
@@ -42,12 +49,22 @@ public class RandomPeripheral implements IPeripheral {
         return other instanceof RandomPeripheral;
     }
 
+    /**
+     * Returns a random number that is also the redstone output of the Randomizer Block
+     *
+     * @return The random number itself
+     */
     @LuaFunction
     public final int getRandom()
     {
         return Objects.requireNonNull(world).getBlockState(pos).getValue(RandomBlock.POWER);
     }
 
+    /**
+     * Sets the enabled state on the Randomizer Block
+     *
+     * @param state True or False
+     */
     @LuaFunction
     public final void toggle(boolean state)
     {
