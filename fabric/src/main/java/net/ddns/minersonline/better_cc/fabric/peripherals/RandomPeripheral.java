@@ -13,7 +13,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 /**
- * This is the Fabric version
+ * This is the Fabric version.
+ *
  * A Randomizer wrapped as a peripheral.
  *
  * This allows for basic interaction with adjacent randomizers.

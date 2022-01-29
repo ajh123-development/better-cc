@@ -14,7 +14,8 @@ import javax.annotation.Nonnull;
 import java.util.Objects;
 
 /**
- * This is the Forge version
+ * This is the Forge version.
+ *
  * A Randomizer wrapped as a peripheral.
  *
  * This allows for basic interaction with adjacent randomizers.
