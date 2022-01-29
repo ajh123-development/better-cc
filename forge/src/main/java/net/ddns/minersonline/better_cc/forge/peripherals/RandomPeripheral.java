@@ -22,7 +22,6 @@ import java.util.Objects;
  * @cc.module randomizer forge
  */
 public class RandomPeripheral implements IPeripheral {
-    private IComputerAccess my_computer;
     private Level world;
     private BlockPos pos;
 
@@ -34,15 +33,9 @@ public class RandomPeripheral implements IPeripheral {
         this.pos = pos;
     }
 
-    @Nonnull
     @Override
     public @NotNull String getType() {
         return "randomizer";
-    }
-
-    @Override
-    public void attach(IComputerAccess computer) {
-        my_computer = computer;
     }
 
     @Override
@@ -54,6 +47,11 @@ public class RandomPeripheral implements IPeripheral {
      * Returns a random number that is also the redstone output of the Randomizer Block
      *
      * @return The random number itself
+     * @usage
+     * ```lua
+     * random = peripheral.wrap("left") -- "left" is the side of the computer or turtle that the Randomizer
+     * number = random.getRandom() -- This returns a random number between 1 and 15
+     * ``
      */
     @LuaFunction
     public final int getRandom()
@@ -65,6 +63,11 @@ public class RandomPeripheral implements IPeripheral {
      * Sets the enabled state on the Randomizer Block
      *
      * @param state True or False
+     * @usage
+     * ```lua
+     * random = peripheral.wrap("left") -- "left" is the side of the computer or turtle that the Randomizer
+     * random.toggle() -- This enables or disables the Randomizer
+     * ``
      */
     @LuaFunction
     public final void toggle(boolean state)
