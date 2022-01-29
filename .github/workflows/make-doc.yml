@@ -47,7 +47,7 @@ jobs:
           cd ${{ github.workspace }}
           chmod 777 ${{ github.workspace }}
           chmod a+x ./gradlew
-          ./gradlew luaJavadoc docWebsite javadoc
+          ./gradlew luaJavadoc docWebsite
 
       - name: Upload documentation
         shell: bash {0}
