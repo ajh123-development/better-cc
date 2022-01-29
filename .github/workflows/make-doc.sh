@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 DEST="${GITHUB_REF#refs/*/}/docs"
-echo "Uploading docs to $HOST/$DEST"
+echo "Uploading docs to $SSH_HOST/$DEST"
 
+sudo apt install -y lftp
 # Setup ssh key
 # mkdir -p "$HOME/.ssh/"
 # echo "$SSH_KEY" > "$HOME/.ssh/key"
