@@ -42,12 +42,6 @@ jobs:
           chmod a+x ./gradlew
           ./gradlew build
 
-      - name: Cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ${{ github.workspace }}
-
       - name: Generate documentation
         run: |
           cd ${{ github.workspace }}
