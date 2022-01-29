@@ -46,7 +46,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            ${{ github.workspace }}/build
+            ${{ github.workspace }}
 
       - name: Generate documentation
         run: |
