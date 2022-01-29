@@ -42,7 +42,7 @@ jobs:
       - name: Generate documentation
         run: |
           chmod a+x ./gradlew ||
-          ./gradlew docWebsite javadoc --no-daemon
+          ./gradlew luaJavadoc docWebsite javadoc --no-daemon
 
       - name: Upload documentation
         shell: bash {0}
