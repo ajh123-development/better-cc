@@ -40,7 +40,7 @@ jobs:
           cd ${{ github.workspace }} ||
           chmod 777 ${{ github.workspace }} ||
           chmod a+x ./gradlew ||
-          ./gradlew compileJava --no-daemon ||
+          ./gradlew build --no-daemon ||
           ./gradlew compileJava --no-daemon
 
       - name: Generate documentation
