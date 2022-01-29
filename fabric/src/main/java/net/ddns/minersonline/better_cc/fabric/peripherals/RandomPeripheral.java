@@ -46,11 +46,12 @@ public class RandomPeripheral implements IPeripheral {
      * Returns a random number that is also the redstone output of the Randomizer Block
      *
      * @return The random number itself
-     * @usage
-     * ```lua
-     * random = peripheral.wrap("left") -- "left" is the side of the computer or turtle that the Randomizer
+     * @cc.usage Wrap a Randomizer and store its value in ```number```
+     *
+     * <pre>{@code
+     * local random = peripheral.find("randomizer") or error("No Randomizer attached", 0)
      * number = random.getRandom() -- This returns a random number between 1 and 15
-     * ``
+     * }</pre>
      */
     @LuaFunction
     public final int getRandom()
@@ -62,11 +63,12 @@ public class RandomPeripheral implements IPeripheral {
      * Sets the enabled state on the Randomizer Block
      *
      * @param state True or False
-     * @usage
-     * ```lua
-     * random = peripheral.wrap("left") -- "left" is the side of the computer or turtle that the Randomizer
-     * random.toggle() -- This enables or disables the Randomizer
-     * ``
+     * @cc.usage Wrap a Randomizer and turn it off
+     *
+     * <pre>{@code
+     * local random = peripheral.find("randomizer") or error("No Randomizer attached", 0)
+     * random.toggle(false)
+     * }</pre>
      */
     @LuaFunction
     public final void toggle(boolean state)
