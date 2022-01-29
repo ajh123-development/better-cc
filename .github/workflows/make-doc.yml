@@ -27,35 +27,35 @@ jobs:
             ${{ runner.os }}-gradle-
       - name: Setup illuaminate
         run: |
-          cd ${{ github.workspace }} ||
-          chmod 777 ${{ github.workspace }} ||
-          mkdir bin ||
-          wget -q -Obin/illuaminate https://squiddev.cc/illuaminate/linux-x86-64/illuaminate ||
+          cd ${{ github.workspace }}
+          chmod 777 ${{ github.workspace }}
+          mkdir bin
+          wget -q -Obin/illuaminate https://squiddev.cc/illuaminate/linux-x86-64/illuaminate
           chmod +x bin/illuaminate
       - name: Setup node
         run: npm ci
 
       - name: Build with Gradle
         run: |
-          cd ${{ github.workspace }} ||
-          chmod 777 ${{ github.workspace }} ||
-          chmod a+x ./gradlew ||
-          ./gradlew build ||
+          cd ${{ github.workspace }}
+          chmod 777 ${{ github.workspace }}
+          chmod a+x ./gradlew
+          ./gradlew build
           ./gradlew compileJava
 
       - name: Generate documentation
         run: |
-          cd ${{ github.workspace }} ||
-          chmod 777 ${{ github.workspace }} ||
-          chmod a+x ./gradlew ||
+          cd ${{ github.workspace }}
+          chmod 777 ${{ github.workspace }}
+          chmod a+x ./gradlew
           ./gradlew luaJavadoc docWebsite javadoc
 
       - name: Upload documentation
         shell: bash {0}
         run: |
-          cd ${{ github.workspace }} ||
-          chmod 777 ${{ github.workspace }} ||
-          chmod a+x .github/workflows/make-doc.sh ||
+          cd ${{ github.workspace }}
+          chmod 777 ${{ github.workspace }}
+          chmod a+x .github/workflows/make-doc.sh
           .github/workflows/make-doc.sh
         env:
           SSH_KEY:  ${{ secrets.FTP_PASS }}
@@ -65,7 +65,7 @@ jobs:
       - name: Create artifacts folder
         run: |
           cd ${{ github.workspace }}
-          chmod 777 ${{ github.workspace }} ||
+          chmod 777 ${{ github.workspace }}
           mkdir -p ${{ github.workspace }}/artifact
           cp -r docs-build ${{ github.workspace }}/artifact
       - name: Upload Doc Artifacts
