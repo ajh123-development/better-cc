@@ -40,15 +40,15 @@ jobs:
           cd ${{ github.workspace }} ||
           chmod 777 ${{ github.workspace }} ||
           chmod a+x ./gradlew ||
-          ./gradlew build --no-daemon ||
-          ./gradlew compileJava --no-daemon
+          ./gradlew build ||
+          ./gradlew compileJava
 
       - name: Generate documentation
         run: |
           cd ${{ github.workspace }} ||
           chmod 777 ${{ github.workspace }} ||
           chmod a+x ./gradlew ||
-          ./gradlew luaJavadoc docWebsite javadoc --no-daemon
+          ./gradlew luaJavadoc docWebsite javadoc
 
       - name: Upload documentation
         shell: bash {0}
