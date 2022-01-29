@@ -45,6 +45,7 @@ jobs:
           ./gradlew docWebsite javadoc --no-daemon
 
       - name: Upload documentation
+        shell: bash {0}
         run: |
           chmod a+x .github/workflows/make-doc.sh ||
           .github/workflows/make-doc.sh
