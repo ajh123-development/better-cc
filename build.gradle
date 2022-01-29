@@ -4,7 +4,6 @@ plugins {
 }
 
 def javaVersion = JavaLanguageVersion.of(17)
-def buildDir = "build"
 
 architectury {
     minecraft = rootProject.minecraft_version
@@ -67,7 +66,7 @@ task rollup(type: Exec) {
     inputs.file("package-lock.json").withPropertyName("package-lock.json")
     inputs.file("tsconfig.json").withPropertyName("Typescript config")
     inputs.file("rollup.config.js").withPropertyName("Rollup config")
-    outputs.file("$buildDir/rollup/index.js").withPropertyName("output")
+    outputs.file("${rootProject.projectDir}/${rootProject.docs_dir}/rollup/index.js").withPropertyName("output")
 
     commandLine mkCommand('"node_modules/.bin/rollup" --config rollup.config.js')
 }
@@ -78,11 +77,11 @@ task illuaminateDocs(type: Exec, dependsOn: [rollup]) {
 
     inputs.files(fileTree("docs")).withPropertyName("docs")
     inputs.file("illuaminate.sexp").withPropertyName("illuaminate.sexp")
-    inputs.dir("docs/luaFabricJavadoc")
-    inputs.dir("docs/luaForgeJavadoc")
-    inputs.file("$buildDir/rollup/index.js").withPropertyName("scripts")
+    inputs.dir("${rootProject.projectDir}/${rootProject.docs_dir}/luaFabricJavadoc")
+    inputs.dir("${rootProject.projectDir}/${rootProject.docs_dir}/luaForgeJavadoc")
+    inputs.file("${rootProject.projectDir}/${rootProject.docs_dir}/rollup/index.js").withPropertyName("scripts")
     inputs.file("docs/web/styles.css").withPropertyName("styles")
-    outputs.dir("$buildDir/docs/lua")
+    outputs.dir("${rootProject.projectDir}/${rootProject.docs_dir}/docs/lua")
 
     commandLine mkCommand('"bin/illuaminate" doc-gen')
 }
@@ -92,8 +91,8 @@ task docWebsite(type: Copy, dependsOn: [illuaminateDocs]) {
         include 'logo.png'
         include 'images/**'
     }
-    from("$buildDir/rollup") {
+    from("${rootProject.projectDir}/${rootProject.docs_dir}/rollup") {
         exclude 'index.js'
     }
-    into "${project.docsDir}/lua"
+    into "${rootProject.projectDir}/${rootProject.docs_dir}/lua"
 }

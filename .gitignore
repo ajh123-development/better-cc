@@ -10,8 +10,7 @@ node_modules
 output/
 bin/
 libs/
-docs/luaFabricJavadoc
-docs/luaForgeJavadoc
+docs-build/
 
 .classpath
 .project

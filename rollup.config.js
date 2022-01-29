@@ -11,7 +11,7 @@ const requirejs = readFileSync("node_modules/requirejs/require.js");
 export default {
     input: [`${input}/index.tsx`],
     output: {
-        dir: "build/rollup/",
+        dir: "docs-build/rollup/",
         // We bundle requirejs (and config) into the header. It's rather gross
         // but also works reasonably well.
         // Also suffix a ?v=${date} onto the end in the event we need to require a specific copy-cat version.

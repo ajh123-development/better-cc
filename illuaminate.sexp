@@ -4,13 +4,13 @@
   /docs/events/
   /docs/guides/
   /docs/stub/
-  /docs/luaFabricJavadoc/
-  /docs/luaForgeJavadoc/
+  /docs-build/luaFabricJavadoc/
+  /docs-build/luaForgeJavadoc/
   /docs/web/mount)
 
 
 (doc
-  (destination build/docs/lua)
+  (destination docs-build/docs/lua)
   (index docs/index.md)
 
   (site
@@ -20,7 +20,7 @@
     (source-link https://github.com/ajh123-development/better-cc/blob/${commit}/${path}#L${line})
 
     (styles docs/web/styles.css)
-    (scripts build/rollup/index.js)
+    (scripts docs-build/rollup/index.js)
     (head docs/head.html))
 
   (module-kinds
@@ -31,8 +31,8 @@
 
   (library-path
     /docs/stub/
-    /docs/luaFabricJavadoc/
-    /docs/luaForgeJavadoc/))
+    /docs-build/luaFabricJavadoc/
+    /docs-build/luaForgeJavadoc/))
 
 (at /
   (linters
