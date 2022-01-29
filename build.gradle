@@ -77,8 +77,8 @@ task illuaminateDocs(type: Exec, dependsOn: [rollup]) {
 
     inputs.files(fileTree("docs")).withPropertyName("docs")
     inputs.file("illuaminate.sexp").withPropertyName("illuaminate.sexp")
-    inputs.dir("docs/luaFabricJavadoc")
-    inputs.dir("docs/luaForgeJavadoc")
+    inputs.dir("$buildDir/docs/luaFabricJavadoc")
+    inputs.dir("$buildDir/docs/luaForgeJavadoc")
     inputs.file("$buildDir/rollup/index.js").withPropertyName("scripts")
     inputs.file("docs/web/styles.css").withPropertyName("styles")
     outputs.dir("$buildDir/docs/lua")
