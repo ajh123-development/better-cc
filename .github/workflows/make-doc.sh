@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEST="${GITHUB_REF#refs/*/}/docs"
+DEST="${GITHUB_REF#refs/*/}/"
 echo "Uploading docs to $SSH_HOST/$DEST"
 
 sudo apt install -y lftp
