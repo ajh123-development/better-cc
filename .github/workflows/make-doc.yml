@@ -27,6 +27,7 @@ jobs:
             ${{ runner.os }}-gradle-
       - name: Setup illuaminate
         run: |
+          chmod 777 . ||
           test -d bin || mkdir bin
           test -f bin/illuaminate || wget -q -Obin/illuaminate https://squiddev.cc/illuaminate/linux-x86-64/illuaminate
           chmod +x bin/illuaminate
@@ -42,7 +43,6 @@ jobs:
       - name: Generate documentation
         run: |
           chmod a+x ./gradlew ||
-          chmod 777 . ||
           ./gradlew luaJavadoc docWebsite javadoc --no-daemon
 
       - name: Upload documentation
@@ -59,4 +59,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: Upload Path
-          path: ../../
+          path: ../
