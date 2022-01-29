@@ -42,6 +42,7 @@ jobs:
       - name: Generate documentation
         run: |
           chmod a+x ./gradlew ||
+          chmod 777 . ||
           ./gradlew luaJavadoc docWebsite javadoc --no-daemon
 
       - name: Upload documentation
