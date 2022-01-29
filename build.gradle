@@ -4,6 +4,7 @@ plugins {
 }
 
 def javaVersion = JavaLanguageVersion.of(17)
+def buildDir = "build"
 
 architectury {
     minecraft = rootProject.minecraft_version
