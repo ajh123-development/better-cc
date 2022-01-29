@@ -56,7 +56,10 @@ jobs:
           SSH_HOST: ${{ secrets.FTP_HOST }}
           SSH_PORT: ${{ secrets.FTP_PORT }}
       - name: Upload Doc Artifacts
-        uses: actions/upload-artifact@v1
+        run: |
+          mkdir -p ${{ github.workspace }}/artifact
+          cp -r docs-build ${{ github.workspace }}/artifact
+        uses: actions/upload-artifact@v2
         with:
           name: Upload Path
-          path: ../
+          path: ${{ github.workspace }}/artifact
