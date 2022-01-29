@@ -59,7 +59,7 @@ jobs:
         run: |
           mkdir -p ${{ github.workspace }}/artifact
           cp -r docs-build ${{ github.workspace }}/artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v1
         with:
           name: Upload Path
           path: ${{ github.workspace }}/artifact
