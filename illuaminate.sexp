@@ -4,7 +4,8 @@
   /docs/events/
   /docs/guides/
   /docs/stub/
-  /build/docs/luaJavadoc/
+  /docs/luaFabricJavadoc/
+  /docs/luaForgeJavadoc/
   /docs/web/mount)
 
 
