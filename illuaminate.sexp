@@ -16,7 +16,7 @@
   (site
     (title "Better CC")
     (logo docs/logo.png)
-    (url http://samhub.atwebpages.com/)
+    (url http://samhub.atwebpages.com/1.18/docs/lua/)
     (source-link https://github.com/ajh123-development/better-cc/blob/${commit}/${path}#L${line})
 
     (styles docs/web/styles.css)
