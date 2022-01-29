@@ -41,7 +41,6 @@ jobs:
           chmod 777 ${{ github.workspace }}
           chmod a+x ./gradlew
           ./gradlew build
-          ./gradlew compileJava
 
       - name: Generate documentation
         run: |
