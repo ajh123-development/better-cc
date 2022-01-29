@@ -20,7 +20,7 @@
     (source-link https://github.com/ajh123-development/better-cc/blob/${commit}/${path}#L${line})
 
     (styles docs/web/styles.css)
-    (scripts docs-build/rollup/index.js)
+    (scripts ../../rollup/index.js)
     (head docs/head.html))
 
   (module-kinds
