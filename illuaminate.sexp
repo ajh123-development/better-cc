@@ -13,7 +13,7 @@
   (index docs/index.md)
 
   (site
-    (title "CC: Tweaked")
+    (title "Better CC")
     (logo src/main/resources/pack.png)
     (url http://samhub.atwebpages.com/)
     (source-link https://github.com/ajh123-development/better-cc/blob/${commit}/${path}#L${line})
@@ -30,8 +30,8 @@
 
   (library-path
     /docs/stub/
-    /build/docs/luaFabricJavadoc/
-    /build/docs/luaForgeJavadoc/
+    /docs/luaFabricJavadoc/
+    /docs/luaForgeJavadoc/
 
 (at /
   (linters
@@ -64,4 +64,4 @@
     ;;  ;; isn't smart enough.
     ;;  sleep write printError read rs)))
 
-(at /doc/web/mount/expr_template.lua (lint (globals :max __expr__)))
+(at /docs/web/mount/expr_template.lua (lint (globals :max __expr__)))
