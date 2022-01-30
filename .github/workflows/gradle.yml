@@ -12,13 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set Up Java
-        run: cd ${{ github.workspace }}
         uses: actions/setup-java@v2
         with:
           java-version: ${{ matrix.java-version }}
           distribution: ${{ matrix.java-distro }}
       - name: Grant Permissions
         run: |
+          cd ${{ github.workspace }}
           chmod 777 .
           chmod +x gradlew
       - name: Build
