@@ -2,14 +2,13 @@ import { render, h, Component, Computer, PeripheralKind } from "copycat/embed";
 import type { ComponentChild } from "preact";
 
 import 'path';
-const filePath = __dirname;
-import settingsFile from path.join(filePath, "../web/mount/.settings");
-import startupFile from path.join(filePath,"../web/mount/startup.lua");
-import exprTemplate from path.join(filePath,"../web/mount/expr_template.lua");
-import exampleNfp from path.join(filePath,"../web/mount/example.nfp");
-import exampleNft from path.join(filePath,"../web/mount/example.nft");
-import exampleAudioLicense from path.join(filePath,"../web/mount/example.dfpwm.LICENSE");
-import exampleAudioUrl from path.join(filePath,"../web/mount/example.dfpwm");
+import settingsFile from path.join(__dirname, "../web/mount/.settings");
+import startupFile from path.join(__dirname,"../web/mount/startup.lua");
+import exprTemplate from path.join(__dirname,"../web/mount/expr_template.lua");
+import exampleNfp from path.join(__dirname,"../web/mount/example.nfp");
+import exampleNft from path.join(__dirname,"../web/mount/example.nft");
+import exampleAudioLicense from path.join(__dirname,"../web/mount/example.dfpwm.LICENSE");
+import exampleAudioUrl from path.join(__dirname,"../web/mount/example.dfpwm");
 
 const defaultFiles: { [filename: string]: string } = {
     ".settings": settingsFile,
