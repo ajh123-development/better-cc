@@ -62,7 +62,7 @@ task rollup(type: Exec) {
     group = "build"
     description = "Bundles JS into rollup"
 
-    inputs.files(fileTree("docs/web")).withPropertyName("sources")
+    inputs.files(fileTree("docs/web/"), fileTree("docs/web/mount")).withPropertyName("sources")
     inputs.file("package-lock.json").withPropertyName("package-lock.json")
     inputs.file("tsconfig.json").withPropertyName("Typescript config")
     inputs.file("rollup.config.js").withPropertyName("Rollup config")
