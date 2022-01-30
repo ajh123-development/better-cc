@@ -1,7 +1,7 @@
 import { render, h, Component, Computer, PeripheralKind } from "copycat/embed";
 import type { ComponentChild } from "preact";
 
-const path = import 'path';
+import 'path';
 const filePath = __dirname;
 import settingsFile from path.join(filePath, "../web/mount/.settings");
 import startupFile from path.join(filePath,"../web/mount/startup.lua");
