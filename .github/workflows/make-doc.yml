@@ -3,7 +3,7 @@ name: Build documentation
 on:
   push:
     branches:
-      - "1.18"
+      - "main"
 
 jobs:
   make_doc:
