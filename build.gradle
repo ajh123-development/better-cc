@@ -75,7 +75,7 @@ task illuaminateDocs(type: Exec, dependsOn: [rollup]) {
     group = "build"
     description = "Bundles JS into rollup"
 
-    inputs.files(fileTree("docs")).withPropertyName("docs")
+    inputs.files(fileTree("docs/other")).withPropertyName("docs")
     inputs.file("illuaminate.sexp").withPropertyName("illuaminate.sexp")
     inputs.dir("${rootProject.projectDir}/${rootProject.docs_dir}/luaFabricJavadoc")
     inputs.dir("${rootProject.projectDir}/${rootProject.docs_dir}/luaForgeJavadoc")
@@ -94,5 +94,5 @@ task docWebsite(type: Copy, dependsOn: [illuaminateDocs]) {
     from("${rootProject.projectDir}/${rootProject.docs_dir}/rollup") {
         exclude 'index.js'
     }
-    into "${rootProject.projectDir}/${rootProject.docs_dir}/lua"
+    into "${rootProject.projectDir}/${rootProject.docs_dir}/docs/lua"
 }

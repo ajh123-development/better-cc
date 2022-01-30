@@ -1,13 +1,13 @@
 import { render, h, Component, Computer, PeripheralKind } from "copycat/embed";
 import type { ComponentChild } from "preact";
 
-import settingsFile from "mount/.settings";
-import startupFile from "mount/startup.lua";
-import exprTemplate from "mount/expr_template.lua";
-import exampleNfp from "mount/example.nfp";
-import exampleNft from "mount/example.nft";
-import exampleAudioLicense from "mount/example.dfpwm.LICENSE";
-import exampleAudioUrl from "mount/example.dfpwm";
+import settingsFile from "./mount/.settings";
+import startupFile from "./mount/startup.lua";
+import exprTemplate from "./mount/expr_template.lua";
+import exampleNfp from "./mount/example.nfp";
+import exampleNft from "./mount/example.nft";
+import exampleAudioLicense from "./mount/example.dfpwm.LICENSE";
+import exampleAudioUrl from "./mount/example.dfpwm";
 
 const defaultFiles: { [filename: string]: string } = {
     ".settings": settingsFile,

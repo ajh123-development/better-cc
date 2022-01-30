@@ -1,9 +1,9 @@
 ; -*- mode: Lisp;-*-
 
 (sources
-  /docs/events/
-  /docs/guides/
-  /docs/stub/
+  /docs/other/events/
+  /docs/other/guides/
+  /docs/other/stub/
   /docs-build/luaFabricJavadoc/
   /docs-build/luaForgeJavadoc/
   /docs/web/mount)
@@ -11,17 +11,17 @@
 
 (doc
   (destination docs-build/docs/lua)
-  (index docs/index.md)
+  (index docs/other/index.md)
 
   (site
     (title "Better CC")
-    (logo docs/logo.png)
+    (logo docs/other/logo.png)
     (url http://samhub.atwebpages.com/1.18/docs/lua/)
     (source-link https://github.com/ajh123-development/better-cc/blob/${commit}/${path}#L${line})
 
     (styles docs/web/styles.css)
-    (scripts ../../rollup/index.js)
-    (head docs/head.html))
+    (scripts docs-build/rollup/index.js)
+    (head docs/other/head.html))
 
   (module-kinds
     (peripheral Peripherals)
@@ -30,7 +30,7 @@
     (guide Guides))
 
   (library-path
-    /docs/stub/
+    /docs/other/stub/
     /docs-build/luaFabricJavadoc/
     /docs-build/luaForgeJavadoc/))
 

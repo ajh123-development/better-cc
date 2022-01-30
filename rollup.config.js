@@ -37,7 +37,7 @@ export default {
         url({
             include: "**/*.dfpwm",
             fileName: "[name]-[hash][extname]",
-            publicPath: "/",
+            publicPath: "/1.18/docs/lua/",
         }),
 
         {
