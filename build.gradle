@@ -87,9 +87,8 @@ task illuaminateDocs(type: Exec, dependsOn: [rollup]) {
 }
 
 task docWebsite(type: Copy, dependsOn: [illuaminateDocs]) {
-    from('docs') {
+    from('docs/other') {
         include 'logo.png'
-        include 'images/**'
     }
     from("${rootProject.projectDir}/${rootProject.docs_dir}/rollup") {
         exclude 'index.js'
