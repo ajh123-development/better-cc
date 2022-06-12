@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "better_cc:network_tunnel_card",
+    "better_cc:network_tunnel_module"
+  ]
+}

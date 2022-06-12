@@ -1,0 +1,14 @@
+{
+  "type": "better_cc:wrench",
+  "ingredients": [
+    {
+      "item": "better_cc:wrench"
+    },
+    {
+      "item": "better_cc:hard_drive_large"
+    }
+  ],
+  "result": {
+    "item": "better_cc:hard_drive_custom"
+  }
+}

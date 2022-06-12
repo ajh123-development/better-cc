@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "better_cc:computer",
+    "better_cc:redstone_interface",
+    "better_cc:disk_drive",
+    "better_cc:projector"
+  ]
+}

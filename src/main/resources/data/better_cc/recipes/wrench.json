@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    " T ",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "T": {
+      "item": "better_cc:transistor"
+    }
+  },
+  "result": {
+    "item": "better_cc:wrench"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "better_cc:wrench",
+  "ingredients": [
+    {
+      "item": "better_cc:wrench"
+    },
+    {
+      "item": "better_cc:flash_memory"
+    }
+  ],
+  "result": {
+    "item": "better_cc:flash_memory_custom"
+  }
+}

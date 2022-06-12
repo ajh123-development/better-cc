@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "better_cc:redstone_interface_card",
+    "better_cc:network_interface_card",
+    "better_cc:file_import_export_card",
+    "better_cc:sound_card",
+    "better_cc:network_tunnel_card"
+  ]
+}

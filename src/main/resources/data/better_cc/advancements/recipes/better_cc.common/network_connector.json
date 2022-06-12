@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "better_cc:network_connector"
+    ]
+  },
+  "criteria": {
+    "has_transistor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "better_cc:transistor"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "better_cc:network_connector"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_transistor",
+      "has_the_recipe"
+    ]
+  ]
+}

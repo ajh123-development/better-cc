@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "better_cc:block/computer"
+    },
+    "facing=south": {
+      "model": "better_cc:block/computer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "better_cc:block/computer",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "better_cc:block/computer",
+      "y": 90
+    }
+  }
+}

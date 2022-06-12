@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "better_cc:computer",
+    "better_cc:redstone_interface",
+    "better_cc:disk_drive",
+    "better_cc:projector",
+    "#better_cc:devices/memory",
+    "#better_cc:devices/hard_drive",
+    "#better_cc:devices/flash_memory",
+    "#better_cc:devices/card",
+    "#better_cc:devices/robot_module",
+    "#better_cc:devices/floppy"
+  ]
+}

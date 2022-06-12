@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "better_cc:robot"
+    ]
+  },
+  "criteria": {
+    "has_transistor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "better_cc:transistor"
+            ]
+          }
+        ]
+      }
+    },
+    "has_circuit_board": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "better_cc:circuit_board"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "better_cc:robot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_transistor",
+      "has_circuit_board",
+      "has_the_recipe"
+    ]
+  ]
+}

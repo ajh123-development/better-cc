@@ -1,0 +1,14 @@
+{
+  "type": "better_cc:wrench",
+  "ingredients": [
+    {
+      "item": "better_cc:wrench"
+    },
+    {
+      "item": "minecraft:book"
+    }
+  ],
+  "result": {
+    "item": "better_cc:manual"
+  }
+}

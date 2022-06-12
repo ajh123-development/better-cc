@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#better_cc:tool_materials/wood",
+    "#better_cc:tool_materials/stone",
+    "#better_cc:tool_materials/iron",
+    "#better_cc:tool_materials/gold",
+    "#better_cc:tool_materials/diamond",
+    "#better_cc:tool_materials/netherite"
+  ]
+}

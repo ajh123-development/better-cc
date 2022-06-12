@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "better_cc:network_tunnel_card"
+    ]
+  },
+  "criteria": {
+    "has_computer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "better_cc:computer"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "better_cc:network_tunnel_card"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_computer",
+      "has_the_recipe"
+    ]
+  ]
+}

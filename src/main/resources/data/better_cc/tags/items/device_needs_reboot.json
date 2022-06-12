@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "better_cc:disk_drive",
+    "better_cc:flash_memory",
+    "better_cc:flash_memory_custom",
+    "better_cc:hard_drive_small",
+    "better_cc:hard_drive_medium",
+    "better_cc:hard_drive_large",
+    "better_cc:hard_drive_custom",
+    "better_cc:keyboard",
+    "better_cc:memory_small",
+    "better_cc:memory_medium",
+    "better_cc:memory_large",
+    "better_cc:network_interface_card",
+    "better_cc:network_tunnel_card",
+    "better_cc:network_tunnel_module",
+    "better_cc:projector"
+  ]
+}

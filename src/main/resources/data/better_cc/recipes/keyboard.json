@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "UUU",
+    "XTU",
+    "IBI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "U": {
+      "tag": "minecraft:buttons"
+    },
+    "T": {
+      "item": "better_cc:transistor"
+    },
+    "X": {
+      "item": "better_cc:bus_interface"
+    },
+    "B": {
+      "item": "better_cc:circuit_board"
+    }
+  },
+  "result": {
+    "item": "better_cc:keyboard"
+  }
+}

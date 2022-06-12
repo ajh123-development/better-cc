@@ -1,14 +1,2 @@
-pluginManagement {
-    repositories {
-        maven { url "https://maven.fabricmc.net/" }
-        maven { url "https://maven.architectury.dev/" }
-        maven { url "https://maven.minecraftforge.net/" }
-        gradlePluginPortal()
-    }
-}
-
-include("common")
-include("fabric")
-include("forge")
-
-rootProject.name = "Better CC"
+apply from: 'minecraft.gradle'
+rootProject.name = "BetterCC-${minecraft_version}-${minecraft_sdk}"

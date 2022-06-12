@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "better_cc:block/keyboard"
+    },
+    "facing=south": {
+      "model": "better_cc:block/keyboard",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "better_cc:block/keyboard",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "better_cc:block/keyboard",
+      "y": 90
+    }
+  }
+}

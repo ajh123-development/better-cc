@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GTG",
+    " B "
+  ],
+  "key": {
+    "G": {
+      "tag": "forge:ingots/gold"
+    },
+    "T": {
+      "item": "better_cc:transistor"
+    },
+    "B": {
+      "item": "better_cc:circuit_board"
+    }
+  },
+  "result": {
+    "item": "better_cc:memory_medium",
+    "count": 2
+  }
+}

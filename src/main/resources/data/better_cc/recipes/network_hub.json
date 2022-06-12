@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ICI",
+    "XTX",
+    "IBI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "C": {
+      "item": "better_cc:network_connector"
+    },
+    "X": {
+      "item": "better_cc:bus_interface"
+    },
+    "T": {
+      "item": "better_cc:transistor"
+    },
+    "B": {
+      "item": "better_cc:circuit_board"
+    }
+  },
+  "result": {
+    "item": "better_cc:network_hub"
+  }
+}

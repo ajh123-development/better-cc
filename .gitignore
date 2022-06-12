@@ -1,25 +1,37 @@
-build/
-*.ipr
-run/
-*.iws
-out/
-docs/out/
-node_modules
-*.iml
-.gradle/
-output/
-bin/
-libs/
-docs-build/
+#system
+.DS_Store
 
+# eclipse
+bin
+*.launch
+.settings
+.metadata
 .classpath
 .project
-.idea/
-classes/
-.metadata
-.vscode
-.settings
-*.launch
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
 .idea
+
+# gradle
+build
 .gradle
-*.DS_Store
+
+# other
+eclipse
+run
+logs
+/assets/
+
+# Files from Forge MDK
+forge*changelog.txt
+/src/generated/
+
+#vscode
+.vscode
+
+# Don't ignore bin from scripts
+!/src/main/scripts/bin/

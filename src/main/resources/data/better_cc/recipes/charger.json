@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IPI",
+    "XTX",
+    "IRI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "P": {
+      "item": "minecraft:light_weighted_pressure_plate"
+    },
+    "T": {
+      "item": "better_cc:transistor"
+    },
+    "X": {
+      "item": "better_cc:bus_interface"
+    },
+    "R": {
+      "tag": "forge:storage_blocks/redstone"
+    }
+  },
+  "result": {
+    "item": "better_cc:charger"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ITI",
+    " B "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "T": {
+      "item": "better_cc:transistor"
+    },
+    "B": {
+      "item": "better_cc:circuit_board"
+    }
+  },
+  "result": {
+    "item": "better_cc:memory_small",
+    "count": 2
+  }
+}

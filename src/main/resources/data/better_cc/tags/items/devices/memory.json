@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "better_cc:memory_small",
+    "better_cc:memory_medium",
+    "better_cc:memory_large"
+  ]
+}

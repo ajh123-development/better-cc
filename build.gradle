@@ -1,97 +1,223 @@
-plugins {
-    id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "0.12.0-SNAPSHOT" apply false
-}
-
-def javaVersion = JavaLanguageVersion.of(17)
-
-architectury {
-    minecraft = rootProject.minecraft_version
-}
-
-subprojects {
-    apply plugin: "dev.architectury.loom"
-
-    loom {
-        silentMojangMappingsLicense()
-    }
-
-    dependencies {
-        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
-        // The following line declares the mojmap mappings, you may use other mappings as well
-        mappings loom.officialMojangMappings()
-        // The following line declares the yarn mappings you may select this one as well.
-        // mappings "net.fabricmc:yarn:1.17.1+build.32:v2"
-    }
-}
-
-allprojects {
-    apply plugin: "java"
-    apply plugin: "architectury-plugin"
-    apply plugin: "maven-publish"
-
-    archivesBaseName = rootProject.archives_base_name
-    version = rootProject.mod_version
-    group = rootProject.maven_group
-
+buildscript {
     repositories {
-        // Add repositories to retrieve artifacts from in here.
-        // You should only use this when depending on other mods because
-        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
-        // for more information about repositories.
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
     }
-
-    tasks.withType(JavaCompile) {
-        options.encoding = "UTF-8"
-        options.release = javaVersion.asInt()
-    }
-
-    java {
-        withSourcesJar()
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7.+'
     }
 }
 
-import org.apache.tools.ant.taskdefs.condition.Os
-
-List<String> mkCommand(String command) {
-    return Os.isFamily(Os.FAMILY_WINDOWS) ? ["cmd", "/c", command] : ["sh", "-c", command]
+plugins {
+    id 'idea'
+    id 'maven-publish'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
-task rollup(type: Exec) {
-    group = "build"
-    description = "Bundles JS into rollup"
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.spongepowered.mixin'
+apply from: 'minecraft.gradle'
 
-    inputs.files(fileTree("docs/web/"), fileTree("docs/web/mount")).withPropertyName("sources")
-    inputs.file("package-lock.json").withPropertyName("package-lock.json")
-    inputs.file("tsconfig.json").withPropertyName("Typescript config")
-    inputs.file("rollup.config.js").withPropertyName("Rollup config")
-    outputs.file("${rootProject.projectDir}/${rootProject.docs_dir}/rollup/index.js").withPropertyName("output")
-
-    commandLine mkCommand('"node_modules/.bin/rollup" --config rollup.config.js')
-}
-
-task illuaminateDocs(type: Exec, dependsOn: [rollup]) {
-    group = "build"
-    description = "Bundles JS into rollup"
-
-    inputs.files(fileTree("docs/other")).withPropertyName("docs")
-    inputs.file("illuaminate.sexp").withPropertyName("illuaminate.sexp")
-    inputs.dir("${rootProject.projectDir}/${rootProject.docs_dir}/luaFabricJavadoc")
-    inputs.dir("${rootProject.projectDir}/${rootProject.docs_dir}/luaForgeJavadoc")
-    inputs.file("${rootProject.projectDir}/${rootProject.docs_dir}/rollup/index.js").withPropertyName("scripts")
-    inputs.file("docs/web/styles.css").withPropertyName("styles")
-    outputs.dir("${rootProject.projectDir}/${rootProject.docs_dir}/docs/lua")
-
-    commandLine mkCommand('"bin/illuaminate" doc-gen')
-}
-
-task docWebsite(type: Copy, dependsOn: [illuaminateDocs]) {
-    from('docs/other') {
-        include 'logo.png'
+def getGitRef() {
+    try {
+        final def stdout = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'rev-parse', '--short', 'HEAD'
+            standardOutput = stdout
+        }
+        return stdout.toString().trim()
+    } catch (final Throwable ignored) {
+        return 'unknown'
     }
-    from("${rootProject.projectDir}/${rootProject.docs_dir}/rollup") {
-        exclude 'index.js'
+}
+
+version = "${semver}+${getGitRef()}"
+group = 'net.ddns.minersonline.BetterCC'
+
+java.toolchain {
+    languageVersion = JavaLanguageVersion.of(17)
+    vendor = JvmVendorSpec.ADOPTOPENJDK
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'utf-8'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://cursemaven.com'
+        content { includeGroup 'curse.maven' }
     }
-    into "${rootProject.projectDir}/${rootProject.docs_dir}/docs/lua"
+    maven {
+        url 'https://dvs1.progwml6.com/files/maven/'
+        content { includeGroup 'mezz.jei' }
+    }
+    ["fnuecke/SednaMinecraft"].forEach(repo -> {
+        maven {
+            url = uri("https://maven.pkg.github.com/${repo}")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GPR_USER")
+                password = project.findProperty("gpr.key") ?: System.getenv("GPR_KEY")
+            }
+        }
+    })
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    implementation "li.cil.sedna:sedna-${minecraft_version}-forge:1.0.13"
+
+    implementation fg.deobf("curse.maven:markdownmanual-502485:3738124")
+
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:9.7.0.180:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:9.7.0.180")
+
+    testImplementation 'org.mockito:mockito-inline:4.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+task packageScripts(type: Zip) {
+    archiveFileName = 'scripts.zip'
+    destinationDirectory = file("$buildDir/resources/main/data/better_cc/file_systems")
+    from 'src/main/scripts'
+}
+
+task copyLicensesToResources(type: Copy) {
+    from '.'
+    into file("$buildDir/resources/main")
+    include "LICENSE*"
+}
+
+processResources.dependsOn(packageScripts)
+processResources.dependsOn(copyLicensesToResources)
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+    runs {
+        all {
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'info'
+
+            mods {
+                oc2 {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        client {
+            workingDirectory project.file('run')
+        }
+
+        server {
+            workingDirectory project.file('run')
+            arg "--nogui"
+        }
+
+        data {
+            workingDirectory project.file('run')
+            args '--mod', 'better_cc', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources')
+        }
+    }
+}
+
+mixin {
+    add sourceSets.main, 'mixins.better_cc.refmap.json'
+    config 'mixins.better_cc.json'
+
+//    quiet
+}
+
+task copyGeneratedResources(type: Copy) {
+    from 'src/generated'
+    into 'src/main'
+    exclude 'resources/.cache'
+}
+
+jar {
+    finalizedBy 'reobfJar'
+
+    manifest {
+        attributes([
+            'FMLAT'                   : 'accesstransformer.cfg',
+            'Specification-Title'     : 'better_cc',
+            'Specification-Vendor'    : 'Sangar',
+            'Specification-Version'   : '1',
+            'Implementation-Title'    : project.name,
+            'Implementation-Version'  : "${semver}",
+            'Implementation-Vendor'   : 'Sangar',
+            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            'MixinConfigs'            : 'mixins.better_cc.json',
+        ])
+    }
+}
+
+task apiJar(type: Jar) {
+    archiveClassifier.set('api')
+    from sourceSets.main.allSource
+    from sourceSets.main.output
+    include 'net/ddns/minersonline/BetterCC/api/**'
+}
+
+artifacts {
+    archives apiJar
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = semver
+            artifact jar
+            artifact apiJar
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = System.getenv("GITHUB_MAVEN_URL") ?: ""
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
+curseforge {
+    apiKey = System.getenv('CURSEFORGE_API_KEY') ?: ""
+    project {
+        id = curse_project_id
+        releaseType = System.getenv('CURSEFORGE_RELEASE_TYPE') ?: "alpha"
+        changelogType = 'markdown'
+        changelog = System.getenv("CHANGELOG") ?: "Changelog not available."
+        addGameVersion 'Forge'
+        addGameVersion minecraft_version
+        addGameVersion 'Java 17'
+        relations {
+            requiredDependency 'markdownmanual'
+            requiredDependency 'sedna'
+        }
+    }
+}
+
+idea {
+    module {
+        for (final String exclude in ['assets', 'run', 'out', 'logs', 'src/generated']) {
+            excludeDirs += file(exclude)
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
 }

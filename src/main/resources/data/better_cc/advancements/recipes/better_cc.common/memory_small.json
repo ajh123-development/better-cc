@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "better_cc:memory_small"
+    ]
+  },
+  "criteria": {
+    "has_computer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "better_cc:computer"
+            ]
+          }
+        ]
+      }
+    },
+    "has_robot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "better_cc:robot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "better_cc:memory_small"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_computer",
+      "has_robot",
+      "has_the_recipe"
+    ]
+  ]
+}

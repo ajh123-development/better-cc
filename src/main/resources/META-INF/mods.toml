@@ -1,0 +1,39 @@
+modLoader = "javafml"
+loaderVersion = "[40,)"
+issueTrackerURL = "https://github.com/ajh123-develeopment/better-cc/issues"
+license = "MIT"
+
+[[mods]]
+modId = "better_cc"
+version = "${file.jarVersion}"
+displayName = "Better with Complex Contraptions!"
+authors = "Minecraft ICT"
+description = '''
+Modern computers for the modern player.
+Thanks Fnuecke for https://github.com/fnuecke/better_cc
+This mod uses the Terminus Font under the Open Font License. The full license can be found in the JAR of this mod.
+'''
+
+[[dependencies.better_cc]]
+modId = "forge"
+mandatory = true
+versionRange = "[40.0.40,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.better_cc]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18.2,1.19)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.better_cc]]
+modId = "sedna"
+mandatory = true
+versionRange = "[1.0.12,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.better_cc]]
+modId = "markdown_manual"
+mandatory = true
+versionRange = "[1.2.1,)"
+side = "CLIENT"

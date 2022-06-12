@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DTD",
+    "EBE"
+  ],
+  "key": {
+    "D": {
+      "tag": "forge:gems/diamond"
+    },
+    "T": {
+      "item": "better_cc:transistor"
+    },
+    "B": {
+      "item": "better_cc:circuit_board"
+    },
+    "E": {
+      "tag": "forge:gems/emerald"
+    }
+  },
+  "result": {
+    "item": "better_cc:hard_drive_large"
+  }
+}

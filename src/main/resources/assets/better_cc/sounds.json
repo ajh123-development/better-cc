@@ -1,0 +1,52 @@
+{
+  "computer_running": {
+    "category": "block",
+    "subtitle": "subtitles.better_cc.computer",
+    "sounds": [
+      {
+        "name": "better_cc:computer_running",
+        "stream": true,
+        "volume": 0.25
+      }
+    ]
+  },
+  "floppy_access": {
+    "category": "block",
+    "subtitle": "subtitles.better_cc.floppy",
+    "sounds": [
+      "better_cc:floppy_access1",
+      "better_cc:floppy_access2",
+      "better_cc:floppy_access3",
+      "better_cc:floppy_access4",
+      "better_cc:floppy_access5",
+      "better_cc:floppy_access6"
+    ]
+  },
+  "floppy_eject": {
+    "category": "block",
+    "subtitle": "subtitles.better_cc.floppy_eject",
+    "sounds": [
+      "better_cc:floppy_eject"
+    ]
+  },
+  "floppy_insert": {
+    "category": "block",
+    "subtitle": "subtitles.better_cc.floppy_insert",
+    "sounds": [
+      "better_cc:floppy_insert"
+    ]
+  },
+  "hdd_access": {
+    "category": "block",
+    "subtitle": "subtitles.better_cc.hdd",
+    "sounds": [
+      "better_cc:hdd_access1",
+      "better_cc:hdd_access2",
+      "better_cc:hdd_access3",
+      "better_cc:hdd_access4",
+      "better_cc:hdd_access5",
+      "better_cc:hdd_access6",
+      "better_cc:hdd_access7"
+    ]
+  }
+}

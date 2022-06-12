@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "better_cc:hard_drive_small",
+    "better_cc:hard_drive_medium",
+    "better_cc:hard_drive_large",
+    "better_cc:hard_drive_custom"
+  ]
+}

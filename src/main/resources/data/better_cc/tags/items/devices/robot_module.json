@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "better_cc:inventory_operations_module",
+    "better_cc:block_operations_module",
+    "better_cc:network_tunnel_module"
+  ]
+}
