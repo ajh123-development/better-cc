@@ -18,11 +18,11 @@ named `gpr.user` and `gpr.key`.
 
 [OpenComputers 2]: https://github.com/fnuecke/oc2
 [OpenComputers]: https://github.com/MightyPirates/OpenComputers
-[RPC Device]: src/main/java/li/cil/oc2/api/bus/device/rpc/RPCDevice.java
-[redstone interface]: src/main/java/li/cil/oc2/common/blockentity/RedstoneInterfaceBlockEntity.java
-[sound card]: src/main/java/li/cil/oc2/common/bus/device/rpc/item/SoundCardItemDevice.java
-[VM Device]: src/main/java/li/cil/oc2/api/bus/device/vm/VMDevice.java
-[disk drive]: src/main/java/li/cil/oc2/common/blockentity/DiskDriveBlockEntity.java
-[network card]: src/main/java/li/cil/oc2/common/bus/device/vm/item/NetworkInterfaceCardDevice.java
-[documentation]: src/main/resources/assets/oc2/doc/en_us/index.md
+[RPC Device]: src/main/java/net/ddns/minersonline/BetterCC/api/bus/device/rpc/RPCDevice.java
+[redstone interface]: src/main/java/net/ddns/minersonline/BetterCC/common/blockentity/RedstoneInterfaceBlockEntity.java
+[sound card]: src/main/java/net/ddns/minersonline/BetterCC/common/bus/device/rpc/item/SoundCardItemDevice.java
+[VM Device]: src/main/java/net/ddns/minersonline/BetterCC/api/bus/device/vm/VMDevice.java
+[disk drive]: src/main/java/net/ddns/minersonline/BetterCC/common/blockentity/DiskDriveBlockEntity.java
+[network card]: src/main/java/net/ddns/minersonline/BetterCC/common/bus/device/vm/item/NetworkInterfaceCardDevice.java
+[documentation]: src/main/resources/assets/better_cc/doc/en_us/index.md
 [GithubPackagesGradle]: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry
