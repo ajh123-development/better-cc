@@ -3,7 +3,7 @@ package net.ddns.minersonline.better_cc.items;
 import net.ddns.minersonline.better_cc.interfaces.IWrenchMe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionResult;;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;

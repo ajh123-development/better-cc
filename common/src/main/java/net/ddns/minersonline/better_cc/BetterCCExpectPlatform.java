@@ -17,7 +17,7 @@ public class BetterCCExpectPlatform {
      * Actual Fabric: net.ddns.minersonline.better_cc.fabric.BetterCCPlatformImpl#getConfigDirectory()
      * Actual Forge: net.ddns.minersonline.better_cc.forge.BetterCCPlatformImpl#getConfigDirectory()
      */
-    @dev.architectury.injectables.annotations.ExpectPlatform
+    @ExpectPlatform
     public static Path getConfigDirectory() {
         // Just throw an error, the content should get replaced at runtime.
         throw new AssertionError();

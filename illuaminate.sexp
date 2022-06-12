@@ -16,7 +16,7 @@
   (site
     (title "Better CC")
     (logo docs/other/logo.png)
-    (url http://samhub.atwebpages.com/1.18/docs/lua/)
+    (url https://minersonline.ddns.net/better_cc/1.18/docs/lua/)
     (source-link https://github.com/ajh123-development/better-cc/blob/${commit}/${path}#L${line})
 
     (styles docs/web/styles.css)

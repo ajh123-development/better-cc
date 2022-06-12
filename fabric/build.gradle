@@ -82,6 +82,7 @@ task luaJavadoc(type: Javadoc) {
 
     options.docletpath = configurations.cctJavadoc.files as List
     options.doclet = "cc.tweaked.javadoc.LuaDoclet"
+
     options.noTimestamp = false
 
     javadocTool = javaToolchains.javadocToolFor {

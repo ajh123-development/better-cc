@@ -17,14 +17,14 @@ Adds, adds, and adds again!
 [[dependencies.better-cc]]
 modId = "forge"
 mandatory = true
-versionRange = "[39.0.44,)"
+versionRange = "[40.1.25,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.better-cc]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.18.1,)"
+versionRange = "[1.18.2,)"
 ordering = "NONE"
 side = "BOTH"
 

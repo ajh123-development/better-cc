@@ -1,7 +1,6 @@
 package net.ddns.minersonline.better_cc.fabric.peripherals;
 
 import dan200.computercraft.api.lua.LuaFunction;
-import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import net.ddns.minersonline.better_cc.blocks.RandomBlock;
 import net.minecraft.core.BlockPos;
@@ -13,11 +12,14 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 /**
- * This is the Fabric version.
+ * A Randomizer wrapped as a peripheral allows for, basic interaction with adjacent randomizers. <br>
+ * <b>This is the Fabric version</b>.
  *
- * A Randomizer wrapped as a peripheral.
- *
- * This allows for basic interaction with adjacent randomizers.
+ * :::note
+ * It may seem a bit weird that there are two versions for forge and fabric,<br>
+ * but that is how it is defined in the Java code.
+ * :::
+ * <br>
  * @cc.module randomizer fabric
  */
 public class RandomPeripheral implements IPeripheral {
