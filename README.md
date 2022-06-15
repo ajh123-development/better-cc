@@ -11,7 +11,12 @@ For documentation on how the to get computers up and running, and how to use the
 While the mod isn't quite yet ready for release due to some remaining technical and usability issues, the API should be mostly stable at this point. For most people the high level device API will be sufficient, and is much more accessible. It centers around the [`RPCDevice`][RPC Device]. For a sample block implementation, see the [redstone interface]. For a sample item implementation, see the [sound card]. If you wish to dive deeper, and provide emulated hardware that requires a Linux driver, this centers around the [`VMDevice`][VM Device]. For a sample block implementation, see the [disk drive]. For a sample item implementation, see the [network card].
 
 ## Building
-To build this project, credentials for the Github Package Repository must be set up once on your machine (see
+To build this project, you need to initialise submodules,
+```bash
+git submodule init
+git submodule update --recursive
+``` 
+Also, credentials for the Github Package Repository must be set up once on your machine (see
 [the documentation][GithubPackagesGradle] for more information). In short, you'll want to add your username and a
 public access token with `read:packages` permissions into your `~/.gradle/gradle.properties`. The properties must be
 named `gpr.user` and `gpr.key`.
