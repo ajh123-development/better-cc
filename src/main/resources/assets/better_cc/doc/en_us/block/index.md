@@ -11,5 +11,6 @@ To quickly access the manual entry for a block in the world, simply use this [ma
 - [Keyboard](keyboard.md)
 - [Network Connector](network_connector.md)
 - [Network Hub](network_hub.md)
+- [Network Switch](network_switch.md)
 - [Projector](projector.md)
 - [Redstone Interface](redstone_interface.md)

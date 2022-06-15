@@ -10,7 +10,7 @@ for _,device in ipairs(devices:list()) do
         if isFirstTypeName then
             isFirstTypeName = false
         else
-            line = line .. ", "
+            line = line .. ",\n "
         end
         line = line .. typeName
     end

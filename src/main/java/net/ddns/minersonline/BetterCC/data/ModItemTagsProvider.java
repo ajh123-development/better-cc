@@ -54,6 +54,7 @@ public final class ModItemTagsProvider extends ItemTagsProvider {
         tag(DEVICES_CARD).add(
             Items.REDSTONE_INTERFACE_CARD.get(),
             Items.NETWORK_INTERFACE_CARD.get(),
+            Items.INTERNET_CARD.get(),
             Items.FILE_IMPORT_EXPORT_CARD.get(),
             Items.SOUND_CARD.get(),
             Items.NETWORK_TUNNEL_CARD.get()

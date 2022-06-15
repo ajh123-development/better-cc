@@ -1,0 +1,62 @@
+#!/bin/sh
+
+PROFILE_D_PATH="/etc/profile.d"
+INIT_SCRIPT_NAME="gcc_path.sh"
+
+start() {
+    INIT_SCRIPT_PATH="$PROFILE_D_PATH/$INIT_SCRIPT_NAME"
+    if [ ! -f "$INIT_SCRIPT_PATH" ]; then
+        THIS_SCRIPT_PATH=$(readlink -f "$0")
+        THIS_SCRIPT_DIR=$(dirname "$THIS_SCRIPT_PATH")
+        GCC_LIB_PATH=$(readlink -f "$THIS_SCRIPT_DIR/../lib/")
+        GCC_INC_PATH=$(readlink -f "$THIS_SCRIPT_DIR/../include/")
+
+        echo 'if [ -z "$C_INCLUDE_PATH" ]; then' >>"$INIT_SCRIPT_PATH"
+        echo '    export C_INCLUDE_PATH="'$GCC_INC_PATH'"' >>"$INIT_SCRIPT_PATH"
+        echo 'else' >>"$INIT_SCRIPT_PATH"
+        echo '    export C_INCLUDE_PATH="C_INCLUDE_PATH:'$GCC_INC_PATH'"' >>"$INIT_SCRIPT_PATH"
+        echo 'fi' >>"$INIT_SCRIPT_PATH"
+
+        echo 'if [ -z "$CPLUS_INCLUDE_PATH" ]; then' >>"$INIT_SCRIPT_PATH"
+        echo '    export CPLUS_INCLUDE_PATH="'$GCC_INC_PATH'"' >>"$INIT_SCRIPT_PATH"
+        echo 'else' >>"$INIT_SCRIPT_PATH"
+        echo '    export CPLUS_INCLUDE_PATH="CPLUS_INCLUDE_PATH:'$GCC_INC_PATH'"' >>"$INIT_SCRIPT_PATH"
+        echo 'fi' >>"$INIT_SCRIPT_PATH"
+
+        echo 'if [ -z "$LIBRARY_PATH" ]; then' >>"$INIT_SCRIPT_PATH"
+        echo '    export LIBRARY_PATH="'$GCC_LIB_PATH'"' >>"$INIT_SCRIPT_PATH"
+        echo 'else' >>"$INIT_SCRIPT_PATH"
+        echo '    export LIBRARY_PATH="LIBRARY_PATH:'$GCC_LIB_PATH'"' >>"$INIT_SCRIPT_PATH"
+        echo 'fi' >>"$INIT_SCRIPT_PATH"
+
+        echo 'if [ -z "$LD_LIBRARY_PATH" ]; then' >>"$INIT_SCRIPT_PATH"
+        echo '    export LD_LIBRARY_PATH="'$GCC_LIB_PATH'"' >>"$INIT_SCRIPT_PATH"
+        echo 'else' >>"$INIT_SCRIPT_PATH"
+        echo '    export LD_LIBRARY_PATH="LD_LIBRARY_PATH:'$GCC_LIB_PATH'"' >>"$INIT_SCRIPT_PATH"
+        echo 'fi' >>"$INIT_SCRIPT_PATH"
+    fi
+    return 0
+}
+
+stop() {
+    return 0
+}
+
+reload() {
+    return 0
+}
+
+case "$1" in
+start | stop | reload)
+    "$1"
+    ;;
+restart)
+    reload
+    ;;
+*)
+    echo "Usage: $0 {start|stop|reload|restart}"
+    exit 1
+    ;;
+esac
+
+exit $?

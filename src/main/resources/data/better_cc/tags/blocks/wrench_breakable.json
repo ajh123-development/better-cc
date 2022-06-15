@@ -5,6 +5,7 @@
     "better_cc:bus_cable",
     "better_cc:network_connector",
     "better_cc:network_hub",
+    "better_cc:network_switch",
     "better_cc:redstone_interface",
     "better_cc:disk_drive",
     "better_cc:charger",

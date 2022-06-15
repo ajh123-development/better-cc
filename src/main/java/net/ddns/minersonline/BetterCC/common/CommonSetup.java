@@ -3,6 +3,7 @@
 package net.ddns.minersonline.BetterCC.common;
 
 import net.ddns.minersonline.BetterCC.common.bus.device.rpc.RPCMethodParameterTypeAdapters;
+import net.ddns.minersonline.BetterCC.common.inet.InternetManager;
 import net.ddns.minersonline.BetterCC.common.integration.IMC;
 import net.ddns.minersonline.BetterCC.common.network.Network;
 import net.ddns.minersonline.BetterCC.common.util.ServerScheduler;
@@ -16,5 +17,6 @@ public final class CommonSetup {
         Network.initialize();
         RPCMethodParameterTypeAdapters.initialize();
         ServerScheduler.initialize();
+        InternetManager.initialize();
     }
 }

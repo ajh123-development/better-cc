@@ -57,6 +57,7 @@ public final class ModLootTableProvider extends LootTableProvider {
             dropSelf(Blocks.KEYBOARD.get());
             dropSelf(Blocks.NETWORK_CONNECTOR.get());
             dropSelf(Blocks.NETWORK_HUB.get());
+            dropSelf(Blocks.NETWORK_SWITCH.get());
             dropSelf(Blocks.PROJECTOR.get());
             dropSelf(Blocks.REDSTONE_INTERFACE.get());
         }

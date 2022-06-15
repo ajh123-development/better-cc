@@ -78,6 +78,19 @@ public final class ModRecipesProvider extends RecipeProvider {
             .save(consumer);
 
         ShapedRecipeBuilder
+            .shaped(Items.NETWORK_SWITCH.get())
+            .pattern("ICI")
+            .pattern("XTX")
+            .pattern("IBI")
+            .define('I', Tags.Items.GEMS_QUARTZ)
+            .define('C', Items.NETWORK_CONNECTOR.get())
+            .define('X', Items.BUS_INTERFACE.get())
+            .define('T', Items.TRANSISTOR.get())
+            .define('B', Items.CIRCUIT_BOARD.get())
+            .unlockedBy("has_network_connector", inventoryChange(Items.NETWORK_CONNECTOR.get()))
+            .save(consumer);
+
+        ShapedRecipeBuilder
             .shaped(Items.REDSTONE_INTERFACE.get())
             .pattern("ICI")
             .pattern("XTX")
@@ -300,6 +313,17 @@ public final class ModRecipesProvider extends RecipeProvider {
             .pattern(" B ")
             .define('G', Tags.Items.GLASS)
             .define('I', Tags.Items.INGOTS_IRON)
+            .define('T', Items.TRANSISTOR.get())
+            .define('B', Items.CIRCUIT_BOARD.get())
+            .unlockedBy("has_computer", inventoryChange(Items.COMPUTER.get()))
+            .save(consumer);
+
+        ShapedRecipeBuilder
+            .shaped(Items.INTERNET_CARD.get())
+            .pattern("IGT")
+            .pattern(" B ")
+            .define('G', Tags.Items.GLASS)
+            .define('I', Tags.Items.GEMS_QUARTZ)
             .define('T', Items.TRANSISTOR.get())
             .define('B', Items.CIRCUIT_BOARD.get())
             .unlockedBy("has_computer", inventoryChange(Items.COMPUTER.get()))

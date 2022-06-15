@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "better_cc:block/network_switch"
+    },
+    "facing=south": {
+      "model": "better_cc:block/network_switch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "better_cc:block/network_switch",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "better_cc:block/network_switch",
+      "y": 90
+    }
+  }
+}
