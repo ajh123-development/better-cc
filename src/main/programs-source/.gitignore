@@ -44,7 +44,6 @@
 
 # build
 /build
-cJSON
 
 # Kernel Module Compile Results
 *.mod*
