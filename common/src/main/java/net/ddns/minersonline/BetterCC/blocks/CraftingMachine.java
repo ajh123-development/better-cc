@@ -73,9 +73,9 @@ public class CraftingMachine extends HorizontalDirectionalBlock implements IWren
 
 	public void updateSignalStrength(BlockState state, Level world, BlockPos pos) {
 		if (state.getValue(ENABLED)) {
-			Random random = new Random();
-			int i = random.nextInt(15);
-			world.setBlockAndUpdate(pos, state.setValue(POWER, i));
+			world.setBlockAndUpdate(pos, state.setValue(POWER, 15));
+		} else {
+			world.setBlockAndUpdate(pos, state.setValue(POWER, 0));
 		}
 	}
 
