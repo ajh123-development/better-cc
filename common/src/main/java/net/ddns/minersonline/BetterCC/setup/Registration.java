@@ -12,7 +12,6 @@ public class Registration {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BetterCC.MOD_ID, Registry.BLOCK_REGISTRY);
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(BetterCC.MOD_ID, Registry.BLOCK_ENTITY_TYPE_REGISTRY);
 
-
 	public static void register() {
 		ITEMS.register();
 		BLOCKS.register();
@@ -21,5 +20,6 @@ public class Registration {
 		ModItems.register();
 		ModBlocks.register();
 		ModBlocksEntities.register();
+		ModTags.register();
 	}
 }

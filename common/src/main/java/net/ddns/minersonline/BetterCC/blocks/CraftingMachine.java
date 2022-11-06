@@ -22,7 +22,6 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class CraftingMachine extends HorizontalDirectionalBlock implements IWrenchMe, EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
