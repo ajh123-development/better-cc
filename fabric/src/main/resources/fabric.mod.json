@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "better_cc",
+  "version": "${version}",
+  "name": "BetterCC",
+  "description": "Better With Complex Contraptions",
+  "authors": [],
+  "contact": {
+    "website": "https://minersonline.tk",
+    "repo": "https://github.com/ajh123-development/better-cc/",
+    "issues": "https://github.com/ajh123-development/better-cc/issues"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.ddns.minersonline.BetterCC.fabric.BetterCCFabric"
+    ]
+  },
+  "mixins": [
+    "BetterCC.mixins.json",
+    "BetterCC-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "minecraft": ">=1.19.2"
+  }
+}
