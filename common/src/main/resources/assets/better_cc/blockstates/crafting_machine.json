@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"facing=north": { "model": "better_cc:block/crafting_machine" },
+		"facing=east": { "model": "better_cc:block/crafting_machine", "y": 90 },
+		"facing=south": { "model": "better_cc:block/crafting_machine", "y": 180 },
+		"facing=west": { "model": "better_cc:block/crafting_machine", "y": 270 }
+	}
+}
