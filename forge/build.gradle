@@ -21,6 +21,9 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+
+    modApi "org.squiddev:cc-tweaked-${rootProject.mc_version}:${rootProject.cct_version}:api"
+    modImplementation"org.squiddev:cc-tweaked-${rootProject.mc_version}:${rootProject.cct_version}"
 }
 
 processResources {
@@ -72,4 +75,16 @@ publishing {
     repositories {
         // Add repositories to publish to here.
     }
+}
+
+repositories {
+    maven {
+        url 'https://squiddev.cc/maven/'
+        content {
+            includeGroup 'org.squiddev'
+        }
+    }
+    maven { url "https://jitpack.io" }
+    maven { url "https://maven.shedaniel.me/" }
+    maven { url "https://maven.terraformersmc.com/" }
 }

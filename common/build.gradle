@@ -4,6 +4,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
+    modApi "org.squiddev:cc-tweaked-${rootProject.mc_version}:${rootProject.cct_version}:api"
 }
 
 architectury {
@@ -22,4 +23,16 @@ publishing {
     repositories {
         // Add repositories to publish to here.
     }
+}
+
+repositories {
+    maven {
+        url 'https://squiddev.cc/maven/'
+        content {
+            includeGroup 'org.squiddev'
+        }
+    }
+    maven { url "https://jitpack.io" }
+    maven { url "https://maven.shedaniel.me/" }
+    maven { url "https://maven.terraformersmc.com/" }
 }

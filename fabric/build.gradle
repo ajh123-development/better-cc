@@ -23,6 +23,8 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+
+    modImplementation "com.github.cc-tweaked:cc-restitched:${project.cc_version_tag}"
 }
 
 processResources {
@@ -72,4 +74,16 @@ publishing {
     repositories {
         // Add repositories to publish to here.
     }
+}
+
+repositories {
+    maven {
+        url 'https://squiddev.cc/maven/'
+        content {
+            includeGroup 'org.squiddev'
+        }
+    }
+    maven { url "https://jitpack.io" }
+    maven { url "https://maven.shedaniel.me/" }
+    maven { url "https://maven.terraformersmc.com/" }
 }
