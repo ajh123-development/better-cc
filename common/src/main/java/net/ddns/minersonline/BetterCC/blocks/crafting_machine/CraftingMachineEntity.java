@@ -22,10 +22,10 @@ public class CraftingMachineEntity extends NetworkBlockEntity {
 			randomBlock.updateSignalStrength(blockState, level, getBlockPos());
 		}
 
-		for (NetworkPacket packet : getReceivedPackets()) {
-			System.out.print("Received: ");
-			System.out.print(getBlockPos());
-			System.out.println(packet.getData());
-		}
+//		for (NetworkPacket packet : getReceivedPackets()) {
+//			System.out.print("Received: ");
+//			System.out.print(getBlockPos());
+//			System.out.println(packet.getData());
+//		}
 	}
 }

@@ -16,7 +16,7 @@ import java.util.List;
 
 public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
 	private final List<NetworkAttachable> attachable = new ArrayList<>();
-	private final List<NetworkPacket> packets = new ArrayList<>();
+	public final List<NetworkPacket> packets = new ArrayList<>();
 
 	public NetworkBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {
 		super(type, blockPos, blockState);
@@ -39,22 +39,22 @@ public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
 
 		if (packets.size() > 0) {
 			if (north.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.NORTH.getOpposite(), north, level, myPos.north());
+				cable.addPacket(packets.remove(0), Direction.NORTH, north, level, myPos.north());
 			}
 			if (east.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.EAST.getOpposite(), east, level, myPos.east());
+				cable.addPacket(packets.remove(0), Direction.EAST, east, level, myPos.east());
 			}
 			if (south.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.SOUTH.getOpposite(), south, level, myPos.south());
+				cable.addPacket(packets.remove(0), Direction.SOUTH, south, level, myPos.south());
 			}
 			if (west.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.WEST.getOpposite(), west, level, myPos.west());
+				cable.addPacket(packets.remove(0), Direction.WEST, west, level, myPos.west());
 			}
 			if (up.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.UP.getOpposite(), up, level, myPos.above());
+				cable.addPacket(packets.remove(0), Direction.UP, up, level, myPos.above());
 			}
 			if (down.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.DOWN.getOpposite(), down, level, myPos.below());
+				cable.addPacket(packets.remove(0), Direction.DOWN, down, level, myPos.below());
 			}
 		}
 	}
@@ -64,7 +64,7 @@ public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
 		return attachable;
 	}
 
-	protected final List<NetworkPacket> getReceivedPackets() {
+	public final List<NetworkPacket> getReceivedPackets() {
 		List<NetworkPacket> packets = new ArrayList<>();
 		for (NetworkAttachable attachable : getAttachable()) {
 			for (int i = 0; i < attachable.getPacketCount(); i ++) {

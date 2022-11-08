@@ -21,11 +21,5 @@ public class SerialModemEntity extends NetworkBlockEntity {
 		if (block instanceof SerialModem randomBlock) {
 			randomBlock.updateSignalStrength(blockState, level, getBlockPos());
 		}
-
-		for (NetworkPacket packet : getReceivedPackets()) {
-			System.out.print("Received: ");
-			System.out.print(getBlockPos());
-			System.out.println(packet.getData());
-		}
 	}
 }

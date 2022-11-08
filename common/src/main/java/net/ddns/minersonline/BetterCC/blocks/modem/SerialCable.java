@@ -18,80 +18,48 @@ public class SerialCable extends CableBase implements NetworkCable {
 		super(properties);
 	}
 
-
 	@Override
 	public void addPacket(NetworkPacket packet, Direction from, BlockState me, Level level, BlockPos pos) {
-		BlockState north = level.getBlockState(pos.north());
-		BlockState east = level.getBlockState(pos.east());
-		BlockState south = level.getBlockState(pos.south());
-		BlockState west = level.getBlockState(pos.west());
-		BlockState up = level.getBlockState(pos.above());
-		BlockState down = level.getBlockState(pos.below());
+		transmit(packet, pos.north(), from.getOpposite(), Direction.NORTH.getOpposite(), level);
+		transmit(packet, pos.east(), from.getOpposite(), Direction.EAST.getOpposite(), level);
+		transmit(packet, pos.south(), from.getOpposite(), Direction.SOUTH.getOpposite(), level);
+		transmit(packet, pos.west(), from.getOpposite(), Direction.EAST.getOpposite(), level);
+		transmit(packet, pos.above(), from.getOpposite(), Direction.UP.getOpposite(), level);
+		transmit(packet, pos.below(), from.getOpposite(), Direction.DOWN.getOpposite(), level);
+	}
 
-		if (from != Direction.NORTH) {
-			if (north.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packet, Direction.NORTH.getOpposite(), north, level, pos.north());
+	private void transmit(NetworkPacket packet, BlockPos dest, Direction from, Direction to, Level level) {
+		BlockState block = level.getBlockState(dest);
+		if (from == to) {
+			System.out.print("Transmit: ");
+			System.out.print(from);
+			System.out.print(" To: ");
+			System.out.println(to.getOpposite());
+			if (block.getBlock() instanceof NetworkCable cable) {
+				if (Direction.NORTH != from) {
+					cable.addPacket(packet, Direction.NORTH, block, level, dest);
+				}
+				if (Direction.EAST != from) {
+					cable.addPacket(packet, Direction.EAST, block, level, dest);
+				}
+				if (Direction.SOUTH != from) {
+					cable.addPacket(packet, Direction.SOUTH, block, level, dest);
+				}
+				if (Direction.WEST != from) {
+					cable.addPacket(packet, Direction.WEST, block, level, dest);
+				}
+				if (Direction.UP != from) {
+					cable.addPacket(packet, Direction.UP, block, level, dest);
+				}
+				if (Direction.DOWN != from) {
+					cable.addPacket(packet, Direction.DOWN, block, level, dest);
+				}
 			}
-			BlockEntity entity = level.getBlockEntity(pos.north());
+			BlockEntity entity = level.getBlockEntity(dest);
 			if (entity instanceof NetworkDevice device) {
 				for (NetworkAttachable attachable : device.getAttachable()) {
 					attachable.addPacket(packet);
 				}
-			}
-		}
-		if (from != Direction.EAST) {
-			if (east.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packet, Direction.EAST.getOpposite(), east, level, pos.east());
-			}
-			BlockEntity entity = level.getBlockEntity(pos.east());
-			if (entity instanceof NetworkDevice device) {
-				for (NetworkAttachable attachable : device.getAttachable()) {
-					attachable.addPacket(packet);
-				}
-			}
-		}
-		if (from != Direction.SOUTH) {
-			if (south.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packet, Direction.SOUTH.getOpposite(), south, level, pos.south());
-			}
-			BlockEntity entity = level.getBlockEntity(pos.south());
-			if (entity instanceof NetworkDevice device) {
-				for (NetworkAttachable attachable : device.getAttachable()) {
-					attachable.addPacket(packet);
-				}
-			}
-		}
-		if (from != Direction.WEST) {
-			if (west.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packet, Direction.WEST.getOpposite(), west, level, pos.west());
-			}
-			BlockEntity entity = level.getBlockEntity(pos.west());
-			if (entity instanceof NetworkDevice device) {
-				for (NetworkAttachable attachable : device.getAttachable()) {
-					attachable.addPacket(packet);
-				}
-			}
-		}
-		if (from != Direction.UP) {
-			if (up.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packet, Direction.UP.getOpposite(), up, level, pos.above());
-			}
-			BlockEntity entity = level.getBlockEntity(pos.above());
-			if (entity instanceof NetworkDevice device) {
-				for (NetworkAttachable attachable : device.getAttachable()) {
-					attachable.addPacket(packet);
-				}
-			}
-		}
-		if (from != Direction.DOWN) {
-			if (down.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packet, Direction.DOWN.getOpposite(), down, level, pos.below());
-			}
-		}
-		BlockEntity entity = level.getBlockEntity(pos.below());
-		if (entity instanceof NetworkDevice device) {
-			for (NetworkAttachable attachable : device.getAttachable()) {
-				attachable.addPacket(packet);
 			}
 		}
 	}

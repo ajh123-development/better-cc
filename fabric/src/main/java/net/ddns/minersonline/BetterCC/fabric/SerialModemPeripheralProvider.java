@@ -2,6 +2,8 @@ package net.ddns.minersonline.BetterCC.fabric;
 
 import dan200.computercraft.api.peripheral.IPeripheral;
 import dan200.computercraft.api.peripheral.IPeripheralProvider;
+import net.ddns.minersonline.BetterCC.blocks.modem.SerialModem;
+import net.ddns.minersonline.BetterCC.blocks.modem.SerialModemEntity;
 import net.ddns.minersonline.BetterCC.blocks.modem.peripheral.SerialModemPeripheral;
 import net.ddns.minersonline.BetterCC.setup.ModBlocks;
 import net.minecraft.core.BlockPos;
@@ -16,7 +18,7 @@ public class SerialModemPeripheralProvider implements IPeripheralProvider {
 		BlockState blockState = world.getBlockState(pos);
 
 		if(blockState.is(ModBlocks.SERIAL_MODEM.get())) {
-			return new SerialModemPeripheral();
+			return new SerialModemPeripheral((SerialModemEntity) world.getBlockEntity(pos));
 		}
 
 		return null;
