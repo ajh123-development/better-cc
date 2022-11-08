@@ -4,7 +4,7 @@ import net.ddns.minersonline.BetterCC.api.network.NetworkPacket;
 import net.ddns.minersonline.BetterCC.api.network.device.NetworkAttachable;
 import net.ddns.minersonline.BetterCC.api.network.device.NetworkDevice;
 import net.ddns.minersonline.BetterCC.api.network.transfer.NetworkCable;
-import net.ddns.minersonline.BetterCC.cables.CableBase;
+import net.ddns.minersonline.BetterCC.bases.CableBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;

@@ -1,4 +1,4 @@
-package net.ddns.minersonline.BetterCC.cables;
+package net.ddns.minersonline.BetterCC.bases;
 
 import net.ddns.minersonline.BetterCC.setup.ModTags;
 import net.minecraft.core.BlockPos;

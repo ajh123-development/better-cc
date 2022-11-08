@@ -9,16 +9,16 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 
-public class CraftingMachineEntity extends NetworkBlockEntity {
-	public CraftingMachineEntity(BlockPos blockPos, BlockState blockState) {
-		super(ModBlocksEntities.CRAFTING_MACHINE.get(), blockPos, blockState);
+public class SerialModemEntity extends NetworkBlockEntity {
+	public SerialModemEntity(BlockPos blockPos, BlockState blockState) {
+		super(ModBlocksEntities.SERIAL_MODEM.get(), blockPos, blockState);
 	}
 
 	public void tick(BlockState blockState, Level level) {
 		super.tick(blockState, level);
 
 		Block block = blockState.getBlock();
-		if (block instanceof CraftingMachine randomBlock) {
+		if (block instanceof SerialModem randomBlock) {
 			randomBlock.updateSignalStrength(blockState, level, getBlockPos());
 		}
 

@@ -64,3 +64,8 @@ Better With Complex Contraptions
    versionRange="[1.19.2,1.20)"
    ordering="NONE"
    side="BOTH"
+[[dependencies.computercraft]]
+   modId="minecraft"
+   versionRange="[1.100.10,)"
+   ordering="NONE"
+   side="BOTH"

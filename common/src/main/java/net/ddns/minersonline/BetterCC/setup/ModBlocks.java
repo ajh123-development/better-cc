@@ -4,6 +4,7 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import net.ddns.minersonline.BetterCC.BetterCC;
 import net.ddns.minersonline.BetterCC.blocks.CraftingMachine;
 import net.ddns.minersonline.BetterCC.blocks.SerialCable;
+import net.ddns.minersonline.BetterCC.blocks.SerialModem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +21,9 @@ public class ModBlocks {
 
 	public static final RegistrySupplier<SerialCable> SERIAL_CABLE = register("serial_cable", () ->
 			new SerialCable(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1)));
+
+	public static final RegistrySupplier<SerialModem> SERIAL_MODEM = register("serial_modem", () ->
+			new SerialModem(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1)));
 
 
 	private static <T extends Block> RegistrySupplier<Block> registerNoItem(String name, Supplier<T> block){

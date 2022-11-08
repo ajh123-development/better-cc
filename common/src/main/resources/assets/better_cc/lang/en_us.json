@@ -2,5 +2,6 @@
   "itemGroup.better_cc.main": "Better CC",
   "item.better_cc.wrench": "Wrench",
   "block.better_cc.crafting_machine": "Crafting Machine",
-  "block.better_cc.serial_cable": "Serial Cable"
+  "block.better_cc.serial_cable": "Serial Cable",
+  "block.better_cc.serial_modem": "Serial Modem"
 }
