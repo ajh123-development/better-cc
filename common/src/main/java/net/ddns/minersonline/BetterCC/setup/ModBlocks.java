@@ -2,9 +2,9 @@ package net.ddns.minersonline.BetterCC.setup;
 
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.ddns.minersonline.BetterCC.BetterCC;
-import net.ddns.minersonline.BetterCC.blocks.CraftingMachine;
-import net.ddns.minersonline.BetterCC.blocks.SerialCable;
-import net.ddns.minersonline.BetterCC.blocks.SerialModem;
+import net.ddns.minersonline.BetterCC.blocks.crafting_machine.CraftingMachine;
+import net.ddns.minersonline.BetterCC.blocks.modem.SerialCable;
+import net.ddns.minersonline.BetterCC.blocks.modem.SerialModem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

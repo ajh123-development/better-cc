@@ -1,4 +1,4 @@
-package net.ddns.minersonline.BetterCC.blocks;
+package net.ddns.minersonline.BetterCC.blocks.crafting_machine;
 
 import net.ddns.minersonline.BetterCC.api.network.NetworkPacket;
 import net.ddns.minersonline.BetterCC.bases.NetworkBlockEntity;

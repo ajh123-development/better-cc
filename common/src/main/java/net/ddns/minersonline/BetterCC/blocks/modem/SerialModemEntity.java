@@ -1,4 +1,4 @@
-package net.ddns.minersonline.BetterCC.blocks;
+package net.ddns.minersonline.BetterCC.blocks.modem;
 
 import net.ddns.minersonline.BetterCC.api.network.NetworkPacket;
 import net.ddns.minersonline.BetterCC.bases.NetworkBlockEntity;

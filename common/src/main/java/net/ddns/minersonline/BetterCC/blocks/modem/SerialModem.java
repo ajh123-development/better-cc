@@ -1,4 +1,4 @@
-package net.ddns.minersonline.BetterCC.blocks;
+package net.ddns.minersonline.BetterCC.blocks.modem;
 
 import net.ddns.minersonline.BetterCC.IWrenchMe;
 import net.minecraft.core.BlockPos;
@@ -23,12 +23,12 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 import javax.annotation.Nullable;
 
-public class CraftingMachine extends HorizontalDirectionalBlock implements IWrenchMe, EntityBlock {
+public class SerialModem extends HorizontalDirectionalBlock implements IWrenchMe, EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	public static final IntegerProperty POWER = BlockStateProperties.POWER;
 	public static final BooleanProperty ENABLED = BlockStateProperties.ENABLED;
 
-	public CraftingMachine(Properties properties) {
+	public SerialModem(Properties properties) {
 		super(properties);
 		this.registerDefaultState(this.stateDefinition.any()
 				.setValue(POWER, 0)
@@ -81,13 +81,13 @@ public class CraftingMachine extends HorizontalDirectionalBlock implements IWren
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-		return new CraftingMachineEntity(blockPos, blockState);
+		return new SerialModemEntity(blockPos, blockState);
 	}
 
 	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
 		return level.isClientSide ? null
-				: (level0, pos, state0, blockEntity) -> ((CraftingMachineEntity) blockEntity).tick(blockState, level);
+				: (level0, pos, state0, blockEntity) -> ((SerialModemEntity) blockEntity).tick(blockState, level);
 	}
 }

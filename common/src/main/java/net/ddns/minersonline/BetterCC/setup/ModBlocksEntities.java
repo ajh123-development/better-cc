@@ -1,8 +1,8 @@
 package net.ddns.minersonline.BetterCC.setup;
 
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.ddns.minersonline.BetterCC.blocks.CraftingMachineEntity;
-import net.ddns.minersonline.BetterCC.blocks.SerialModemEntity;
+import net.ddns.minersonline.BetterCC.blocks.crafting_machine.CraftingMachineEntity;
+import net.ddns.minersonline.BetterCC.blocks.modem.SerialModemEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import java.util.function.Supplier;
