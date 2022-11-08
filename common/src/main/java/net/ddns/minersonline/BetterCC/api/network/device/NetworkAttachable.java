@@ -26,6 +26,10 @@ public class NetworkAttachable {
 		return packets.remove(packets.size()-1);
 	}
 
+	public int getPacketCount() {
+		return packets.size();
+	}
+
 	public boolean addPacket(NetworkPacket packet) {
 		return packets.add(packet);
 	}

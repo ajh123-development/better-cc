@@ -19,7 +19,7 @@ public class ModBlocks {
 			new CraftingMachine(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1)));
 
 	public static final RegistrySupplier<SerialCable> SERIAL_CABLE = register("serial_cable", () ->
-			new SerialCable(BlockBehaviour.Properties.of(Material.METAL).randomTicks().sound(SoundType.METAL).strength(1)));
+			new SerialCable(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1)));
 
 
 	private static <T extends Block> RegistrySupplier<Block> registerNoItem(String name, Supplier<T> block){
