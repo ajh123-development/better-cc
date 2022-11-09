@@ -1,21 +1,21 @@
 package net.ddns.minersonline.BetterCC.api.network.device;
 
 import net.ddns.minersonline.BetterCC.api.network.NetworkPacket;
-import net.minecraft.core.Direction;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class NetworkAttachable {
 	private static int idCount = 0;
 	private final int myId;
 	private final List<NetworkPacket> packets = new ArrayList<>();
-	private final Direction side;
+	private final UUID id;
 
-	public NetworkAttachable(Direction side) {
+	public NetworkAttachable(UUID id) {
 		this.myId = idCount;
 		idCount+=1;
-		this.side = side;
+		this.id = id;
 	}
 
 	public int getMyId() {
@@ -34,7 +34,7 @@ public class NetworkAttachable {
 		return packets.add(packet);
 	}
 
-	public Direction getSide() {
-		return side;
+	public UUID getId() {
+		return id;
 	}
 }

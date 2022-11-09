@@ -1,6 +1,5 @@
 package net.ddns.minersonline.BetterCC.blocks.modem;
 
-import net.ddns.minersonline.BetterCC.api.network.NetworkPacket;
 import net.ddns.minersonline.BetterCC.bases.NetworkBlockEntity;
 import net.ddns.minersonline.BetterCC.setup.ModBlocksEntities;
 import net.minecraft.core.BlockPos;

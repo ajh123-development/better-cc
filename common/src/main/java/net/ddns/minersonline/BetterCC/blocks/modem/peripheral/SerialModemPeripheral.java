@@ -11,6 +11,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class SerialModemPeripheral implements IPeripheral {
 	private final SerialModemEntity modem;
@@ -19,18 +20,16 @@ public class SerialModemPeripheral implements IPeripheral {
 	}
 
 	@LuaFunction
-	public final void send(int dest, String message) {
-		CompoundTag data = new CompoundTag();
-		data.putString("data", message);
-		NetworkPacket packet = new NetworkPacket(dest, -1, data);
+	public final void send(Map<?, ?> message) {
+		NetworkPacket packet = new NetworkPacket(message);
 		modem.packets.add(packet);
 	}
 
 	@LuaFunction
-	public final List<String> getReceivedMessages() {
-		List<String> data = new ArrayList<>();
+	public final List<Map<?, ?>> getReceivedMessages() {
+		List<Map<?, ?>> data = new ArrayList<>();
 		for (NetworkPacket packet : modem.getReceivedPackets()) {
-			data.add(packet.getData().getString("data"));
+			data.add(packet.getData());
 		}
 		return data;
 	}

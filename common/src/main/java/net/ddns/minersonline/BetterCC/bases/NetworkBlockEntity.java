@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
 	private final List<NetworkAttachable> attachable = new ArrayList<>();
@@ -20,12 +21,7 @@ public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
 
 	public NetworkBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {
 		super(type, blockPos, blockState);
-		attachable.add(new NetworkAttachable(Direction.NORTH));
-		attachable.add(new NetworkAttachable(Direction.EAST));
-		attachable.add(new NetworkAttachable(Direction.SOUTH));
-		attachable.add(new NetworkAttachable(Direction.WEST));
-		attachable.add(new NetworkAttachable(Direction.UP));
-		attachable.add(new NetworkAttachable(Direction.DOWN));
+		attachable.add(new NetworkAttachable(UUID.randomUUID()));
 	}
 
 	public void tick(BlockState blockState, Level level) {
@@ -38,23 +34,24 @@ public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
 		BlockState down = level.getBlockState(myPos.below());
 
 		if (packets.size() > 0) {
+			NetworkPacket packet = packets.remove(0);
 			if (north.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.NORTH, north, level, myPos.north());
+				cable.addPacket(packet, Direction.NORTH, north, level, myPos.north());
 			}
 			if (east.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.EAST, east, level, myPos.east());
+				cable.addPacket(packet, Direction.EAST, east, level, myPos.east());
 			}
 			if (south.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.SOUTH, south, level, myPos.south());
+				cable.addPacket(packet, Direction.SOUTH, south, level, myPos.south());
 			}
 			if (west.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.WEST, west, level, myPos.west());
+				cable.addPacket(packet, Direction.WEST, west, level, myPos.west());
 			}
 			if (up.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.UP, up, level, myPos.above());
+				cable.addPacket(packet, Direction.UP, up, level, myPos.above());
 			}
 			if (down.getBlock() instanceof NetworkCable cable) {
-				cable.addPacket(packets.remove(0), Direction.DOWN, down, level, myPos.below());
+				cable.addPacket(packet, Direction.DOWN, down, level, myPos.below());
 			}
 		}
 	}

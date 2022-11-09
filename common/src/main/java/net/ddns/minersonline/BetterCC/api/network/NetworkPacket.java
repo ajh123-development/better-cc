@@ -1,19 +1,15 @@
 package net.ddns.minersonline.BetterCC.api.network;
 
-import net.minecraft.nbt.CompoundTag;
+import java.util.Map;
 
 public class NetworkPacket {
 	private static int idCount = 0;
 	private final int myId;
-	private final int dest;
-	private final int source;
-	private final CompoundTag data;
+	private final Map<?, ?> data;
 
-	public NetworkPacket(int dest, int source, CompoundTag data) {
+	public NetworkPacket(Map<?, ?> data) {
 		this.myId = idCount;
 		idCount+=1;
-		this.dest = dest;
-		this.source = source;
 		this.data = data;
 	}
 
@@ -21,15 +17,15 @@ public class NetworkPacket {
 		return myId;
 	}
 
-	public int getDest() {
-		return dest;
-	}
-
-	public int getSource() {
-		return source;
-	}
-
-	public CompoundTag getData() {
+	public Map<?, ?> getData() {
 		return data;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof NetworkPacket pkt) {
+			return this.myId == pkt.myId;
+		}
+		return super.equals(obj);
 	}
 }
