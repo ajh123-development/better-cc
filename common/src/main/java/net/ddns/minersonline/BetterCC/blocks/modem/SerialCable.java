@@ -1,7 +1,7 @@
 package net.ddns.minersonline.BetterCC.blocks.modem;
 
 import net.ddns.minersonline.BetterCC.api.network.NetworkPacket;
-import net.ddns.minersonline.BetterCC.api.network.device.NetworkAttachable;
+import net.ddns.minersonline.BetterCC.api.network.device.NetworkInterface;
 import net.ddns.minersonline.BetterCC.api.network.device.NetworkDevice;
 import net.ddns.minersonline.BetterCC.api.network.transfer.NetworkCable;
 import net.ddns.minersonline.BetterCC.bases.CableBase;
@@ -42,7 +42,7 @@ public class SerialCable extends CableBase implements NetworkCable {
 		}
 		BlockEntity entity = level.getBlockEntity(dest);
 		if (entity instanceof NetworkDevice device) {
-			for (NetworkAttachable attachable : device.getAttachable()) {
+			for (NetworkInterface attachable : device.getAttachable()) {
 				attachable.addPacket(packet);
 			}
 		}

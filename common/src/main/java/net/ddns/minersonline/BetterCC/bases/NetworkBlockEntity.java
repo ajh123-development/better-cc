@@ -1,7 +1,7 @@
 package net.ddns.minersonline.BetterCC.bases;
 
 import net.ddns.minersonline.BetterCC.api.network.NetworkPacket;
-import net.ddns.minersonline.BetterCC.api.network.device.NetworkAttachable;
+import net.ddns.minersonline.BetterCC.api.network.device.NetworkInterface;
 import net.ddns.minersonline.BetterCC.api.network.device.NetworkDevice;
 import net.ddns.minersonline.BetterCC.api.network.transfer.NetworkCable;
 import net.minecraft.core.BlockPos;
@@ -16,12 +16,12 @@ import java.util.List;
 import java.util.UUID;
 
 public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
-	private final List<NetworkAttachable> attachable = new ArrayList<>();
+	private final List<NetworkInterface> attachable = new ArrayList<>();
 	public final List<NetworkPacket> packets = new ArrayList<>();
 
 	public NetworkBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {
 		super(type, blockPos, blockState);
-		attachable.add(new NetworkAttachable(UUID.randomUUID()));
+		attachable.add(new NetworkInterface(UUID.randomUUID()));
 	}
 
 	public void tick(BlockState blockState, Level level) {
@@ -57,13 +57,13 @@ public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
 	}
 
 	@Override
-	public final List<NetworkAttachable> getAttachable() {
+	public final List<NetworkInterface> getAttachable() {
 		return attachable;
 	}
 
 	public final List<NetworkPacket> getReceivedPackets() {
 		List<NetworkPacket> packets = new ArrayList<>();
-		for (NetworkAttachable attachable : getAttachable()) {
+		for (NetworkInterface attachable : getAttachable()) {
 			for (int i = 0; i < attachable.getPacketCount(); i ++) {
 				packets.add(attachable.getPacket());
 			}

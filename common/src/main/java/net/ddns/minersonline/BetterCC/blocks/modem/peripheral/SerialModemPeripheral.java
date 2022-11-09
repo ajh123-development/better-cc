@@ -3,9 +3,7 @@ package net.ddns.minersonline.BetterCC.blocks.modem.peripheral;
 import dan200.computercraft.api.lua.LuaFunction;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import net.ddns.minersonline.BetterCC.api.network.NetworkPacket;
-import net.ddns.minersonline.BetterCC.api.network.device.NetworkAttachable;
 import net.ddns.minersonline.BetterCC.blocks.modem.SerialModemEntity;
-import net.minecraft.nbt.CompoundTag;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
