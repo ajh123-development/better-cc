@@ -84,7 +84,8 @@ public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
 			if (save_interfaces != null) {
 				Set<String> inters = save_interfaces.getAllKeys();
 				for (String inter : inters) {
-					attachable.add(new NetworkInterface(save_interfaces.getUUID(inter)));
+					CompoundTag data = save_interfaces.getCompound(inter);
+					attachable.add(new NetworkInterface(data.getUUID("id")));
 				}
 			}
 		}
@@ -96,7 +97,9 @@ public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
 		CompoundTag save_interfaces = new CompoundTag();
 		for (int i = 0; i < attachable.size(); i ++) {
 			NetworkInterface networkInterface = attachable.get(i);
-			save_interfaces.putUUID(String.valueOf(i), networkInterface.getId());
+			CompoundTag inter = new CompoundTag();
+			inter.putUUID("id", networkInterface.getId());
+			save_interfaces.put(String.valueOf(i), inter);
 		}
 		compoundTag.put("interfaces", save_interfaces);
 	}
