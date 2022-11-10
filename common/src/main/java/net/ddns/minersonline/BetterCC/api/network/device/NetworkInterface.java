@@ -7,19 +7,11 @@ import java.util.List;
 import java.util.UUID;
 
 public class NetworkInterface {
-	private static int idCount = 0;
-	private final int myId;
 	private final List<NetworkPacket> packets = new ArrayList<>();
 	private final UUID id;
 
 	public NetworkInterface(UUID id) {
-		this.myId = idCount;
-		idCount+=1;
 		this.id = id;
-	}
-
-	public int getMyId() {
-		return myId;
 	}
 
 	public NetworkPacket getPacket() {

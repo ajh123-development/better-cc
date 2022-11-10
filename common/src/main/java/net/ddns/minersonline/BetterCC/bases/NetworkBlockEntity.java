@@ -6,13 +6,17 @@ import net.ddns.minersonline.BetterCC.api.network.device.NetworkDevice;
 import net.ddns.minersonline.BetterCC.api.network.transfer.NetworkCable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
@@ -69,5 +73,31 @@ public class NetworkBlockEntity extends BlockEntity implements NetworkDevice {
 			}
 		}
 		return packets;
+	}
+
+	@Override
+	public void load(@NotNull CompoundTag compoundTag) {
+		super.load(compoundTag);
+		if (compoundTag.contains("interfaces")) {
+			attachable.clear();
+			CompoundTag save_interfaces = (CompoundTag) compoundTag.get("interfaces");
+			if (save_interfaces != null) {
+				Set<String> inters = save_interfaces.getAllKeys();
+				for (String inter : inters) {
+					attachable.add(new NetworkInterface(save_interfaces.getUUID(inter)));
+				}
+			}
+		}
+	}
+
+	@Override
+	protected void saveAdditional(@NotNull CompoundTag compoundTag) {
+		super.saveAdditional(compoundTag);
+		CompoundTag save_interfaces = new CompoundTag();
+		for (int i = 0; i < attachable.size(); i ++) {
+			NetworkInterface networkInterface = attachable.get(i);
+			save_interfaces.putUUID(String.valueOf(i), networkInterface.getId());
+		}
+		compoundTag.put("interfaces", save_interfaces);
 	}
 }
