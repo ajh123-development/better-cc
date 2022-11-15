@@ -5,7 +5,7 @@ This is Minecraft mod which will add various complex contraptions to the game.
 Initialy this was meant to be a better version of ComputerCraft. But things have changed.
 
 
-## What exists in 1.19 an above
+## What exists in 1.19 and above
 * Some basic Network Cables and Serial Modems. These can be used with ComputerCraft!
 * More to come!
 
