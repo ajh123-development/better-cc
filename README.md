@@ -14,6 +14,8 @@ Initialy this was meant to be a better version of ComputerCraft. But things have
 
 Different features of this mod exist only in different Minecraft versions **before 1.19**.
 
+This ocured because I had different ideas for the mod.
+
 Once the 1.19 version is complete, the features will exist on all future version.
 
 | Version | Contents                                  |
