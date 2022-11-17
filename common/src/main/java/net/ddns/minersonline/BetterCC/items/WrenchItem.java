@@ -4,13 +4,12 @@ import net.ddns.minersonline.BetterCC.IWrenchMe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-public class WrenchItem extends Item {
+public class WrenchItem extends ModItem {
 	public WrenchItem(Properties properties) {
 		super(properties);
 	}

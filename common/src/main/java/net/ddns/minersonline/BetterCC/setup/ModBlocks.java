@@ -5,7 +5,7 @@ import net.ddns.minersonline.BetterCC.BetterCC;
 import net.ddns.minersonline.BetterCC.blocks.crafting_machine.CraftingMachine;
 import net.ddns.minersonline.BetterCC.blocks.modem.SerialCable;
 import net.ddns.minersonline.BetterCC.blocks.modem.SerialModem;
-import net.minecraft.world.item.BlockItem;
+import net.ddns.minersonline.BetterCC.items.ModBlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -31,7 +31,7 @@ public class ModBlocks {
 	}
 	private static <T extends Block> RegistrySupplier<T> register(String name, Supplier<T> block) {
 		RegistrySupplier<T> ret = (RegistrySupplier<T>) registerNoItem(name, block);
-		Registration.ITEMS.register(name, () -> new BlockItem(ret.get(), new Item.Properties().tab(BetterCC.MAIN_TAB)));
+		Registration.ITEMS.register(name, () -> new ModBlockItem(ret.get(), new Item.Properties().tab(BetterCC.MAIN_TAB)));
 
 		return ret;
 	}

@@ -1,6 +1,8 @@
 {
   "itemGroup.better_cc.main": "Better CC",
   "item.better_cc.wrench": "Wrench",
+  "item.better_cc.wrench.desc": "Can be used on most machines.\nIt can be used to configure or operate them.",
+  "item.better_cc.punch_tape": "Punch Tape",
   "block.better_cc.crafting_machine": "Crafting Machine",
   "block.better_cc.serial_cable": "Serial Cable",
   "block.better_cc.serial_modem": "Serial Modem"
