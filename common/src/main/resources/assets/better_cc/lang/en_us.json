@@ -1,9 +1,19 @@
 {
   "itemGroup.better_cc.main": "Better CC",
+  "hint.better_cc.connects_with_serial": "Connects with Serial Cables.",
+
   "item.better_cc.wrench": "Wrench",
-  "item.better_cc.wrench.desc": "Can be used on most machines.\nIt can be used to configure or operate them.",
+  "item.better_cc.wrench.desc": "Can be used on most machines.\nIt can be used to configure or\noperate them.",
+
   "item.better_cc.punch_tape": "Punch Tape",
+  "item.better_cc.punch_tape.desc": "Punch Tapes can only be\nwritten to once. They can by used\nto hold data for some machines.\n\n§5§oUse with Punch Tape Writer or\n§5§oPunch Tape Reader.",
+
   "block.better_cc.crafting_machine": "Crafting Machine",
+  "block.better_cc.crafting_machine.desc": "Used to craft complex\ncontraptions.",
+
   "block.better_cc.serial_cable": "Serial Cable",
-  "block.better_cc.serial_modem": "Serial Modem"
+  "block.better_cc.serial_cable.desc": "Used to connect all network\nattachable devices.",
+
+  "block.better_cc.serial_modem": "Serial Modem",
+  "block.better_cc.serial_modem.desc": "Serial Modems cam be used\nto connect devices from other\nmods to the BetterCC network."
 }

@@ -1,6 +1,7 @@
 package net.ddns.minersonline.BetterCC.items;
 
 import net.ddns.minersonline.BetterCC.BetterCC;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -18,9 +19,12 @@ public class ModItem extends Item {
 	@Override
 	public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> list, TooltipFlag tooltipFlag) {
 		super.appendHoverText(itemStack, level, list, tooltipFlag);
-		String[] desc = Component.translatable("item."+ BetterCC.MOD_ID + "." + this+".desc").toString().split("\n");
-		for (String line : desc) {
-			list.add(Component.literal(line));
+		String id = "item."+ BetterCC.MOD_ID + "." + this+".desc";
+		String desc = Component.translatable(id).getString();
+		if (!desc.equals(id)) {
+			for (String line : desc.split("\n")) {
+				list.add(Component.literal(line).withStyle(ChatFormatting.GRAY));
+			}
 		}
 	}
 }
