@@ -2,6 +2,10 @@
   "itemGroup.better_cc.main": "Better CC",
   "hint.better_cc.connects_with_serial": "Connects with Serial Cables.",
 
+  "hint.better_cc.state.blank": "* Blank",
+  "hint.better_cc.state.full": "* Full",
+  "hint.better_cc.state": "State:",
+
   "item.better_cc.wrench": "Wrench",
   "item.better_cc.wrench.desc": "Can be used on most machines.\nIt can be used to configure or\noperate them.",
 
